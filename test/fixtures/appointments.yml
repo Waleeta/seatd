@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2017-01-13 16:10:38
+  end_time: 2017-01-13 16:10:38
+  client_id: 1
+  service_id: 1
+  employee_id: 1
+
+two:
+  start_time: 2017-01-13 16:10:38
+  end_time: 2017-01-13 16:10:38
+  client_id: 1
+  service_id: 1
+  employee_id: 1

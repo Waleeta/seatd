@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: MyString
+  category_id: 
+  employee: 
+  business_id: 1
+
+two:
+  service: MyString
+  category_id: 
+  employee: 
+  business_id: 1
