@@ -1,10 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Appointment, :type => :model do
-  User.delete_all
-  Service.delete_all
-  Appointment.delete_all
 
+  User.delete_all
   client = User.create!(name: "sam", email: "sam@gmail.com", password: "password")
   service = Service.create!(service_type: "hair", category_id: 1, employee_id: 1, business_id: 1)
   employee = Employee.create!(name: "Waleeta", description: "Tattoo artist", photo: "www.google.com", business_id: 1)
