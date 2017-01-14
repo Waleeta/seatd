@@ -17,17 +17,12 @@
 
   <tbody>
     <% @businesses.each do |business| %>
-      <tr>
-        <td><%= business.business_name %></td>
-        <td><%= business.address %></td>
-        <td><%= business.open_at %></td>
-        <td><%= business.close_at %></td>
-        <td><%= business.lat %></td>
-        <td><%= business.long %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <ul>
+        <p><%= business.business_name %></p>
+        <li><%= business.address %></li>
+        <li><%= date_time_helper(business.open_at) %></li>
+        <li><%= date_time_helper(business.close_at) %></li>
+      </ul>
     <% end %>
   </tbody>
 </table>

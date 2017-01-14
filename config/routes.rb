@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :businesses
+
   resources :services
   resources :categories
   resources :businesses
   resources :employees
   resources :appointments
   resources :users
+  get "login", :to => "login#new"
+  get "login/new", :to => "login#new"
+  post "login", :to => "login#create", action: "login"
+  delete "login", :to => "login#destroy", as: "logout"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

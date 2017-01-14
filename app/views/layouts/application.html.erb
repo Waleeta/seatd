@@ -7,7 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <a href="/">Home</a>
+  <a href="/businesses">All Businesses</a>
+  <% if logged_in?%>
+  <a><%= link_to 'logout', logout_path, method: :delete %></a>
+  <% else %>
+    <a href="businesses/new">New Business Registration</a>
+    <a href="login/new">Business Login</a>
+  <% end %>
 
+</nav>
 <%= yield %>
 
 </body>

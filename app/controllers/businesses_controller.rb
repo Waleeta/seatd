@@ -25,11 +25,11 @@ class BusinessesController < ApplicationController
   # POST /businesses.json
   def create
     @business = Business.new(business_params)
-
     respond_to do |format|
       if @business.save
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
+        session[:business_id] = @business.id
       else
         format.html { render :new }
         format.json { render json: @business.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class BusinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:business_name, :address, :open_at, :close_at, :lat, :long)
+      params.require(:business).permit(:business_name, :address, :open_at, :close_at, :lat, :long, :password, :email)
     end
 end
