@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :businesses
   resources :services
   resources :categories
   resources :businesses
