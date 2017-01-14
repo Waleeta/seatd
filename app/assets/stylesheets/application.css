@@ -1,3 +1,26 @@
+.container {
+  overflow-y:auto;
+  overflow-x:hidden;
+  height:400px;
+  width: 90%;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.nav-container {
+  position: relative;
+  top: 30%;
+  left: 30%;
+  width: 100%;
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
