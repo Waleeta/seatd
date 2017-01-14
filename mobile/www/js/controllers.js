@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
 //   });
 // })
 
-.controller('DashCtrl', function($scope, Business) {
+.controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){
     $scope.businesses = response;
   });

@@ -1,0 +1,16 @@
+<ion-view view-title="Businesses">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat="business in businesses">
+      <div class="item item-icon-left item-divider item-dark">
+        <i class="icon ion-planet"></i>
+        {{business.business_name}}
+      </div>
+      <div class="item item-body item-stable">
+        <div>
+          <p>{{business.address}}</p>
+          <span>{{'Opens at 9am'}}</span><span>{{'Closes at 6pm'}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

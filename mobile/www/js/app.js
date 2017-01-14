@@ -47,8 +47,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     url: '/businesses',
     views: {
       'menuContent': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/businesses.html',
+        controller: 'BusinessCtrl'
       }
     }
   })

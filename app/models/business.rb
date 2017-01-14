@@ -19,13 +19,17 @@ class Business < ActiveRecord::Base
     self.hashed_password = @password
   end
 
-   def password_errors
-     if @raw_password.length < 5
-       errors.add(:password, "Password must be at least 5 characters")
-     end
+  def password_errors
+    if @raw_password.length < 5
+      errors.add(:password, "Password must be at least 5 characters")
+    end
    end
 
-   def authenticate(password)
+  def authenticate(password)
     self.password == password
+  end
+
+  def pretty_open_time
+    self.open_at.strftime("%l:%M %P")
   end
 end
