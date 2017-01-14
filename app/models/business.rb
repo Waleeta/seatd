@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   has_many  :appointments, through: :employees
   has_many  :services
   has_many  :categories, through: :services
-  has_many  :clients, through: :employees, source: :appointments
+  has_many  :clients, through: :appointments
 
   validates :address, :open_at, :close_at, :lat, :long, :hashed_password, {presence: true}
   validates :business_name, {presence: true, uniqueness: true}
@@ -31,5 +31,9 @@ class Business < ActiveRecord::Base
 
   def pretty_open_time
     self.open_at.strftime("%l:%M %P")
+  end
+
+  def pretty_close_time
+    self.close_at.strftime("%l:%M %P")
   end
 end
