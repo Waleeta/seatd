@@ -5,23 +5,23 @@
 <table>
   <thead>
     <tr>
-      <th>Business name</th>
+<!--       <th>Business name</th>
       <th>Address</th>
       <th>Open at</th>
       <th>Close at</th>
       <th>Lat</th>
       <th>Long</th>
       <th colspan="3"></th>
-    </tr>
+    </tr> -->
   </thead>
 
   <tbody>
     <% @businesses.each do |business| %>
       <ul>
-        <p><%= business.business_name %></p>
+        <p><strong><%= business.business_name %></strong></p>
         <li><%= business.address %></li>
-        <li><%= date_time_helper(business.open_at) %></li>
-        <li><%= date_time_helper(business.close_at) %></li>
+        <li>Opens at: <%= date_time_helper(business.open_at) %></li>
+        <li>Closes at: <%= date_time_helper(business.close_at) %></li>
       </ul>
     <% end %>
   </tbody>
