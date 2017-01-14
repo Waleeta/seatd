@@ -53,4 +53,32 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller("MapCtrl", function($scope) {
+
+  google.maps.event.addDomListener(window, "load", function() {
+
+    var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
+
+    var mapOptions = {
+      center: myLatLng,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hey There!'
+    });
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+    });
+
+    $scope.map = map;
+  });
 });
