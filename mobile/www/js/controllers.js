@@ -69,6 +69,12 @@ angular.module('starter.controllers', [])
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hey There!'
+    });
+
     navigator.geolocation.getCurrentPosition(function(pos) {
       map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
     });
