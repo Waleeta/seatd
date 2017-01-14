@@ -20,13 +20,8 @@
       <tr>
         <td><%= business.business_name %></td>
         <td><%= business.address %></td>
-        <td><%= business.open_at %></td>
-        <td><%= business.close_at %></td>
-        <td><%= business.lat %></td>
-        <td><%= business.long %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= date_time_helper(business.open_at) %></td>
+        <td><%= date_time_helper(business.close_at) %></td>
       </tr>
     <% end %>
   </tbody>

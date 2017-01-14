@@ -9,6 +9,6 @@ class Business < ActiveRecord::Base
   has_many  :categories, through: :services
   has_many  :clients, through: :employees, source: :appointments
 
-  validates :address, :open_at, :close_at, :lat, :long, {presence: true}
+  validates :address, :open_at, :close_at, :lat, :long, :encrypted_password, {presence: true}
   validates :business_name, {presence: true, uniqueness: true}
 end
