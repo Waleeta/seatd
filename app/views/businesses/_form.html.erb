@@ -7,7 +7,7 @@
       <% @business.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
+      </ul> -->
     </div>
   <% end %>
 
@@ -39,7 +39,6 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

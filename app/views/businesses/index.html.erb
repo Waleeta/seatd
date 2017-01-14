@@ -17,12 +17,12 @@
 
   <tbody>
     <% @businesses.each do |business| %>
-      <tr>
-        <td><%= business.business_name %></td>
-        <td><%= business.address %></td>
-        <td><%= date_time_helper(business.open_at) %></td>
-        <td><%= date_time_helper(business.close_at) %></td>
-      </tr>
+      <ul>
+        <p><%= business.business_name %></p>
+        <li><%= business.address %></li>
+        <li><%= date_time_helper(business.open_at) %></li>
+        <li><%= date_time_helper(business.close_at) %></li>
+      </ul>
     <% end %>
   </tbody>
 </table>

@@ -25,7 +25,6 @@ class BusinessesController < ApplicationController
   # POST /businesses.json
   def create
     @business = Business.new(business_params)
-
     respond_to do |format|
       if @business.save
         format.html { redirect_to @business, notice: 'Business was successfully created.' }

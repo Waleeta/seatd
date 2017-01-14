@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(email: "user@user.com", name: "Sally Ride", password: "password")
 
-salon = Business.create(business_name: "Sally Hansen", address: "1234 Michigan Ave.", open_at: DateTime.now, close_at: DateTime.now + 400, lat: '123.423', long: '123.5234')
+salon = Business.create(business_name: "Sally Hansen", address: "1234 Michigan Ave.", open_at: DateTime.now, close_at: DateTime.now + 400, lat: '123.423', long: '123.5234', email: "sally@hansen.com", password: "password")
 
 appt = Appointment.create(booked: true, start_time: DateTime.now, end_time: DateTime.now + 100, client_id: 1, service_id: 1, employee_id: 1)
 
