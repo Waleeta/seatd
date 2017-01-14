@@ -9,21 +9,19 @@ class LoginController < ApplicationController
   end
 
   def create
-    p "in create"
     @business = Business.find_by(:email => params[:login][:email])
-    p @business
       if @business && @business.authenticate(params[:login][:password])
-        p "business authenticated"
         session[:business_id] = @business.id
         redirect_to root_url
       else
-        p "errors"
         flash[:error] = "Email or password is invalid"
         render login_new_path
       end
   end
 
   def destroy
+    session[:business_id] = nil
+    redirect_to root_url
   end
 
 end

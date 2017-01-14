@@ -29,6 +29,7 @@ class BusinessesController < ApplicationController
       if @business.save
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
+        session[:business_id] = @business.id
       else
         format.html { render :new }
         format.json { render json: @business.errors, status: :unprocessable_entity }
