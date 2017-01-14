@@ -30,15 +30,36 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
+  $scope.doLogin = function($http) {
     console.log('Doing login', $scope.loginData);
+    var username = $scope.loginData.username;
+    var password = $scope.loginData.password;
 
+    return $http({ url: 'login', method:"POST", params: username});
+
+    if (username == 'ferd') {
+      console.log('hey');
+    } else {
+      console.log('fuck it');
+    }
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
   };
+})
+
+// .controller('DashCtrl', function($scope, Business) {
+//   Business.query().$promise.then(function(response){
+//     $scope.business = response;
+//   });
+// })
+
+.controller('DashCtrl', function($scope, Business) {
+  Business.query().$promise.then(function(response){
+    $scope.businesses = response;
+  });
 })
 
 .controller('PlaylistsCtrl', function($scope) {
