@@ -21,19 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :open_at %><br>
-    <%= f.datetime_select :open_at %>
+    <%= f.time_select :open_at %>
   </div>
   <div class="field">
     <%= f.label :close_at %><br>
-    <%= f.datetime_select :close_at %>
-  </div>
-  <div class="field">
-    <%= f.label :lat %><br>
-    <%= f.text_field :lat %>
-  </div>
-  <div class="field">
-    <%= f.label :long %><br>
-    <%= f.text_field :long %>
+    <%= f.time_select :close_at %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
