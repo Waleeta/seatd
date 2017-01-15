@@ -12,8 +12,7 @@
   <a href="/">Home</a>
   <a href="/businesses">All Businesses</a>
   <% if logged_in?%>
-  <a><%= link_to 'logout', logout_path, method: :delete %></a>
-  <a><%= link_to 'New Appointment', new_appointment_path %></a>
+    <a><%= link_to 'logout', logout_path, method: :delete %></a>
   <% else %>
     <a href="businesses/new">New Business Registration</a>
     <a href="login/new">Business Login</a>

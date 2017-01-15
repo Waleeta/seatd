@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resources :services
   resources :categories
-  resources :businesses
+  resources :businesses do
+    resources :appointments
+  end
   resources :employees
-  resources :appointments
   resources :users
   get "login", :to => "login#new"
   get "login/new", :to => "login#new"

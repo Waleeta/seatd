@@ -10,6 +10,7 @@ class LoginController < ApplicationController
 
   def create
     @business = Business.find_by(:email => params[:login][:email])
+    p "business found"
       if @business && @business.authenticate(params[:login][:password])
         session[:business_id] = @business.id
         redirect_to root_url
@@ -20,6 +21,7 @@ class LoginController < ApplicationController
   end
 
   def destroy
+    p "delete"
     session[:business_id] = nil
     redirect_to root_url
   end

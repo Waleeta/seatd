@@ -11,15 +11,16 @@
 </p>
 
 <p>
-  <strong>Open at:</strong>
+  <strong>Opens at:</strong>
   <%= @business.open_at %>
 </p>
 
 <p>
-  <strong>Close at:</strong>
+  <strong>Closes at:</strong>
   <%= @business.close_at %>
 </p>
 
-
-<%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
+<% if current_business == session[:business_id] %>
+    <%= link_to 'Edit', edit_business_path(@business) %> |
+<% end %>
