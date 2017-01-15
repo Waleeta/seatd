@@ -3,9 +3,7 @@ class LoginController < ApplicationController
   end
 
   def new
-    # @business = Business.find_by(email: params[:email])
-    # p @business
-    # p "Business found"
+
   end
 
   def create

@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    @business = Business.find(session[:business_id])
+    @business = Business.find_by(id: params[:id])
   end
 
   # GET /businesses/new

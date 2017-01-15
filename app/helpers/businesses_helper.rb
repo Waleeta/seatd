@@ -1,6 +1,6 @@
 module BusinessesHelper
   def current_business
-    @current_business ||= Business.find(session[:business_id])
+    Business.find_by(id: session[:business_id])
   end
 
   def logged_in?
@@ -8,11 +8,13 @@ module BusinessesHelper
   end
 
   def owner?
-    current_business == session[:business_id]
+    p current_business.id
+    p session[:business_id]
+    @business.id == session[:business_id]
   end
 
   def authenticate!
-   redirect_to root_url unless logged_in? && current_user
+   redirect_to root_url unless logged_in? && current_business
   end
 
 end

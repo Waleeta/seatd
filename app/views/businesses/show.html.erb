@@ -21,6 +21,6 @@
 </p>
 
 <%= link_to 'Back', businesses_path %>
-<% if current_business == session[:business_id] %>
-    <%= link_to 'Edit', edit_business_path(@business) %> |
+<% if owner? %>
+    | <%= link_to 'Edit', edit_business_path(@business) %>
 <% end %>
