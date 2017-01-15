@@ -26,7 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# gem "simple_calendar", "~> 2.0"
+gem 'haml'
+
+gem 'calendar_helper'
+gem "simple_calendar", "~> 2.0"
+
 
 
 # Use Unicorn as the app server
