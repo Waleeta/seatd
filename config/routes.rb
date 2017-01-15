@@ -2,9 +2,14 @@ Rails.application.routes.draw do
 
   resources :services
   resources :categories
+
+# nested appointments should be under
   resources :businesses
-  resources :employees
-  resources :appointments
+
+  resources :employees do
+    resources  :appointments
+  end
+
   resources :users
   get "login", :to => "login#new"
   get "login/new", :to => "login#new"

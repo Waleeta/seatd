@@ -14,6 +14,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    # @business = Business.find(@current_business.id)
     @appointment = Appointment.new
   end
 

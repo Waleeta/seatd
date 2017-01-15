@@ -26,7 +26,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'haml'
+
+gem 'calendar_helper'
+gem "simple_calendar", "~> 2.0"
+
+
 gem 'rack-cors', :require => 'rack/cors'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -44,7 +52,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/ails/spring
   gem 'spring'
 end
 

@@ -5,4 +5,5 @@ class Appointment < ActiveRecord::Base
 
   validates :start_time, :end_time, :service_id, :employee_id, {presence: true}
 
+
 end

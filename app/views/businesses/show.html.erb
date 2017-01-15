@@ -11,15 +11,48 @@
 </p>
 
 <p>
-  <strong>Open at:</strong>
-  <%= @business.open_at %>
+  <strong>Opens at:</strong>
+  <%= date_time_helper(@business.open_at) %>
 </p>
 
 <p>
-  <strong>Close at:</strong>
-  <%= @business.close_at %>
+  <strong>Closes at:</strong>
+  <%= date_time_helper(@business.close_at) %>
 </p>
 
-
-<%= link_to 'Edit', edit_business_path(@business) %> |
+Available Hours for <%= @business.employees[0].services[0].service_type %> by
+<strong><%= @business.employees[0].name %></strong>
+<br>
+<br>
+<table style="width:15%">
+  <tr>
+    <th><%= full_day %></th>
+    <th><%= month %> <%= tomorrow_date %></th>
+    <th><%= month %> <%= day_after_tomorrow %></th>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= date_time_helper(DateTime.parse("2017-01-21 09:00:00")) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%=date_time_helper(DateTime.parse("2017-01-20 14:00:00"))%></td>
+    <td><%=date_time_helper(DateTime.parse("2017-01-20 11:00:00"))%></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<br>
+<br>
 <%= link_to 'Back', businesses_path %>
+<% if owner? %>
+    | <%= link_to 'Edit', edit_business_path(@business) %>
+    | <%= link_to 'New Appointment', new_employee_appointment_path(@business) %>
+<% end %>
