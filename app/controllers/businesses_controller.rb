@@ -11,7 +11,6 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @business = Business.find(params[:id])
-    p @business
   end
 
   # GET /businesses/new

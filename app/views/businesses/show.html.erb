@@ -20,7 +20,8 @@
   <%= date_time_helper(@business.close_at) %>
 </p>
 
-Available Hours for <strong><%= @business.employees[0].name %></strong>
+Available Hours for <%= @business.employees[0].services[0].service_type %> by
+<strong><%= @business.employees[0].name %></strong>
 <br>
 <br>
 <table style="width:15%">
@@ -31,12 +32,20 @@ Available Hours for <strong><%= @business.employees[0].name %></strong>
   </tr>
   <tr>
     <td></td>
-    <td>12 PM</td>
-    <td>2 PM</td>
+    <td><%= date_time_helper(DateTime.parse("2017-01-21 09:00:00")) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
-    <td>4 PM</td>
-    <td>6 PM</td>
+    <td><%=date_time_helper(DateTime.parse("2017-01-20 14:00:00"))%></td>
+    <td><%=date_time_helper(DateTime.parse("2017-01-20 11:00:00"))%></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
   </tr>
 </table>
