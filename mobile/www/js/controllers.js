@@ -62,6 +62,20 @@ angular.module('starter.controllers', [])
   });
 })
 
+// .controller('BusinessCtrl', function($scope, $http) {
+
+
+//     $http.get("https://secure-cliffs-27048.herokuapp.com/businesses.json")
+//       .success(function(data) {
+//         $scope.businesses = data;
+//         console.log(data)
+//       })
+//       .error(function(data) {
+//         console.log("errrrrror")
+//       });
+
+// })
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
@@ -78,28 +92,96 @@ angular.module('starter.controllers', [])
 
 .controller("MapCtrl", function($scope) {
 
-  google.maps.event.addDomListener(window, "load", function() {
+  var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
-    var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
+  var mapOptions = {
+    center: myLatLng,
+    zoom: 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
 
-    var mapOptions = {
-      center: myLatLng,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hey There!'
-    });
-
-    navigator.geolocation.getCurrentPosition(function(pos) {
-      map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-    });
-
-    $scope.map = map;
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    animation:google.maps.Animation.BOUNCE,
+    map: map,
+    title: 'Hey There!'
   });
-});
+
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+  });
+
+  $scope.map = map;
+})
+
+// .controller('RegisterCtrl', function($scope, $http) {
+//   var config = {
+//     params: {
+//       'callback': 'JSON_CALLBACK',
+//       'email': $scope.email,
+//       'name': $scope.name,
+//       'password': $scope.password,
+//       'url': 'https://secure-cliffs-27048.herokuapp.com/users.json'
+//     },
+//   };
+
+//   var $promise = $http.jsonp('response.json', config)
+//   .success(function(data, status, headers, config) {
+//     if (data.status == 'OK') {
+//       $scope.email = null;
+//       $scope.name = null;
+//       $scope.password = null;
+//     } else {
+//       $scope.messages = 'Oops';
+//     }
+//   })
+//   .error(function(data, status, headers, config) {
+//     $scope.messages = 'ERROR';
+//   });
+
+//   $scope.progress.addPromise($promise);
+
+// });
+
+.controller('RegisterCtrl', function($scope, $http) {
+  console.log('in the controller...')
+  $scope.userData = {};
+
+    $scope.sendPost = function() {
+      var data = {
+          name: $scope.userData.name,
+          email: $scope.userData.email,
+          password: $scope.userData.password
+      };
+      console.log(data);
+      $http.post("https://secure-cliffs-27048.herokuapp.com/users", data).success(function(data, status) {
+        console.log("holy shit we did it");
+      })
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

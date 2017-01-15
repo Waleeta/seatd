@@ -14,3 +14,4 @@ class CreateBusinesses < ActiveRecord::Migration
     end
   end
 end
+
