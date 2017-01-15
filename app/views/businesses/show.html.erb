@@ -20,6 +20,26 @@
   <%= date_time_helper(@business.close_at) %>
 </p>
 
+Available Hours for Employee 1
+<table style="width:15%">
+  <tr>
+    <th><%= full_day %></th>
+    <th><%= month %> <%= tomorrow_date %></th>
+    <th><%= month %> <%= day_after_tomorrow %></th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>12 PM</td>
+    <td>2 PM</td>
+  </tr>
+  <tr>
+    <td>4 PM</td>
+    <td>6 PM</td>
+    <td></td>
+  </tr>
+</table>
+<br>
+<br>
 <%= link_to 'Back', businesses_path %>
 <% if owner? %>
     | <%= link_to 'Edit', edit_business_path(@business) %>
