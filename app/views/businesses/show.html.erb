@@ -12,15 +12,16 @@
 
 <p>
   <strong>Opens at:</strong>
-  <%= @business.open_at %>
+  <%= date_time_helper(@business.open_at) %>
 </p>
 
 <p>
   <strong>Closes at:</strong>
-  <%= @business.close_at %>
+  <%= date_time_helper(@business.close_at) %>
 </p>
 
 <%= link_to 'Back', businesses_path %>
 <% if owner? %>
     | <%= link_to 'Edit', edit_business_path(@business) %>
+    | <%= link_to 'Back', businesses_path %>
 <% end %>

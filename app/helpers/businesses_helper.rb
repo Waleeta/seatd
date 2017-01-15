@@ -1,6 +1,6 @@
 module BusinessesHelper
   def current_business
-    Business.find_by(id: session[:business_id])
+    @current_business = Business.find_by(id: session[:business_id])
   end
 
   def logged_in?
@@ -8,8 +8,6 @@ module BusinessesHelper
   end
 
   def owner?
-    p current_business.id
-    p session[:business_id]
     @business.id == session[:business_id]
   end
 
