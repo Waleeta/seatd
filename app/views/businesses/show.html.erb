@@ -54,5 +54,5 @@ Available Hours for <%= @business.employees[0].services[0].service_type %> by
 <%= link_to 'Back', businesses_path %>
 <% if owner? %>
     | <%= link_to 'Edit', edit_business_path(@business) %>
-    | <%= link_to 'New Appointment', new_business_appointment_path(@business) %>
+    | <%= link_to 'New Appointment', new_employee_appointment_path(@business) %>
 <% end %>

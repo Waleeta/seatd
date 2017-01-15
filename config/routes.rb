@@ -3,17 +3,18 @@ Rails.application.routes.draw do
   resources :services
   resources :categories
 
-  resources :businesses do
-    resources :appointments
+# nested appointments should be under
+  resources :businesses
+
+  resources :employees do
+    resources  :appointments
   end
 
-  resources :employees
   resources :users
   get "login", :to => "login#new"
   get "login/new", :to => "login#new"
   post "login", :to => "login#create", action: "login"
   delete "login", :to => "login#destroy", as: "logout"
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
