@@ -1,4 +1,6 @@
 class Business < ActiveRecord::Base
+  attr_accessor :hashed_password
+
   include BCrypt
   has_many  :employees
   has_many  :appointments, through: :employees

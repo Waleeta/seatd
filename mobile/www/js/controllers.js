@@ -57,7 +57,6 @@ angular.module('starter.controllers', [])
 // })
 
 .controller('BusinessCtrl', function($scope, Business) {
-  console.log("hello")
   Business.query().$promise.then(function(response){
     $scope.businesses = response;
   });
@@ -115,4 +114,74 @@ angular.module('starter.controllers', [])
   });
 
   $scope.map = map;
-});
+})
+
+// .controller('RegisterCtrl', function($scope, $http) {
+//   var config = {
+//     params: {
+//       'callback': 'JSON_CALLBACK',
+//       'email': $scope.email,
+//       'name': $scope.name,
+//       'password': $scope.password,
+//       'url': 'https://secure-cliffs-27048.herokuapp.com/users.json'
+//     },
+//   };
+
+//   var $promise = $http.jsonp('response.json', config)
+//   .success(function(data, status, headers, config) {
+//     if (data.status == 'OK') {
+//       $scope.email = null;
+//       $scope.name = null;
+//       $scope.password = null;
+//     } else {
+//       $scope.messages = 'Oops';
+//     }
+//   })
+//   .error(function(data, status, headers, config) {
+//     $scope.messages = 'ERROR';
+//   });
+
+//   $scope.progress.addPromise($promise);
+
+// });
+
+.controller('RegisterCtrl', function($scope, $http) {
+  console.log('in the controller...')
+  $scope.userData = {};
+
+    $scope.sendPost = function() {
+      var data = {
+          name: $scope.userData.name,
+          email: $scope.userData.email,
+          password: $scope.userData.password
+      };
+      console.log(data);
+      $http.post("https://secure-cliffs-27048.herokuapp.com/users", data).success(function(data, status) {
+        console.log("holy shit we did it");
+      })
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

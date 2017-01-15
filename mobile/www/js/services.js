@@ -4,6 +4,10 @@ angular.module('starter.services', [])
   return $resource("https://secure-cliffs-27048.herokuapp.com/businesses/:id.json");
 })
 
-// .factory('BusinessMaker', function($resource, $http) {
+// .factory('Register', function($resource) {
+//   $resource("https://secure-cliffs-27048.herokuapp.com/users") {
 
+//   }
 // })
+
+
