@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -11,6 +11,16 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+  $scope.registerData = {};
+
+  // function persist() {
+  //   window.localStorage[registerData] = angular.toJson(registerData);
+  // }
+
+  //function for logging out
+  $scope.logout = function() {
+    $location.path('/login')
+  };
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -26,6 +36,7 @@ angular.module('starter.controllers', [])
 
   // Open the login modal
   $scope.login = function() {
+    console.log('doop');
     $scope.modal.show();
   };
 
@@ -35,10 +46,9 @@ angular.module('starter.controllers', [])
     var username = $scope.loginData.username;
     var password = $scope.loginData.password;
 
-    return $http({ url: 'login', method:"POST", params: username});
-
-    if (username == 'ferd') {
+    if (username == 'ferd' && password == 'password') {
       console.log('hey');
+      $location.path('/app/cover')
     } else {
       console.log('fuck it');
     }
@@ -47,6 +57,13 @@ angular.module('starter.controllers', [])
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
+  };
+
+  $scope.doRegister = function($http) {
+    console.log('Register', $scope.loginData);
+    var username = $scope.registerData.username;
+    var password = $scope.registerData.password;
+    console.log(password + username);
   };
 })
 

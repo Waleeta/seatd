@@ -27,10 +27,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+
   .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
     controller: 'AppCtrl'
   })
 
@@ -81,5 +88,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/cover');
+  $urlRouterProvider.otherwise('/login');
 });

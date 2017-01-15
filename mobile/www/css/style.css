@@ -11,3 +11,15 @@ span {
   height: 100%;
   width: 100%;
 }
+
+.login {
+    background: url(../img/logo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    height: 246px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}
