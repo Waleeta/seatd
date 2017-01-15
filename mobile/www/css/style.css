@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
+span {
+  margin-right: 20px;
+}
+
 .scroll {
   height: 100%;
 }
