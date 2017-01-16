@@ -53,14 +53,13 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function($scope, $timeout, $location) {
+.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location, $rootScope) {
+
   $scope.myTitle = 'Template';
 
   $scope.data = { 'miles' : '1' };
 
   $scope.itemName = null;
-
-  var timeoutId = null;
 
   $scope.items = [{
       name: "haircut"
@@ -93,51 +92,28 @@ angular.module('starter.controllers', [])
     }
   ];
 
-
   $scope.showSelectValue = function(mySelect) {
     $scope.itemName = mySelect;
   }
 
-  // $scope.$watch('data.miles', function() {
-  //   console.log('Has changed');
-  //   console.log($scope.data);
-  // });
-
-
-
   $scope.findBusinesses = function() {
+    $rootScope.stuff = 'fudge brownie sunday'
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
+    console.log($scope.businessSearch);
     if ($scope.businessSearch.name != null) {
-      console.log($scope.data);
-      console.log($scope.itemName);
-      console.log($scope.businessSearch);
-      $location.path('/app/businesses')
+      Business.query($scope.businessSearch).$promise.then(function(response, $rootScope){
+        BusinessList.set(response)
+        $location.path('/app/businesses')
+      });
     } else {
       console.log('must select a service')
     }
   }
 
-
 })
 
-.controller('BusinessCtrl', function($scope, Business) {
-  Business.query().$promise.then(function(response){
-
-    var selectedBusinesses = [];
-
-    $scope.businesses = response;
-
-    for (var i = 0; i < $scope.businesses.length; i++) {
-      if ($scope.businesses[i].business_name === "Taylor Street Tattoo") {
-        selectedBusinesses.push($scope.businesses[i]);
-      } else {
-        false
-      }
-    }
-    console.log(selectedBusinesses)
-    $scope.displayedBusinesses = selectedBusinesses;
-    console.log(response);
-  });
+.controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
+  $scope.displayedBusinesses = BusinessList.get();
 })
 
 
