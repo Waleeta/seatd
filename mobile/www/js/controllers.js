@@ -53,24 +53,16 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function($scope, $timeout) {
+.controller('ScrollCtrl', function($scope, $timeout, $location) {
   $scope.myTitle = 'Template';
 
   $scope.data = { 'miles' : '1' };
 
+  $scope.itemName = null;
+
   var timeoutId = null;
 
-  $scope.$watch('data.miles', function() {
-    console.log('Has changed');
-    console.log($scope.data);
-  });
-})
-
-.controller('dropDownCtrl', function($scope){
-  $scope.myTitle = 'Cascading Select';
-
-
-  $scope.item = [{
+  $scope.items = [{
       name: "haircut"
     }, {
       name: "hair color"
@@ -100,8 +92,31 @@ angular.module('starter.controllers', [])
       name: "laser treatment"
     }
   ];
-})
 
+
+  $scope.showSelectValue = function(mySelect) {
+    console.log(mySelect);
+    $scope.itemName = mySelect;
+  }
+
+  $scope.$watch('data.miles', function() {
+    console.log('Has changed');
+    console.log($scope.data);
+  });
+
+  $scope.findBusinesses = function() {
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
+    if ($scope.businessSearch.name != null) {
+      console.log($scope.data);
+      console.log($scope.itemName);
+      console.log($scope.businessSearch);
+      $location.path('/app/businesses')
+    } else {
+      console.log('derp')
+    }
+  }
+
+})
 
 .controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){
