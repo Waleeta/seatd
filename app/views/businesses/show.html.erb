@@ -20,8 +20,10 @@
   <%= date_time_helper(@business.close_at) %>
 </p>
 
+<% if @business.employees.length > 0 %>
 Available Hours for <%= @business.employees[0].services[0].service_type %> by
 <strong><%= @business.employees[0].name %></strong>
+<% end %>
 <br>
 <br>
 <table style="width:15%">
