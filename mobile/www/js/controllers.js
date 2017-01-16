@@ -4,7 +4,6 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
-  $scope.registerData = {};
 
   // function persist() {
   //   window.localStorage[registerData] = angular.toJson(registerData);
@@ -50,13 +49,6 @@ angular.module('starter.controllers', [])
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
-  };
-
-  $scope.doRegister = function($http) {
-    console.log('Register', $scope.loginData);
-    var username = $scope.registerData.username;
-    var password = $scope.registerData.password;
-    console.log(password + username);
   };
 })
 
@@ -132,25 +124,6 @@ angular.module('starter.controllers', [])
   });
 })
 
-// .controller('BusinessCtrl', function($scope, $http) {
-
-
-//     $http.get("https://secure-cliffs-27048.herokuapp.com/businesses.json")
-//       .success(function(data) {
-//         $scope.businesses = data;
-//         console.log(data)
-//       })
-//       .error(function(data) {
-//         console.log("errrrrror")
-//       });
-
-// })
-
-// .controller(searchFeature = function($scope) {
-//   $scope.showSelectValue = function(mySelect) {
-//     console.log(mySelect);
-//   }
-// })
 
 .controller("MapCtrl", function($scope) {
 
@@ -178,7 +151,7 @@ angular.module('starter.controllers', [])
   $scope.map = map;
 })
 
-.controller('RegisterCtrl', function($scope, $http) {
+.controller('RegisterCtrl', function($scope, $http, $location) {
   $scope.userData = {};
 
     $scope.sendPost = function() {
@@ -186,8 +159,8 @@ angular.module('starter.controllers', [])
         name: $scope.userData.name,
         email: $scope.userData.email,
         password: $scope.userData.password
-        // CSRF: getCSRFTokenValue()
       };
+      console.log(data);
 
       $http({
         url: 'http://localhost:3000/users',
@@ -198,11 +171,10 @@ angular.module('starter.controllers', [])
           "Content-Type": "application/json"
           },
           }).success(function(response){
-            // $location.path('/map')
-            console.log('holy shit we did it')
+            $location.path('/app/cover')
+            $scope.userData = {};
           }).error(function(error){
-            console.log(data)
-            console.log('DOESNT WORK AS PER USUAL')
+            // need something here....
           });
       }
   })
