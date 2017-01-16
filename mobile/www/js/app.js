@@ -25,10 +25,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
 
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
     controller: 'AppCtrl'
   })
 
@@ -58,23 +64,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
           templateUrl: 'templates/browse.html'
         }
       }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
+  })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.cover', {
+    url: '/cover',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/cover.html'
       }
     }
   })
@@ -99,5 +95,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
