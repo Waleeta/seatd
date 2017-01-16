@@ -24,20 +24,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers
+    .common['X-Requested-With'];
+
   $stateProvider
 
-
-  .state('app', {
+    .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
     controller: 'AppCtrl'
   })
 
@@ -61,19 +58,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
   })
 
   .state('app.browse', {
-    url: '/browse',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/browse.html'
+      url: '/browse',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/browse.html'
+        }
       }
-    }
-  })
+    })
+    .state('app.playlists', {
+      url: '/playlists',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/playlists.html',
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
 
-  .state('app.cover', {
-    url: '/cover',
+  .state('app.single', {
+    url: '/playlists/:playlistId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/cover.html'
+        templateUrl: 'templates/playlist.html',
+        controller: 'PlaylistCtrl'
       }
     }
   })
@@ -98,5 +105,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/app/playlists');
 });

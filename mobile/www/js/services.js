@@ -5,9 +5,7 @@ angular.module('starter.services', [])
 })
 
 // .factory('Register', function($resource) {
-//   $resource("https://secure-cliffs-27048.herokuapp.com/users") {
-
-//   }
+//   return $resource("https://secure-cliffs-27048.herokuapp.com/users/:id.json");
 // })
 
 
