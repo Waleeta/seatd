@@ -1,5 +1,38 @@
 <ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
+  <ion-content ng-controller="ScrollCtrl">
+  <ion-content has-header="true" padding="true">
+      <div class="range">
+        <i class="icon ion-speedometer"></i>
+        <input type="range" min="0" max="50" name="miles" ng-model="data.miles">
+      </div>
+      <p>Within {{data.miles}} Miles</p>
+    </ion-content>
+<!--     <div class="list">
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Category
+        </div>
+        <select ng-model="mySelect" ng-change="showSelectedValue(mySelect)">
+          <option>Salon</option>
+          <option>Green</option>
+          <option>Red</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Location
+        </div>
+        <select>
+          <option>Blue</option>
+          <option selected>Green</option>
+          <option>Red</option>
+        </select>
+      </label>
+
+    </div> -->
+
+
   </ion-content>
 </ion-view>

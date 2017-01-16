@@ -2,13 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   // Form data for the login modal
   $scope.loginData = {};
   $scope.registerData = {};
@@ -67,6 +60,23 @@ angular.module('starter.controllers', [])
   };
 })
 
+//handles the input for scrolling on search
+.controller('ScrollCtrl', function($scope, $timeout) {
+  $scope.myTitle = 'Template';
+
+  $scope.data = { 'miles' : '1' };
+
+  var timeoutId = null;
+
+  $scope.$watch('data.miles', function() {
+
+
+    console.log('Has changed');
+    console.log($scope.data);
+
+  });
+})
+
 // .controller('DashCtrl', function($scope, Business) {
 //   Business.query().$promise.then(function(response){
 //     $scope.business = response;
@@ -91,6 +101,12 @@ angular.module('starter.controllers', [])
 //         console.log("errrrrror")
 //       });
 
+// })
+
+// .controller(searchFeature = function($scope) {
+//   $scope.showSelectValue = function(mySelect) {
+//     console.log(mySelect);
+//   }
 // })
 
 .controller('PlaylistsCtrl', function($scope) {
