@@ -14,15 +14,25 @@ span {
 }
 
 .range-search {
+  margin-right:5px;
   font-weight: bold;
   text-align: center;
 }
 
 .search-title {
-  color: gray;
+  color: #8A8A8A;
   font-weight: bold;
   font-family: helvetica;
   font-size: 20px;
 }
 
+.search-item {
+  font-size: 14px;
+  color: #5D5D5D;
+  font-weight: bold;
+}
 
+.search-box {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
