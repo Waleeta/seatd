@@ -25,4 +25,8 @@ span {
   font-size: 20px;
 }
 
-
+.search-item {
+  text-align: center;
+  margin-top: 30px;
+  padding: 25px;
+}

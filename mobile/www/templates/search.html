@@ -12,6 +12,12 @@
           <input type="range" min="0" max="10" name="miles" ng-model="data.miles">
         </div>
         <p class="range-search">Within {{data.miles}} Miles</p>
+        <div class="item item-stable search-item" ng-controller="dropDownCtrl">
+          <span>Service</span>
+            <span>
+              <select ng-options="item as item.name for item in items" ng-model="selected"></select>
+            </span>
+        </div>
       </div>
     </ion-content>
   </ion-content>

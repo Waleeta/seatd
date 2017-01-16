@@ -75,10 +75,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('dropDownCtrl', function($scope){
-  $scope.myTitle = 'Cascading Select';
 
+  $scope.item = {}
 
-  $scope.item = [{
+  $scope.items = [{
       name: "haircut"
     }, {
       name: "hair color"
@@ -108,6 +108,9 @@ angular.module('starter.controllers', [])
       name: "laser treatment"
     }
   ];
+
+  console.log($scope.selected = $scope.items[0].value);
+
 })
 
 
