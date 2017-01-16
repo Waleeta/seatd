@@ -2,13 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   // Form data for the login modal
   $scope.loginData = {};
   $scope.registerData = {};
@@ -67,11 +60,56 @@ angular.module('starter.controllers', [])
   };
 })
 
-// .controller('DashCtrl', function($scope, Business) {
-//   Business.query().$promise.then(function(response){
-//     $scope.business = response;
-//   });
-// })
+//handles the input for scrolling on search
+.controller('ScrollCtrl', function($scope, $timeout) {
+  $scope.myTitle = 'Template';
+
+  $scope.data = { 'miles' : '1' };
+
+  var timeoutId = null;
+
+  $scope.$watch('data.miles', function() {
+    console.log('Has changed');
+    console.log($scope.data);
+  });
+})
+
+.controller('dropDownCtrl', function($scope){
+  $scope.myTitle = 'Cascading Select';
+
+
+  $scope.item = [{
+      name: "haircut"
+    }, {
+      name: "hair color"
+    }, {
+      name: "hair style"
+    }, {
+      name: "manicure"
+    }, {
+      name: "pedicure"
+    }, {
+      name: "wax"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "hair color"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "piercing"
+    }, {
+      name: "swedish massage"
+    }, {
+      name: "deep tissue massage"
+    }, {
+      name: "facial"
+    }, {
+      name: "laser treatment"
+    }
+  ];
+})
+
 
 .controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){
@@ -93,19 +131,11 @@ angular.module('starter.controllers', [])
 
 // })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
+// .controller(searchFeature = function($scope) {
+//   $scope.showSelectValue = function(mySelect) {
+//     console.log(mySelect);
+//   }
+// })
 
 .controller("MapCtrl", function($scope) {
 
