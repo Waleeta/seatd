@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
-
   include BCrypt
+
   has_many  :appointments, foreign_key: :client_id
 
   validates :email, {presence: true, uniqueness: true}
   validates :name, :hashed_password, {presence: true}
-
 
 # Add Associations Here
 
@@ -19,14 +18,14 @@ class User < ActiveRecord::Base
     self.hashed_password = @password
   end
 
-   def password_errors
-     if @raw_password.length < 5
-       errors.add(:password, "Password must be at least 5 characters")
-     end
+  def password_errors
+    if @raw_password.length < 5
+      errors.add(:password, "Password must be at least 5 characters")
+    end
    end
 
 
-   def authenticate(password)
+  def authenticate(password)
     self.password == password
   end
 
