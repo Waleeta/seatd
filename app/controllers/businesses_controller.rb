@@ -18,6 +18,10 @@ class BusinessesController < ApplicationController
     @business = Business.new
   end
 
+  # Search for query params
+  def search
+  end
+
   # GET /businesses/1/edit
   def edit
   end

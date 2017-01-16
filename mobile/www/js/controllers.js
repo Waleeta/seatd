@@ -101,8 +101,8 @@ angular.module('starter.controllers', [])
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
     console.log($scope.businessSearch);
     if ($scope.businessSearch.name != null) {
-      Business.query({type: "tattoo", miles: 8}).$promise.then(function(response){
-        console.log(response);
+      Business.query({type: "tattoo"}).$promise.then(function(response){
+        // console.log(response);
         BusinessList.set(response);
         $location.path('/app/businesses')
       });
