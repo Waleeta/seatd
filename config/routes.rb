@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "login/new", :to => "login#new"
   post "login", :to => "login#create", action: "login"
   delete "login", :to => "login#destroy", as: "logout"
+  get "authenticate/login", :to => "authentication#new"
+  post "authenticate", :to => "authentication#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

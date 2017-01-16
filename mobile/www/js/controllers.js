@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log) {
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -33,22 +33,34 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function($http) {
-    console.log('Doing login', $scope.loginData);
-    var username = $scope.loginData.username;
-    var password = $scope.loginData.password;
+  $scope.doLogin = function(email, password) {
+    // console.log('Doing login', $scope.loginData);
+    $http.post('http://172.16.0.19:3000/authenticate', {
+      email: $scope.loginData.email,
+      password: $scope.loginData.password
+    }).then(function(response) {
+      window.localStorage['authToken'] = response.data.token;
+      console.log(response)
+      $location.path('/app/cover');
+      $scope.loginData = {};
+    }, function(error) {
+      alert('Email or password is incorrect - please try again.')
+      $log.log(error)
+    });
 
-    if (username == 'ferd' && password == 'password') {
-      console.log('hey');
-      $location.path('/app/cover')
-    } else {
-      console.log('fuck it');
-    }
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+
+
+    // if (username == 'ferd' && password == 'password') {
+    //   console.log('hey');
+    //   $location.path('/app/cover')
+    // } else {
+    //   console.log('fuck it');
+    // }
+    // // Simulate a login delay. Remove this and replace with your login
+    // // code if using a login system
+    // $timeout(function() {
+    //   $scope.closeLogin();
+    // }, 1000);
   };
 })
 
@@ -141,7 +153,7 @@ angular.module('starter.controllers', [])
     position: myLatLng,
     animation:google.maps.Animation.BOUNCE,
     map: map,
-    title: 'Hey There!'
+    title: 'Dev Bootcamp'
   });
 
   var markers = [
@@ -234,7 +246,7 @@ angular.module('starter.controllers', [])
       console.log(data);
 
       $http({
-        url: 'http://localhost:3000/users',
+        url: 'http://172.16.0.19:3000/users',
         dataType: 'json',
         method: 'POST',
         data: data,

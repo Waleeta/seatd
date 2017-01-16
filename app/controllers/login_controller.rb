@@ -3,12 +3,10 @@ class LoginController < ApplicationController
   end
 
   def new
-
   end
 
   def create
     @business = Business.find_by(:email => params[:login][:email])
-    p "business found"
       if @business && @business.authenticate(params[:login][:password])
         session[:business_id] = @business.id
         redirect_to root_url

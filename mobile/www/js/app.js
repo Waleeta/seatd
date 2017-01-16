@@ -23,6 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
   delete $httpProvider.defaults.headers
     .common['X-Requested-With'];
 
+
   $stateProvider
 
   .state('app', {
