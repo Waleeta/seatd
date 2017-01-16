@@ -68,6 +68,41 @@ angular.module('starter.controllers', [])
 
   var timeoutId = null;
 
+  $scope.items = [{
+      name: "haircut"
+    }, {
+      name: "hair color"
+    }, {
+      name: "hair style"
+    }, {
+      name: "manicure"
+    }, {
+      name: "pedicure"
+    }, {
+      name: "wax"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "hair color"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "piercing"
+    }, {
+      name: "swedish massage"
+    }, {
+      name: "deep tissue massage"
+    }, {
+      name: "facial"
+    }, {
+      name: "laser treatment"
+    }
+  ];
+
+  $scope.showSelectValue = function(mySelect) {
+    console.log(mySelect);
+  }
+
   $scope.$watch('data.miles', function() {
     console.log('Has changed');
     console.log($scope.data);
@@ -76,7 +111,9 @@ angular.module('starter.controllers', [])
 
 .controller('dropDownCtrl', function($scope){
 
-  $scope.item = {}
+  $scope.showSelectValue = function(mySelect) {
+    console.log(mySelect);
+  }
 
   $scope.items = [{
       name: "haircut"
@@ -109,7 +146,8 @@ angular.module('starter.controllers', [])
     }
   ];
 
-  console.log($scope.selected = $scope.items[0].value);
+  // $scope.selected = $scope.items[0];
+  // console.log($scope.selected);
 
 })
 

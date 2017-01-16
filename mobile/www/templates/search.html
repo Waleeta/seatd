@@ -7,17 +7,28 @@
         Find your seat
       </p>
       <div class="item card padding item-stable">
-        <div class="range">
+        <div class="range search-box">
+          <p class="range-search">Within {{data.miles}} Miles</p>
+          <input type="range" min="0" max="10" name="miles" ng-model="data.miles"></inpu>
           <i class="icon ion-speedometer"></i>
-          <input type="range" min="0" max="10" name="miles" ng-model="data.miles">
         </div>
-        <p class="range-search">Within {{data.miles}} Miles</p>
-        <div class="item item-stable search-item" ng-controller="dropDownCtrl">
+
+        <div class="list search-box">
+          <label class="item item-input item-select search-item">
+            <div class="input-label search-item">
+              Service
+            </div>
+            <select ng-options="item.name as item.name for item in items" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+            </select>
+          </label>
+        </div>
+
+<!--         <div class="item item-stable search-item" ng-controller="dropDownCtrl">
           <span>Service</span>
             <span>
               <select ng-options="item as item.name for item in items" ng-model="selected"></select>
             </span>
-        </div>
+        </div> -->
       </div>
     </ion-content>
   </ion-content>
