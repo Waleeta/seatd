@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   has_many  :appointments, foreign_key: :client_id
 
   validates :email, {presence: true, uniqueness: true}
-  validates :name, {presence: true}
+  validates :name, :hashed_password, {presence: true}
 
+# Add Associations Here
 
   def password
     @password ||= Password.new(hashed_password)
