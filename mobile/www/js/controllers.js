@@ -69,19 +69,47 @@ angular.module('starter.controllers', [])
   var timeoutId = null;
 
   $scope.$watch('data.miles', function() {
-
-
     console.log('Has changed');
     console.log($scope.data);
-
   });
 })
 
-// .controller('DashCtrl', function($scope, Business) {
-//   Business.query().$promise.then(function(response){
-//     $scope.business = response;
-//   });
-// })
+.controller('dropDownCtrl', function($scope){
+  $scope.myTitle = 'Cascading Select';
+
+
+  $scope.item = [{
+      name: "haircut"
+    }, {
+      name: "hair color"
+    }, {
+      name: "hair style"
+    }, {
+      name: "manicure"
+    }, {
+      name: "pedicure"
+    }, {
+      name: "wax"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "hair color"
+    }, {
+      name: "tattoo"
+    }, {
+      name: "piercing"
+    }, {
+      name: "swedish massage"
+    }, {
+      name: "deep tissue massage"
+    }, {
+      name: "facial"
+    }, {
+      name: "laser treatment"
+    }
+  ];
+})
+
 
 .controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){
