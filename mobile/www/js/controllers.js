@@ -95,14 +95,15 @@ angular.module('starter.controllers', [])
 
 
   $scope.showSelectValue = function(mySelect) {
-    console.log(mySelect);
     $scope.itemName = mySelect;
   }
 
-  $scope.$watch('data.miles', function() {
-    console.log('Has changed');
-    console.log($scope.data);
-  });
+  // $scope.$watch('data.miles', function() {
+  //   console.log('Has changed');
+  //   console.log($scope.data);
+  // });
+
+
 
   $scope.findBusinesses = function() {
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
@@ -112,15 +113,30 @@ angular.module('starter.controllers', [])
       console.log($scope.businessSearch);
       $location.path('/app/businesses')
     } else {
-      console.log('derp')
+      console.log('must select a service')
     }
   }
+
 
 })
 
 .controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){
+
+    var selectedBusinesses = [];
+
     $scope.businesses = response;
+
+    for (var i = 0; i < $scope.businesses.length; i++) {
+      if ($scope.businesses[i].business_name === "Taylor Street Tattoo") {
+        selectedBusinesses.push($scope.businesses[i]);
+      } else {
+        false
+      }
+    }
+    console.log(selectedBusinesses)
+    $scope.displayedBusinesses = selectedBusinesses;
+    console.log(response);
   });
 })
 
