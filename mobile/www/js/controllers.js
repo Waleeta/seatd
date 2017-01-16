@@ -133,51 +133,34 @@ angular.module('starter.controllers', [])
   $scope.map = map;
 })
 
-// .controller('RegisterCtrl', function($scope, $http) {
-//   var config = {
-//     params: {
-//       'callback': 'JSON_CALLBACK',
-//       'email': $scope.email,
-//       'name': $scope.name,
-//       'password': $scope.password,
-//       'url': 'https://secure-cliffs-27048.herokuapp.com/users.json'
-//     },
-//   };
-
-//   var $promise = $http.jsonp('response.json', config)
-//   .success(function(data, status, headers, config) {
-//     if (data.status == 'OK') {
-//       $scope.email = null;
-//       $scope.name = null;
-//       $scope.password = null;
-//     } else {
-//       $scope.messages = 'Oops';
-//     }
-//   })
-//   .error(function(data, status, headers, config) {
-//     $scope.messages = 'ERROR';
-//   });
-
-//   $scope.progress.addPromise($promise);
-
-// });
-
 .controller('RegisterCtrl', function($scope, $http) {
-  console.log('in the controller...')
   $scope.userData = {};
 
     $scope.sendPost = function() {
       var data = {
-          name: $scope.userData.name,
-          email: $scope.userData.email,
-          password: $scope.userData.password
+        name: $scope.userData.name,
+        email: $scope.userData.email,
+        password: $scope.userData.password
+        // CSRF: getCSRFTokenValue()
       };
-      console.log(data);
-      $http.post("https://secure-cliffs-27048.herokuapp.com/users", data).success(function(data, status) {
-        console.log("holy shit we did it");
-      })
-    }
-})
+
+      $http({
+        url: 'http://localhost:3000/users',
+        dataType: 'json',
+        method: 'POST',
+        data: data,
+        headers: {
+          "Content-Type": "application/json"
+          },
+          }).success(function(response){
+            // $location.path('/map')
+            console.log('holy shit we did it')
+          }).error(function(error){
+            console.log(data)
+            console.log('DOESNT WORK AS PER USUAL')
+          });
+      }
+  })
 
 
 
