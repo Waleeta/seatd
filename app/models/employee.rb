@@ -7,4 +7,12 @@ class Employee < ActiveRecord::Base
 
   validates :name, :description, :photo, :business_id, {presence: true}
 
+  def has_appointments?
+    self.appointments.length > 0
+  end
+
+  def today_or_after?
+    Date.parse(self.appointment.start_time.to_s) >= Date.parse(Date.today.to_s)
+  end
+
 end

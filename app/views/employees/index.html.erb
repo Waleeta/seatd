@@ -1,32 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Employees</h1>
+<h1>Thank you to all our Employees</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Business</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @employees.each do |employee| %>
+    <img src="<%= employee.photo %>" width="200" height="200">
+    <br>
+  <%= employee.description %>
+  <br>
 
-  <tbody>
-    <% @employees.each do |employee| %>
-      <tr>
-        <td><%= employee.name %></td>
-        <td><%= employee.description %></td>
-        <td><%= employee.photo %></td>
-        <td><%= employee.business_id %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>
 
 <br>
 
