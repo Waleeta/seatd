@@ -75,16 +75,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   })
 
-  .state('app.register', {
-    url: '/users/new',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterCtrl'
-      }
-    }
-  })
-
   .state('app.map', {
     url: '/map',
     views: {
