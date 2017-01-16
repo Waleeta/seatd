@@ -21,14 +21,21 @@
 </p>
 
 <% if @business.employees.length > 0 %>
-Available Hours for <%= @business.employees[0].services[0].service_type %> by
-<strong><%= @business.employees[0].name %></strong>
+  <% @business.employees.each do |employee| %>
+    <h2>Available Hours for <%= employee.name %></h2>
+    <br>
+    <br>
+
+     <img src="<%= employee.photo %>" width="200" height="200" >
+     <p><strong><%= employee.description%></strong> </p>
+  <% end %>
 <% end %>
 <br>
 <br>
-<table style="width:15%">
-  <tr>
+<table style="width:35%">
+  <tr style="width:35%">
     <th><%= full_day %></th>
+    <!-- margins and paddings on th -->
     <th><%= month %> <%= tomorrow_date %></th>
     <th><%= month %> <%= day_after_tomorrow %></th>
   </tr>
