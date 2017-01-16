@@ -24,13 +24,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    p user_params
     @user = User.new(user_params)
 
     if @user.save
       render json: {status: :created, location: user_path(@user) }
     else
-      p @user.errors
       render json: {status: :error}, status: :unprocessable_entity
     end
   end
