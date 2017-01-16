@@ -61,10 +61,12 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function($scope, $timeout) {
+.controller('ScrollCtrl', function($scope, $timeout, $location) {
   $scope.myTitle = 'Template';
 
   $scope.data = { 'miles' : '1' };
+
+  $scope.itemName = null;
 
   var timeoutId = null;
 
@@ -99,58 +101,30 @@ angular.module('starter.controllers', [])
     }
   ];
 
+
   $scope.showSelectValue = function(mySelect) {
     console.log(mySelect);
+    $scope.itemName = mySelect;
   }
 
   $scope.$watch('data.miles', function() {
     console.log('Has changed');
     console.log($scope.data);
   });
-})
 
-.controller('dropDownCtrl', function($scope){
-
-  $scope.showSelectValue = function(mySelect) {
-    console.log(mySelect);
+  $scope.findBusinesses = function() {
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
+    if ($scope.businessSearch.name != null) {
+      console.log($scope.data);
+      console.log($scope.itemName);
+      console.log($scope.businessSearch);
+      $location.path('/app/businesses')
+    } else {
+      console.log('derp')
+    }
   }
 
-  $scope.items = [{
-      name: "haircut"
-    }, {
-      name: "hair color"
-    }, {
-      name: "hair style"
-    }, {
-      name: "manicure"
-    }, {
-      name: "pedicure"
-    }, {
-      name: "wax"
-    }, {
-      name: "tattoo"
-    }, {
-      name: "hair color"
-    }, {
-      name: "tattoo"
-    }, {
-      name: "piercing"
-    }, {
-      name: "swedish massage"
-    }, {
-      name: "deep tissue massage"
-    }, {
-      name: "facial"
-    }, {
-      name: "laser treatment"
-    }
-  ];
-
-  // $scope.selected = $scope.items[0];
-  // console.log($scope.selected);
-
 })
-
 
 .controller('BusinessCtrl', function($scope, Business) {
   Business.query().$promise.then(function(response){

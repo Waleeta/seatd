@@ -1,35 +1,30 @@
 <ion-view view-title="Search">
   <ion-content class="padding" ng-controller="ScrollCtrl">
     <ion-content has-header="true" padding="true">
+      <form ng-submit="findBusinesses()">
+        <div class="item card padding item-stable">
+          <div class="range search-box">
+            <p class="range-search">Within {{data.miles}} Miles</p>
+            <input type="range" min="0" max="10" name="miles" ng-model="data.miles"></inpu>
+            <i class="icon ion-speedometer"></i>
+          </div>
 
-      <p class="search-title">
-        <i class="icon ion-search"></i>
-        Find your seat
-      </p>
-      <div class="item card padding item-stable">
-        <div class="range search-box">
-          <p class="range-search">Within {{data.miles}} Miles</p>
-          <input type="range" min="0" max="10" name="miles" ng-model="data.miles"></inpu>
-          <i class="icon ion-speedometer"></i>
+          <div class="list search-box">
+            <label class="item item-input item-select search-item">
+              <div class="input-label search-item">
+                Service
+              </div>
+              <select ng-options="item.name as item.name for item in items" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+              </select>
+            </label>
+          </div>
         </div>
+        <button class="button button-block button-positive" type="submit" ng-click"findBusinesses()">
+          <i class="icon ion-search"></i>
+          Get Seated
+        </button>
+      </form>
 
-        <div class="list search-box">
-          <label class="item item-input item-select search-item">
-            <div class="input-label search-item">
-              Service
-            </div>
-            <select ng-options="item.name as item.name for item in items" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
-            </select>
-          </label>
-        </div>
-
-<!--         <div class="item item-stable search-item" ng-controller="dropDownCtrl">
-          <span>Service</span>
-            <span>
-              <select ng-options="item as item.name for item in items" ng-model="selected"></select>
-            </span>
-        </div> -->
-      </div>
     </ion-content>
   </ion-content>
 </ion-view>
