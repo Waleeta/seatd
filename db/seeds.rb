@@ -139,13 +139,13 @@ duke_stylist.services.create!(service_type: "hair style", category_id: 1)
 duke_stylist.services.create!(service_type: "hairstyle", category_id: 1)
 duke_stylist.services.create!(service_type: "hair color", category_id: 1)
 
-ellie_tattoo.services.create!(service_type: "tattoo", category_id: 2)
+ellie_tattoo.services.create!(service_type: "tattoo", category_id: 2, business_id: 6)
 
-alyssa_facial.services.create!(service_type: "facial", category_id: 4)
+alyssa_facial.services.create!(service_type: "facial", category_id: 4, business_id: 16)
 
-avner_facial.services.create!(service_type: "laser therapy", category_id: 4)
+avner_facial.services.create!(service_type: "laser therapy", category_id: 4, business_id: 17)
 
-matt_masseuse.services.create!(service_type: "swedish massage", category_id: 5)
+matt_masseuse.services.create!(service_type: "swedish massage", category_id: 5, business_id: 21)
 
 pete_piercer.services.create!(service_type: "piercing", category_id: 2)
 
