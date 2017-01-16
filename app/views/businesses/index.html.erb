@@ -5,20 +5,12 @@
 <table>
   <thead>
     <tr>
-<!--       <th>Business name</th>
-      <th>Address</th>
-      <th>Open at</th>
-      <th>Close at</th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th colspan="3"></th>
-    </tr> -->
   </thead>
 
   <tbody>
     <% @businesses.each do |business| %>
       <ul>
-        <p><strong><%= business.business_name %></strong></p>
+        <p><strong><a href="/businesses/<%=business.id%>"><%= business.business_name %></a></strong></p>
         <li><%= business.address %></li>
         <li>Opens at: <%= date_time_helper(business.open_at) %></li>
         <li>Closes at: <%= date_time_helper(business.close_at) %></li>
