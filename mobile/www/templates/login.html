@@ -19,18 +19,22 @@
       </div>
     </form>
     <div>
-      <form ng-submit="doRegister()">
+      <form name="RegistrationForm" ng-controller="RegisterCtrl">
         <div class="list">
           <label class="item item-input">
-            <span class="input-label">Username</span>
-            <input type="text" ng-model="registerData.username">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="userData.name">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="text" ng-model="userData.email">
           </label>
           <label class="item item-input">
             <span class="input-label">Password</span>
-            <input type="password" ng-model="registerData.password">
+            <input type="password" ng-model="userData.password">
           </label>
           <label class="item">
-            <button class="button button-block button-positive" type="submit">Register</button>
+            <button class="button button-block button-positive" type="submit" ng-click="sendPost()">Register</button>
           </label>
         </div>
       </form>
