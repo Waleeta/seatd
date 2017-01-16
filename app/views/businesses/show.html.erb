@@ -9,48 +9,42 @@
   <strong>Address:</strong>
   <%= @business.address %>
 </p>
-
 <p>
   <strong>Opens at:</strong>
   <%= date_time_helper(@business.open_at) %>
 </p>
-
 <p>
   <strong>Closes at:</strong>
   <%= date_time_helper(@business.close_at) %>
 </p>
 
 <% if @business.employees.length > 0 %>
-Available Hours for <%= @business.employees[0].services[0].service_type %> by
-<strong><%= @business.employees[0].name %></strong>
+  <% @business.employees.each do |employee| %>
+    <h2>Available Hours for <%= employee.name %></h2>
+    <br>
+    <br>
+
+     <img src="<%= employee.photo %>" width="200" height="200" >
+     <p><strong><%= employee.description%></strong> </p>
+  <% end %>
 <% end %>
 <br>
 <br>
-<table style="width:15%">
-  <tr>
-    <th><%= full_day %></th>
-    <th><%= month %> <%= tomorrow_date %></th>
-    <th><%= month %> <%= day_after_tomorrow %></th>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= date_time_helper(DateTime.parse("2017-01-21 09:00:00")) %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%=date_time_helper(DateTime.parse("2017-01-20 14:00:00"))%></td>
-    <td><%=date_time_helper(DateTime.parse("2017-01-20 11:00:00"))%></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+
+<!-- NEW -->
+<%= full_day  %>
+<br>
+<% if @employee.has_appointments? %>
+    <% @employee.appointments.each do |appointment| %>
+      <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
+        <%= date_time_helper(appointment.start_time) %><br>
+      <% end %>
+    <% end %>
+ <% else %>
+    <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+<% end %>
+
+
 <br>
 <br>
 <%= link_to 'Back', businesses_path %>
