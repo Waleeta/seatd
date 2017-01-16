@@ -9,6 +9,15 @@ module DateTimeHelper
     # returns current month
   end
 
+  def month_and_date(date)
+    date = Date::MONTHNAMES[date.month] + " " + date.day.to_s
+  end
+
+  def yesterday_date
+    yesterday = Date.today.prev_day
+    yesterday.day.to_s #returns day as number
+  end
+
   def today_date
     today = Date.today
     today.day.to_s #returns day as number

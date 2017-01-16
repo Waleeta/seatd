@@ -30,32 +30,21 @@
 <% end %>
 <br>
 <br>
-<table style="width:35%">
-  <tr style="width:35%">
-    <th><%= full_day %></th>
-    <!-- margins and paddings on th -->
-    <th><%= month %> <%= tomorrow_date %></th>
-    <th><%= month %> <%= day_after_tomorrow %></th>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= date_time_helper(DateTime.parse("2017-01-21 09:00:00")) %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%=date_time_helper(DateTime.parse("2017-01-20 14:00:00"))%></td>
-    <td><%=date_time_helper(DateTime.parse("2017-01-20 11:00:00"))%></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+
+<!-- NEW -->
+<%= full_day  %>
+<br>
+<% if @employee.has_appointments? %>
+    <% @employee.appointments.each do |appointment| %>
+      <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
+        <%= date_time_helper(appointment.start_time) %><br>
+      <% end %>
+    <% end %>
+ <% else %>
+    <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+<% end %>
+
+
 <br>
 <br>
 <%= link_to 'Back', businesses_path %>

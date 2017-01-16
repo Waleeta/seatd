@@ -97,7 +97,7 @@ ken_massage = health_massage.employees.create!(name: "Ken", description: "Our mo
 
 naomi_hair = xo_salon.employees.create!(name: "Naomi", description: "Naomi is one of the premier stylists in Chicago. She invented the side-shave craze for women.", photo: "https://devbootcamp.com/assets/staff/naomi-david-2ebb30e33a0ea39cf2d2d5b92d01622a.png")
 
-bobby_hair = aria_salon.employees.create!(name: "Bobby", description: "Not just one of the premier stylists in Chicago, but also one of the funniest.", photo: "http://funnytats.com/lib/027/160-rickger.jpg")
+bobby_hair = aria_salon.employees.create!(name: "Bobby Gervais", description: "He has tamed his own mane, and can tame yours too.", photo: "https://s-media-cache-ak0.pinimg.com/originals/3c/b2/54/3cb254b0d377a2dedf77bf1b622c515e.png")
 
 nick_massage = oxygen_massage.employees.create!(name: "Nick", description: "Nick began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAfJAAAAJDE0MzFjN2FlLTFhMDItNDhmNC04OWY3LTRmZjJiY2E0MDMyOA.jpg")
 
@@ -175,7 +175,7 @@ rachel_hair.services.create!(service_type: "hair color", category_id: 1, busines
 
 katie_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
 
-jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 21, business_id: 3)
+jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 21)
 
 ken_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
 
@@ -189,7 +189,7 @@ bobby_hair.services.create!(service_type: "hair cut", category_id: 1, business_i
 
 nick_massage.services.create!(service_type: "deep tissue", category_id: 5, business_id: 25)
 
-west_facial.services.create!(service_type: "facial", category_id: 4, , business_id: 18)
+west_facial.services.create!(service_type: "facial", category_id: 4, business_id: 18)
 west_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 18)
 
 emily_facial.services.create!(service_type: "facial", category_id: 4, business_id: 19)
