@@ -258,9 +258,27 @@ angular.module('starter.controllers', [])
   $scope.user = UserInfo.get();
 })
 
-.controller('UserCtrl', function($scope, UserInfo) {
+.controller('UserCtrl', function($scope, UserInfo, $http) {
+  $scope.appointments = {};
   $scope.user = {};
   $scope.user = UserInfo.get();
+
+  $scope.getAppts = function() {
+    $http({
+    method: 'GET',
+    url: 'http://172.16.0.19:3000/users/' + $scope.user.id +'.json'
+    }).then(function successCallback(response) {
+      $scope.appointments = response.data.appointments;
+      console.log($scope.appointments);
+    }, function errorCallback(response) {
+      console.log(response);
+  });
+  }
+
+  $scope.$on('$ionicView.enter', function() {
+     $scope.getAppts();
+  })
+
 })
 
 

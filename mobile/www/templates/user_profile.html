@@ -7,9 +7,12 @@
     <h3>seat'd history</h3>
     <ion-card>
 
-      <ion-card-content>
-        Appointment Data....
-      </ion-card-content>
+      <div class="list card" ng-repeat="appt in appointments">
+        <div class="item item-icon-left item-divider item-dark">
+          {{appt.business_name}}
+          {{appt.date}}
+          {{appt.employee_name}}
+        </div>
 
     </ion-card>
   </ion-content>

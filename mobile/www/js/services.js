@@ -47,7 +47,7 @@ angular.module('starter.services', [])
       return config;
     },
   };
-});
+})
 
 
 
