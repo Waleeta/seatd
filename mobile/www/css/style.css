@@ -82,8 +82,7 @@ span {
 }
 
 .search-container {
-  margin-top: 100px;
-  top: 20%;
+  margin-top: 80px;
   border-radius: 6px;
   background: white;
   opacity: 0.9;
@@ -96,5 +95,15 @@ span {
   color: #FDFEF7;
   font-family: 'Lobster', cursive;
   font-size: 30px;
+}
+
+.business-container {
+  border-radius: 6px;
+  background: white;
+  opacity: 0.8;
+}
+
+.black {
+  background-color: gray;
 }
 
