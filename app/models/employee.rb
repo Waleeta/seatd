@@ -25,4 +25,13 @@ class Employee < ActiveRecord::Base
     Date.parse(self.appointment.start_time.to_s) >= Date.parse(Date.today.to_s)
   end
 
+  def available_appointments
+    available_appointments = []
+    self.appointments.each do |a|
+      if DateTime.parse(a.start_time.to_s) <= 2.days.from_now && a.booked == false
+        available_appointments << a
+      end
+    end
+    return available_appointments
+  end
 end

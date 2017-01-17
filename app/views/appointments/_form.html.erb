@@ -1,7 +1,7 @@
 <%= form_for(:appointment, :url => employee_appointments_path) do |f| %>
 
   <div class="field">
-    <%= f.label :start_time %><br>
+    <%= f.label :booked %><br>
     <%= f.datetime_select :start_time %>
   </div>
   <div class="field">

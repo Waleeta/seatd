@@ -18,13 +18,14 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1
   # GET /businesses/1.json
-  def show
+    def show
     @business = Business.find_by(id: params[:id])
     @employee = Employee.find_by(business_id: @business.id)
+    # render json: { employee: @employee, business: @business }
     if @business && @employee
       respond_to do |format|
         format.html
-        format.json { render json: {employee: @employee, business: @business }}
+        format.json { render json: {employee: @employee, business: @business, appointments: @employee.available_appointments }}
       end
     else
       redirect_to root_url
