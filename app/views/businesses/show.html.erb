@@ -32,7 +32,7 @@
 <br>
 
 <!-- NEW -->
-<%= full_day  %>
+<%= full_day  %> || <%=month %><%=tomorrow_date%>  || <%= month %><%= day_after_tomorrow %>
 <br>
 <% if @employee.has_appointments? %>
     <% @employee.appointments.each do |appointment| %>

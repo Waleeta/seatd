@@ -18,7 +18,7 @@ class LoginController < ApplicationController
 
   def destroy
     session[:business_id] = nil
-    redirect_to root_url
+    render login_new_path
   end
 
 end
