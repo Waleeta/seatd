@@ -123,7 +123,6 @@ angular.module('starter.controllers', [])
 
 .controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo) {
   BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
-    console.log(response);
     $scope.displayedBusiness = response.business;
     $scope.displayedEmployee = response.employee;
     $scope.availableAppointments = response.appointments;

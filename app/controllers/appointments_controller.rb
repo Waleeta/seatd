@@ -50,7 +50,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find_by(id: params[:id])
     if @appointment.update(appointment_params)
-      AppointmentMailer.confirm_email("seatd_booked@gmail.com").deliver_later
+      AppointmentMailer.confirm_email("seatd.booked@gmail.com", @appointment).deliver_now
       render json: { }, status: :ok
     else
       render json: { }, status: :unprocessable_entity

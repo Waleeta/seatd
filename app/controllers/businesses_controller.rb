@@ -25,7 +25,7 @@ class BusinessesController < ApplicationController
     if @business && @employee
       respond_to do |format|
         format.html
-        format.json { render json: {employee: @employee, business: @business, appointments: @employee.appointments }}
+        format.json { render json: {employee: @employee, business: @business, appointments: @employee.available_appointments }}
       end
     else
       redirect_to root_url
