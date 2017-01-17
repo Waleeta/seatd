@@ -36,3 +36,15 @@ span {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.home-image {
+  height: 250px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.home-image2 {
+  height: 250px;
+  background-color: white;
+  border: 1px solid black;
+}

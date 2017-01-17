@@ -114,6 +114,11 @@ angular.module('starter.controllers', [])
 
 .controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
+
+  $scope.slideToPage = function(route) {
+    console.log('derp');
+    $location.path('/businesses/' + route)
+  }
   // var parsedDate = new Date(iso stamp)
 })
 
@@ -255,6 +260,12 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function($scope, UserInfo) {
   $scope.user = {};
   $scope.user = UserInfo.get();
+})
+
+.controller('cover', function($scope, $ionicSlideBoxDelegate) {
+  $scope.nextSlide = function() {
+    $ionicSlideBoxDelegate.next();
+  }
 })
 
 
