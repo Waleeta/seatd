@@ -56,6 +56,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   })
 
+  .state('app.businesses-show', {
+      url: '/businesses/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/business-show.html',
+          controller: 'BusinessShowCtrl'
+        }
+      }
+    })
+
   .state('app.browse', {
       url: '/browse',
       views: {

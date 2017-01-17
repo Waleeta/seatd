@@ -6,6 +6,7 @@ class BusinessesController < ApplicationController
   def index
     # @businesses = Business.all
     if params.has_key?(:service)
+      @businesses = []
       @services = Service.where(service_type: params[:service])
       business_ids = @services.map {|service| service.business_id }
       found_businesses = business_ids.map {|id| Business.find(id) }
@@ -21,7 +22,9 @@ class BusinessesController < ApplicationController
     @business = Business.find_by(id: params[:id])
     if @business
       @employee = Employee.find_by(business_id: @business.id)
-      render "show"
+      # render "show"
+      # this will work only if the render show is removed
+      render json: { employee: @employee, business: @business }
     else
       redirect_to root_url
     end

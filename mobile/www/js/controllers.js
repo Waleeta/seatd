@@ -114,8 +114,16 @@ angular.module('starter.controllers', [])
 
 .controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
+  // var parsedDate = new Date(iso stamp)
 })
 
+.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams) {
+  BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
+    console.log(response.employee);
+    $scope.displayedBusiness = response.business;
+    $scope.displayedEmployee = response.employee;
+  })
+})
 
 .controller("MapCtrl", function($scope) {
 
