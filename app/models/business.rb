@@ -37,4 +37,5 @@ class Business < ActiveRecord::Base
   def pretty_close_time
     self.close_at.strftime("%l:%M %P")
   end
+
 end

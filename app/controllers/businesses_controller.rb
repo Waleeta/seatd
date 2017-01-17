@@ -30,6 +30,8 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
+    @business = Business.find(params[:id])
+    redirect_to root_url unless @business.id == session[:business_id]
   end
 
   # POST /businesses

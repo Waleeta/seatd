@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :users
   get "search", :to => 'search#index'
-  get "login", :to => "login#destroy"
   get "login/new", :to => "login#new"
+  get "login", :to => "login#destroy"
   post "login", :to => "login#create", action: "login"
   delete "login", :to => "login#destroy", as: "logout"
   get "authenticate/login", :to => "authentication#new"
