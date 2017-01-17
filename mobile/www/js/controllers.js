@@ -253,7 +253,6 @@ angular.module('starter.controllers', [])
       }
   })
 
-
 .controller('HomeCtrl', function($scope, UserInfo) {
   $scope.user = {};
   $scope.user = UserInfo.get();
