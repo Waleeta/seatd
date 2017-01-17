@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log, UserInfo) {
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -34,15 +34,15 @@ angular.module('starter.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function(email, password) {
-    // console.log('Doing login', $scope.loginData);
     $http.post('http://172.16.0.19:3000/authenticate', {
       email: $scope.loginData.email,
       password: $scope.loginData.password
     }).then(function(response) {
       window.localStorage['authToken'] = response.data.token;
-      console.log(response)
       $location.path('/app/cover');
       $scope.loginData = {};
+      UserInfo.set(response.data.user);
+      console.log(UserInfo.get());
     }, function(error) {
       alert('Email or password is incorrect - please try again.')
       $log.log(error)
