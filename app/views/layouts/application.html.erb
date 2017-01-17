@@ -11,16 +11,17 @@
 <nav class="nav-container">
   <a href="/">Home</a>
   <a href="/businesses">All Businesses</a>
+
   <% if logged_in?%>
     <a><%= link_to 'logout', logout_path, method: :delete %></a>
-    <a><%= link_to 'Profile', business_path(current_business.id) %></a>
+      <%= link_to business_path(current_business.id) do %>
+        <strong><%= current_business.business_name %></strong>
+      <% end %>
   <% else %>
-    <a href="businesses/new">New Business Registration</a>
-    <a href="login/new">Business Login</a>
+    <a><%= link_to 'New Business Registration', new_business_path %></a>
+    <a><%= link_to 'Login', login_new_path %> </a>
   <% end %>
-
 </nav>
 <%= yield %>
-
 </body>
 </html>
