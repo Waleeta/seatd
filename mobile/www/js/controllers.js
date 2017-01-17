@@ -269,9 +269,7 @@ angular.module('starter.controllers', [])
     url: 'http://172.16.0.19:3000/users/' + $scope.user.id +'.json'
     }).then(function successCallback(response) {
       $scope.appointments = response.data.appointments;
-      console.log($scope.appointments);
     }, function errorCallback(response) {
-      console.log(response);
   });
   }
 
