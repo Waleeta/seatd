@@ -121,7 +121,7 @@ angular.module('starter.controllers', [])
   // var parsedDate = new Date(iso stamp)
 })
 
-.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http) {
+.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo) {
   BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
     console.log(response);
     $scope.displayedBusiness = response.business;
@@ -129,9 +129,28 @@ angular.module('starter.controllers', [])
     $scope.availableAppointments = response.appointments;
   })
 
+
   $scope.bookAppointment = function() {
-    $http.put('http://172.16.0.19:3000/authenticate')
-  }
+    $scope.user = UserInfo.get();
+    var id = $scope.user.id;
+
+    var data = {
+      client_id: id,
+      booked: true
+    };
+
+    $http({
+      url: 'http://172.16.0.19:3000/employees/' + $scope.displayedEmployee.id + '/appointments/' + this.appt.id,
+      method: 'PUT',
+      data: data,
+      headers: {
+          "Content-Type": "application/json"
+          },
+        }).success(function(response) {
+          console.log(data);
+          console.log('updated');
+        });
+    }
 
 })
 

@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20170117000410) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string   "name",                                                                                                                      null: false
-    t.string   "description",                                                                                                               null: false
-    t.string   "photo",       default: "http://www.billboard.com/files/styles/article_main_image/public/media/cher-press-2014-650-430.jpg", null: false
-    t.integer  "business_id",                                                                                                               null: false
-    t.datetime "created_at",                                                                                                                null: false
-    t.datetime "updated_at",                                                                                                                null: false
+    t.string   "name",                                                                                                            null: false
+    t.string   "description",                                                                                                     null: false
+    t.string   "photo",       default: "https://s-media-cache-ak0.pinimg.com/736x/48/14/d7/4814d77525b02730db6817b135cf3d5f.jpg", null: false
+    t.integer  "business_id",                                                                                                     null: false
+    t.datetime "created_at",                                                                                                      null: false
+    t.datetime "updated_at",                                                                                                      null: false
   end
 
   create_table "services", force: :cascade do |t|
