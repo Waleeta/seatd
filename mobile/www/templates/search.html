@@ -1,8 +1,11 @@
-<ion-view view-title="Search">
+<ion-view class="main-background" view-title="Search">
   <ion-content class="padding" ng-controller="ScrollCtrl">
+  <div class="search-header">
+    <p class="search-head-title">Just a few taps away...</p>
+  </div>
     <ion-content has-header="true" padding="true">
-      <form ng-submit="findBusinesses()">
-        <div class="item card padding item-stable">
+      <form  ng-submit="findBusinesses()">
+        <div class="search-container padding">
           <div class="range search-box">
             <p class="range-search">Within {{data.miles}} Miles</p>
             <input type="range" min="0" max="10" name="miles" ng-model="data.miles"></inpu>
@@ -19,7 +22,7 @@
             </label>
           </div>
         </div>
-        <button class="button button-block button-positive" type="submit" ng-click"findBusinesses()">
+        <button class="button button-block" type="submit" ng-click"findBusinesses()">
           <i class="icon ion-search"></i>
           Get Seated
         </button>
