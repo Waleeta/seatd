@@ -29,15 +29,13 @@
   <% end %>
 <% end %>
 <br>
-<br>
 
-<!-- NEW -->
-<%= full_day  %> || <%=month %><%=tomorrow_date%>  || <%= month %><%= day_after_tomorrow %>
 <br>
 <% if @employee.has_appointments? %>
     <% @employee.appointments.each do |appointment| %>
       <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
-        <%= date_time_helper(appointment.start_time) %><br>
+        <h4><%= month_and_date(appointment.start_time) %> </h4>
+        <p><%= date_time_helper(appointment.start_time) %></p><br>
       <% end %>
     <% end %>
  <% else %>

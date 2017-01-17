@@ -67,6 +67,8 @@ class BusinessesController < ApplicationController
   # DELETE /businesses/1
   # DELETE /businesses/1.json
   def destroy
+    redirect_to root_url unless @business.id == session[:business_id]
+
     @business.destroy
     respond_to do |format|
       format.html { redirect_to businesses_url, notice: 'Business was successfully destroyed.' }
@@ -75,13 +77,10 @@ class BusinessesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find_by(id: params[:id])
-
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
       params.require(:business).permit(:business_name, :address, :open_at, :close_at, :lat, :long, :password, :email)
     end
