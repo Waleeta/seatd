@@ -4,15 +4,6 @@ angular.module('starter.services', [])
   return $resource("http://172.16.0.19:3000/businesses/:id.json");
 })
 
-// .factory(‘AuthInterceptor’, function($q) {
-//   return {
-//     ‘request’: function(config) {
-//       config.headers.Authorization = window.localStorage[‘authToken’];
-//       return config;
-//     }
-//   };
-// });
-
 .factory('UserInfo', () => {
   const state = {
       data: []
@@ -22,8 +13,14 @@ angular.module('starter.services', [])
         return state.data;
       },
       set(data) {
-  return $resource("http://localhost:3000/businesses.json");
+        Object.assign(state.data, data);
+        },
+      clear() {
+        state.data = [];
+      }
+    };
 })
+
 
 .factory('BusinessList', () => {
   // hold a local copy of the state, setting its defaults
@@ -42,5 +39,15 @@ angular.module('starter.services', [])
       },
   };
 })
+
+.factory('AuthInterceptor', function($q) {
+  return {
+    'request': function(config) {
+      config.headers.Authorization = window.localStorage['authToken'];
+      return config;
+    },
+  };
+});
+
 
 

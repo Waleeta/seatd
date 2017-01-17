@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
   end
 
   def fetch_auth_token!
-    auth_token = SecureRandom.base64(50)
-    # self.save!
-    # self.auth_token
+    self.auth_token = SecureRandom.base64(50)
+    self.save!
+    self.auth_token
   end
 end
