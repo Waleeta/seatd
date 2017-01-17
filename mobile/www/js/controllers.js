@@ -65,14 +65,13 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function($scope, $timeout, $location) {
+.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location, $rootScope) {
+
   $scope.myTitle = 'Template';
 
   $scope.data = { 'miles' : '1' };
 
   $scope.itemName = null;
-
-  var timeoutId = null;
 
   $scope.items = [{
       name: "haircut"
@@ -105,35 +104,29 @@ angular.module('starter.controllers', [])
     }
   ];
 
-
   $scope.showSelectValue = function(mySelect) {
-    console.log(mySelect);
     $scope.itemName = mySelect;
   }
 
-  $scope.$watch('data.miles', function() {
-    console.log('Has changed');
-    console.log($scope.data);
-  });
-
   $scope.findBusinesses = function() {
+    $rootScope.stuff = 'fudge brownie sunday'
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
+    console.log($scope.businessSearch);
     if ($scope.businessSearch.name != null) {
-      console.log($scope.data);
-      console.log($scope.itemName);
-      console.log($scope.businessSearch);
-      $location.path('/app/businesses')
+      Business.query({type: "tattoo"}).$promise.then(function(response){
+        // console.log(response);
+        BusinessList.set(response);
+        $location.path('/app/businesses')
+      });
     } else {
-      console.log('derp')
+      console.log('must select a service')
     }
   }
 
 })
 
-.controller('BusinessCtrl', function($scope, Business) {
-  Business.query().$promise.then(function(response){
-    $scope.businesses = response;
-  });
+.controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
+  $scope.displayedBusinesses = BusinessList.get();
 })
 
 

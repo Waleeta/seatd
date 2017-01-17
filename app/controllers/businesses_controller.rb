@@ -10,13 +10,22 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    @business = Business.find(params[:id])
-    @employee = Employee.find_by(business_id: @business.id)
+    @business = Business.find_by(id: params[:id])
+    if @business
+      @employee = Employee.find_by(business_id: @business.id)
+      render "show"
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /businesses/new
   def new
     @business = Business.new
+  end
+
+  # Search for query params
+  def search
   end
 
   # GET /businesses/1/edit
@@ -66,7 +75,8 @@ class BusinessesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business
-      @business = Business.find(params[:id])
+      @business = Business.find_by(id: params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
