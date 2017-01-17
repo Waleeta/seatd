@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  get "search", :to => 'search#index'
   get "login", :to => "login#new"
   get "login/new", :to => "login#new"
   post "login", :to => "login#create", action: "login"
