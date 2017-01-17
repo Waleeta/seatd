@@ -113,8 +113,21 @@ angular.module('starter.controllers', [])
 
 .controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
+
+  $scope.slideToPage = function(route) {
+    console.log('derp');
+    $location.path('/businesses/' + route)
+  }
+  // var parsedDate = new Date(iso stamp)
 })
 
+.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams) {
+  BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
+    console.log(response.employee);
+    $scope.displayedBusiness = response.business;
+    $scope.displayedEmployee = response.employee;
+  })
+})
 
 .controller("MapCtrl", function($scope) {
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
@@ -258,10 +271,17 @@ angular.module('starter.controllers', [])
   $scope.user = UserInfo.get();
 })
 
+.controller('cover', function($scope, $ionicSlideBoxDelegate) {
+  $scope.nextSlide = function() {
+    $ionicSlideBoxDelegate.next();
+  }
+})
+
 .controller('UserCtrl', function($scope, UserInfo, $http) {
   $scope.appointments = {};
   $scope.user = {};
   $scope.user = UserInfo.get();
+
 
   $scope.getAppts = function() {
     $http({

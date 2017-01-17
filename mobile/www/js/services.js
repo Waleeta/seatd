@@ -4,6 +4,10 @@ angular.module('starter.services', [])
   return $resource("http://localhost:3000/businesses.json");
 })
 
+.factory('BusinessShow', function($resource) {
+  return $resource("http://localhost:3000/businesses/:id.json");
+})
+
 .factory('UserInfo', () => {
   const state = {
       data: []

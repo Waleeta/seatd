@@ -1,0 +1,31 @@
+<ion-view view-title="show it!">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-icon-left item-divider item-dark">
+        <i class="icon ion-planet"></i>
+        {{displayedBusiness.business_name}}
+      </div>
+      <div class="item item-body item-stable">
+        <div>
+          <p>{{displayedBusiness.address}}</p>
+          <span>{{'Opens at 9am'}}</span><span>{{'Closes at 6pm'}}</span>
+        </div>
+      </div>
+      <div class="item item-icon-left item-divider item-dark">
+        <i class="icon ion-ios-people"></i>
+        Employees
+      </div>
+      <div class="item item-body item-stable">
+        <div>
+          <h2>{{displayedEmployee.name}}</h2>
+          <p>{{displayedEmployee.description}}</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+<!--   <ion-content class="padding">
+    <p>{{displayedBusiness.business_name}}</p>
+    <p>{{displayedEmployee.name}}</p>
+  </ion-content> -->
+</ion-view>
+
