@@ -27,11 +27,13 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @employee = Employee.find_by(id: params[:employee_id])
+
     respond_to do |format|
       @appointment.employee_id = @employee.id
       service = @employee.services[0].service_type
       service_type = Service.find_by(service_type: service)
       @appointment.service_id = service_type.id
+
       if @appointment.save
         format.html { redirect_to "/businesses/#{session[:business_id]}", notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
@@ -47,6 +49,8 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
+        AppointmentMailer.confirm_email("seatd_booked@gmail.com").deliver_later
+
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
