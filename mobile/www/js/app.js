@@ -75,6 +75,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     }
   })
 
+  .state('app.userProfile', {
+    url: '/profile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/user_profile.html',
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
   .state('app.map', {
     url: '/map',
     views: {

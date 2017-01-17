@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    @appointments = @user.appointments
   end
 
   # GET /users/new
@@ -69,6 +71,11 @@ class UsersController < ApplicationController
     def user_params
       params.permit(:email, :name, :password)
     end
+
+  # def current_user
+  #   p request.headers
+  #   current_user = User.find_by(auth_token: 'request.headers[‘Authorization’]')
+  # end
 end
 
 
