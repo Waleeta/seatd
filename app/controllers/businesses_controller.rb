@@ -4,7 +4,15 @@ class BusinessesController < ApplicationController
   # GET /businesses
   # GET /businesses.json
   def index
-    @businesses = Business.all
+    # @businesses = Business.all
+    if params.has_key?(:service)
+      @services = Service.where(service_type: params[:service])
+      business_ids = @services.map {|service| service.business_id }
+      found_businesses = business_ids.map {|id| Business.find(id) }
+      @businesses = found_businesses
+    else
+      @businesses = Business.all
+    end
   end
 
   # GET /businesses/1
