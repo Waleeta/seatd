@@ -52,4 +52,5 @@
   </platform>
   <icon src="resources/ios/icon/icon-small@3x.png"/>
   <allow-navigation href="http://192.168.166.67:8101"/>
+  <allow-navigation href="http://172.16.0.19:8100"/>
 </widget>

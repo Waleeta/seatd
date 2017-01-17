@@ -1,0 +1,18 @@
+<%= form_tag({controller: "authentication", action: "create"}, method: "post") %>
+
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= email_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Log in" %>
+  </div>
+

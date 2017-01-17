@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log, UserInfo, $rootScope) {
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
 
   //function for logging out
   $scope.logout = function() {
+    UserInfo.clear();
     $location.path('/login')
   };
 
@@ -33,22 +34,19 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function($http) {
-    console.log('Doing login', $scope.loginData);
-    var username = $scope.loginData.username;
-    var password = $scope.loginData.password;
-
-    if (username == 'ferd' && password == 'password') {
-      console.log('hey');
-      $location.path('/app/cover')
-    } else {
-      console.log('fuck it');
-    }
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  $scope.doLogin = function(email, password) {
+    $http.post('http://172.16.0.19:3000/authenticate', {
+      email: $scope.loginData.email,
+      password: $scope.loginData.password
+    }).then(function(response) {
+      window.localStorage['authToken'] = response.data.token;
+      $location.path('/app/cover');
+      $scope.loginData = {};
+      UserInfo.set(response.data.user);
+    }, function(error) {
+      alert('Email or password is incorrect - please try again.')
+      $log.log(error)
+    });
   };
 })
 
@@ -135,7 +133,7 @@ angular.module('starter.controllers', [])
     position: myLatLng,
     animation:google.maps.Animation.BOUNCE,
     map: map,
-    title: 'Hey There!'
+    title: 'Dev Bootcamp'
   });
 
   var markers = [
@@ -216,7 +214,8 @@ angular.module('starter.controllers', [])
   $scope.map = map;
 })
 
-.controller('RegisterCtrl', function($scope, $http, $location) {
+.controller('RegisterCtrl', function($scope, $http, $location, UserInfo) {
+
   $scope.userData = {};
 
     $scope.sendPost = function() {
@@ -225,10 +224,9 @@ angular.module('starter.controllers', [])
         email: $scope.userData.email,
         password: $scope.userData.password
       };
-      console.log(data);
 
       $http({
-        url: 'http://localhost:3000/users',
+        url: 'http://172.16.0.19:3000/users',
         dataType: 'json',
         method: 'POST',
         data: data,
@@ -236,6 +234,8 @@ angular.module('starter.controllers', [])
           "Content-Type": "application/json"
           },
           }).success(function(response){
+            window.localStorage['authToken'] = response.user.auth_token;
+            UserInfo.set(response.user);
             $location.path('/app/cover')
             $scope.userData = {};
           }).error(function(error){
@@ -243,6 +243,7 @@ angular.module('starter.controllers', [])
           });
       }
   })
+
 
 
 
