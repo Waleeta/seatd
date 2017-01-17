@@ -1,7 +1,6 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log, UserInfo, $rootScope) {
-
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -11,7 +10,7 @@ angular.module('starter.controllers', [])
 
   //function for logging out
   $scope.logout = function() {
-    UserInfo.clear();
+    // UserInfo.clear();
     $location.path('/login')
   };
 
@@ -118,7 +117,6 @@ angular.module('starter.controllers', [])
 
 
 .controller("MapCtrl", function($scope) {
-
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -245,13 +243,15 @@ angular.module('starter.controllers', [])
   })
 
 
+.controller('HomeCtrl', function($scope, UserInfo) {
+  $scope.user = {};
+  $scope.user = UserInfo.get();
+})
 
-
-
-
-
-
-
+.controller('UserCtrl', function($scope, UserInfo) {
+  $scope.user = {};
+  $scope.user = UserInfo.get();
+})
 
 
 
