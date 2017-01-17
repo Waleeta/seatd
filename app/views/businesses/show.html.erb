@@ -44,11 +44,10 @@
     <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
 <% end %>
 
-
 <br>
 <br>
 <%= link_to 'Back', businesses_path %>
 <% if owner? %>
     | <%= link_to 'Edit', edit_business_path(@business) %>
-    | <%= link_to 'New Appointment', new_employee_appointment_path(@business) %>
+    | <%= link_to 'New Appointment', new_employee_appointment_path(@employee) %>
 <% end %>
