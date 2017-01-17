@@ -20,11 +20,12 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @business = Business.find_by(id: params[:id])
-    if @business
-      @employee = Employee.find_by(business_id: @business.id)
-      # render "show"
-      # this will work only if the render show is removed
-      render json: { employee: @employee, business: @business }
+    @employee = Employee.find_by(business_id: @business.id)
+    if @business && @employee
+      respond_to do |format|
+        format.html
+        format.json { render json: {employee: @employee, business: @business }}
+      end
     else
       redirect_to root_url
     end
