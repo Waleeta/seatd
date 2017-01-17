@@ -19,9 +19,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers
-    .common['X-Requested-With'];
+  $httpProvider.interceptors.push('AuthInterceptor')
+
 
   $stateProvider
 
@@ -70,7 +69,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'starte
     url: '/cover',
     views: {
       'menuContent': {
-        templateUrl: 'templates/cover.html'
+        templateUrl: 'templates/cover.html',
+        controller: 'HomeCtrl'
       }
     }
   })

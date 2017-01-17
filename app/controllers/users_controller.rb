@@ -27,7 +27,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: {status: :created, location: user_path(@user) }
+      @user.fetch_auth_token!
+      render json: { user: @user }, status: :created, location: user_path(@user)
     else
       render json: {status: :error}, status: :unprocessable_entity
     end
@@ -69,3 +70,40 @@ class UsersController < ApplicationController
       params.permit(:email, :name, :password)
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,25 @@ angular.module('starter.services', [])
 
 .factory('Business', function($resource) {
   return $resource("http://localhost:3000/businesses.json");
-  // return $resource("http://localhost:3000/search.json");
 })
+
+.factory('UserInfo', () => {
+  const state = {
+      data: []
+  };
+  return {
+      get() {
+        return state.data;
+      },
+      set(data) {
+        Object.assign(state.data, data);
+        },
+      clear() {
+        state.data = [];
+      }
+    };
+})
+
 
 .factory('BusinessList', () => {
   // hold a local copy of the state, setting its defaults
@@ -22,5 +39,15 @@ angular.module('starter.services', [])
       },
   };
 })
+
+.factory('AuthInterceptor', function($q) {
+  return {
+    'request': function(config) {
+      config.headers.Authorization = window.localStorage['authToken'];
+      return config;
+    },
+  };
+});
+
 
 
