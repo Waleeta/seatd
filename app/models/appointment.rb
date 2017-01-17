@@ -5,7 +5,15 @@ class Appointment < ActiveRecord::Base
 
   validates :start_time, :end_time, :service_id, :employee_id, {presence: true}
 
+  def date
+    self.start_time.strftime("%A %B, %e")
+  end
 
+  def business_name
+    self.employee.business.business_name
+  end
 
-
+  def employee_name
+    self.employee.name
+  end
 end

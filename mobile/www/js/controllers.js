@@ -1,7 +1,6 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $http, $log, UserInfo, $rootScope) {
-
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -11,7 +10,7 @@ angular.module('starter.controllers', [])
 
   //function for logging out
   $scope.logout = function() {
-    UserInfo.clear();
+    // UserInfo.clear();
     $location.path('/login')
   };
 
@@ -131,7 +130,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller("MapCtrl", function($scope) {
-
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -151,55 +149,55 @@ angular.module('starter.controllers', [])
 
   var markers = [
     {
-      title: 'Manchester Salon', lat: 41.891790, long: -87.635979
+      title: 'Manchester Salon', lat: 41.891790, long: -87.635979, url: '/#/app/businesses'
     }, {
-      title: 'XO Studio', lat: 41.877837, long: -87.654234
+      title: 'XO Studio', lat: 41.877837, long: -87.654234, url: '/#/app/businesses'
     }, {
-      title: 'Cellar Door Salon & Studio', lat: 41.879149, long: -87.652479
+      title: 'Cellar Door Salon & Studio', lat: 41.879149, long: -87.652479, url: '/#/app/businesses'
     }, {
-      title: 'Aria Salon', lat: 41.877423, long: -87.649400
+      title: 'Aria Salon', lat: 41.877423, long: -87.649400, url: '/#/app/businesses'
     }, {
-      title: 'Twisted Scissors', lat: 41.874459, long: -87.650881
+      title: 'Twisted Scissors', lat: 41.874459, long: -87.650881, url: '/#/app/businesses'
     }, {
-      title: 'Taylor Street Tattoo', lat: 41.869622, long: -87.656237
+      title: 'Taylor Street Tattoo', lat: 41.869622, long: -87.656237, url: '/#/app/businesses'
     }, {
-      title: 'Great Lakes Tattoos', lat: 41.891402, long: -87.656549
+      title: 'Great Lakes Tattoos', lat: 41.891402, long: -87.656549, url: '/#/app/businesses'
     }, {
-      title: 'Code of Conduct', lat: 41.869418, long: -87.626827
+      title: 'Code of Conduct', lat: 41.869418, long: -87.626827, url: '/#/app/businesses'
     }, {
-      title: 'Mayday Tattoo Co', lat: 41.891172, long: -87.667746
+      title: 'Mayday Tattoo Co', lat: 41.891172, long: -87.667746, url: '/#/app/businesses'
     }, {
-      title: 'Insight Studios', lat: 41.901056, long: -87.663276
+      title: 'Insight Studios', lat: 41.901056, long: -87.663276, url: '/#/app/businesses'
     }, {
-      title: 'Jewel Nail Spa', lat: 41.879312, long: -87.648838
+      title: 'Jewel Nail Spa', lat: 41.879312, long: -87.648838, url: '/#/app/businesses'
     }, {
-      title: 'Nail Lacquer Salon', lat: 41.880521, long: -87.652392
+      title: 'Nail Lacquer Salon', lat: 41.880521, long: -87.652392, url: '/#/app/businesses'
     }, {
-      title: 'HM Day Spa', lat: 41.881486, long: -87.650510
+      title: 'HM Day Spa', lat: 41.881486, long: -87.650510, url: '/#/app/businesses'
     }, {
-      title: 'Saraya Salon & Spa', lat: 41.862354, long: -87.627224
+      title: 'Saraya Salon & Spa', lat: 41.862354, long: -87.627224, url: '/#/app/businesses'
     }, {
-      title: 'The Hair Loft', lat: 41.882514, long: -87.652943
+      title: 'The Hair Loft', lat: 41.882514, long: -87.652943, url: '/#/app/businesses'
     }, {
-      title: 'Zana', lat: 41.881041, long: -87.656858
+      title: 'Zana', lat: 41.881041, long: -87.656858, url: '/#/app/businesses'
     }, {
-      title: "lillieAnne's Massage & Skincare", lat: 41.883222, long: -87.659096
+      title: "lillieAnne's Massage & Skincare", lat: 41.883222, long: -87.659096, url: '/#/app/businesses'
     }, {
-      title: 'Lustre Skin Boutique', lat: 41.885785, long: -87.652483
+      title: 'Lustre Skin Boutique', lat: 41.885785, long: -87.652483, url: '/#/app/businesses'
     }, {
-      title: 'Smuve Skincare Studio', lat: 41.883518, long: -87.625873
+      title: 'Smuve Skincare Studio', lat: 41.883518, long: -87.625873, url: '/#/app/businesses'
     }, {
-      title: 'Hand & Stone Massage & Facial', lat: 41.868568, long: -87.624520
+      title: 'Hand & Stone Massage & Facial', lat: 41.868568, long: -87.624520, url: '/#/app/businesses'
     }, {
-      title: 'Healthy Zu Spa', lat: 41.883691, long: -87.647659
+      title: 'Healthy Zu Spa', lat: 41.883691, long: -87.647659, url: '/#/app/businesses'
     }, {
-      title: 'Chicago Touch', lat: 41.885239, long: -87.660354
+      title: 'Chicago Touch', lat: 41.885239, long: -87.660354, url: '/#/app/businesses'
     }, {
-      title: 'Oxygen Spa', lat: 41.876265, long: -87.648709
+      title: 'Oxygen Spa', lat: 41.876265, long: -87.648709, url: '/#/app/businesses'
     }, {
-      title: 'Green Spa', lat: 41.883652, long: -87.648709
+      title: 'Green Spa', lat: 41.883652, long: -87.648709, url: '/#/app/businesses'
     }, {
-      title: 'La Vie Massage', lat: 41.881740, long: -87.631963
+      title: 'La Vie Massage', lat: 41.881740, long: -87.631963, url: '/#/app/businesses'
     }
   ];
 
@@ -212,12 +210,23 @@ angular.module('starter.controllers', [])
       content: markers[i].title,
     });
 
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //     return function() {
+    //       infowindow.setContent(markers[i].title);
+    //       infowindow.open(map, marker);
+    //       console.log(markers[i].url);
+    //     }
+    //   })(marker, i));
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(markers[i].title);
-          infowindow.open(map, marker);
+          window.location.href = markers[i].url;
         }
       })(marker, i));
+
+    // google.maps.event.addListener(marker, 'click', function() {
+    //   window.location.href = this.url;
+    // });
   }
 
   navigator.geolocation.getCurrentPosition(function(pos) {
@@ -268,12 +277,27 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('UserCtrl', function($scope, UserInfo, $http) {
+  $scope.appointments = {};
+  $scope.user = {};
+  $scope.user = UserInfo.get();
 
 
+  $scope.getAppts = function() {
+    $http({
+    method: 'GET',
+    url: 'http://172.16.0.19:3000/users/' + $scope.user.id +'.json'
+    }).then(function successCallback(response) {
+      $scope.appointments = response.data.appointments;
+    }, function errorCallback(response) {
+  });
+  }
 
+  $scope.$on('$ionicView.enter', function() {
+     $scope.getAppts();
+  })
 
-
-
+})
 
 
 

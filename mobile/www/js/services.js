@@ -19,9 +19,9 @@ angular.module('starter.services', [])
       set(data) {
         Object.assign(state.data, data);
         },
-      clear() {
-        state.data = [];
-      }
+      // clear() {
+      //   state.data = [];
+      // }
     };
 })
 
@@ -51,7 +51,7 @@ angular.module('starter.services', [])
       return config;
     },
   };
-});
+})
 
 
 

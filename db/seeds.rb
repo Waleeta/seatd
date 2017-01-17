@@ -223,21 +223,21 @@ client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31
 
 client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-23 09:00:00"), end_time: DateTime.parse("2016-12-23 11:00:00"), service_id: 12, employee_id: 7)
 
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 10)
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
 
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 10)
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 7)
 
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 73)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
 
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 71)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 4)
 
-noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 66)
+noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 5)
 
-avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 9)
+avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 6)
 
 duke_stylist.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
 
-ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 7)
+ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 5)
 
-bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-20 11:00:00"), service_id: 47)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-20 11:00:00"), service_id: 3)
 
