@@ -27,3 +27,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+    <p>Please select a category to add services:</p>
+      <%= form_for :service, :url => categories_path, :html => {:method => :post} do |f| %>
+        <%= f.collection_select(:category_type, Category.all, :category_type, :category_type ) %>
+        <%= f.submit "Submit" %>
+      <% end %>

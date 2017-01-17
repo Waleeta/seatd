@@ -31,16 +31,8 @@
 <br>
 
 <br>
-<!-- FORM FOR NEW CATEGORY -->
-<% if owner? %>
-  <% if @business.categories.length == 0 %>
-    <p>Please select a category to add services:</p>
-      <%= form_for :category, :url => categories_path, :html => {:method => :post} do |f| %>
-        <%= f.collection_select(:category_type, Category.all, :category_type, :category_type ) %>
-        <%= f.submit "Submit" %>
-      <% end %>
-    <% end %>
-<% end %>
+
+
 <!-- Need to list these in order and under the same day only -->
 <% if @business.employees.length > 0 %>
   <% if @employee.has_appointments? %>
