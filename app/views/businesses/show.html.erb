@@ -31,21 +31,36 @@
 <br>
 
 <br>
-<% if @employee.has_appointments? %>
-    <% @employee.appointments.each do |appointment| %>
-      <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
-        <h4><%= month_and_date(appointment.start_time) %> </h4>
-        <p><%= date_time_helper(appointment.start_time) %></p><br>
+<!-- FORM FOR NEW CATEGORY -->
+<% if owner? %>
+  <% if @business.categories.length == 0 %>
+    <p>Please select a category to add services:</p>
+      <%= form_for :category, :url => categories_path, :html => {:method => :post} do |f| %>
+        <%= f.collection_select(:category_type, Category.all, :category_type, :category_type ) %>
+        <%= f.submit "Submit" %>
       <% end %>
     <% end %>
- <% else %>
-    <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+<% end %>
+<!-- Need to list these in order and under the same day only -->
+<% if @business.employees.length > 0 %>
+  <% if @employee.has_appointments? %>
+      <% @employee.appointments.each do |appointment| %>
+        <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
+          <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
+          <p><%= date_time_helper(appointment.start_time) %></p><br>
+        <% end %>
+      <% end %>
+   <% else %>
+      <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+  <% end %>
 <% end %>
 
-<br>
-<br>
 <%= link_to 'Back', businesses_path %>
 <% if owner? %>
     | <%= link_to 'Edit', edit_business_path(@business) %>
+    | <%= link_to 'Add Employee', new_employee_path%>
+<% end %>
+
+<% if owner? && @business.employees.length > 0 %>
     | <%= link_to 'New Appointment', new_employee_appointment_path(@employee) %>
 <% end %>
