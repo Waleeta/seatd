@@ -24,7 +24,7 @@ class Business < ActiveRecord::Base
     if @raw_password.length < 5
       errors.add(:password, "Password must be at least 5 characters")
     end
-   end
+  end
 
   def authenticate(password)
     self.password == password
@@ -37,4 +37,5 @@ class Business < ActiveRecord::Base
   def pretty_close_time
     self.close_at.strftime("%l:%M %P")
   end
+
 end

@@ -23,11 +23,16 @@
     <%= f.label :photo %><br>
     <%= f.text_field :photo %>
   </div>
-  <div class="field">
-    <%= f.label :business_id %><br>
-    <%= f.number_field :business_id %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<!-- NOT WORKING, NEEDS FIXING -->
+<!-- From whatever category is chosen, the relevant services should be << to the business.services -->
+
+    <p>Please select a category to add services:</p>
+      <%= form_for :service, :url => categories_path, :html => {:method => :post} do |f| %>
+        <%= f.collection_select(:category_type, Category.all, :category_type, :category_type ) %>
+        <%= f.submit "Submit" %>
+      <% end %>

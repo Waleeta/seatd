@@ -105,7 +105,7 @@ west_facial = hand_skin.employees.create!(name: "West", description: "One of the
 
 emily_facial = smuve_skin.employees.create!(name: "Emily", description: "The smiliest one in the room, Emily not only rejeuvenates your skin, but leaves you smiling and glowing.", photo: "https://media.licdn.com/media/p/8/005/07c/173/3432621.jpg")
 
-nick_nails = saraya_nail.employees.create!(name: "Nick", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://media.licdn.com/media/p/8/005/07c/173/3432621.jpg" )
+nick_nails = saraya_nail.employees.create!(name: "Nick", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://pbs.twimg.com/profile_images/778764375649902596/HTXzyDpP.jpg" )
 
 justin_nails = hm_nails.employees.create!(name: "Justin", description: "Justin is not only an artist in the world, he is an artist with your nails. Trust your hands in his.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAlHAAAAJDg5ZTljZDA2LWVkMDItNDJmNS04MDhhLTZmMTE2MjYyYmU0MQ.jpg")
 

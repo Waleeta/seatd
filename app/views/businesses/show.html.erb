@@ -29,25 +29,26 @@
   <% end %>
 <% end %>
 <br>
+
 <br>
 
-<!-- NEW -->
-<%= full_day  %>
-<br>
-<% if @employee.has_appointments? %>
-    <% @employee.appointments.each do |appointment| %>
-      <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
-        <%= date_time_helper(appointment.start_time) %><br>
+
+<!-- Need to list these in order and under the same day only -->
+<% if @business.employees.length > 0 %>
+  <% if @employee.has_appointments? %>
+      <% @employee.appointments.each do |appointment| %>
+        <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
+          <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
+          <p><%= date_time_helper(appointment.start_time) %></p><br>
+        <% end %>
       <% end %>
-    <% end %>
- <% else %>
-    <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+   <% else %>
+      <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
+  <% end %>
 <% end %>
 
-<br>
-<br>
 <%= link_to 'Back', businesses_path %>
-<% if owner? %>
-    | <%= link_to 'Edit', edit_business_path(@business) %>
+
+<% if owner? && @business.employees.length > 0 %>
     | <%= link_to 'New Appointment', new_employee_appointment_path(@employee) %>
 <% end %>

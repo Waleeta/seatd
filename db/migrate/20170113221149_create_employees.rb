@@ -3,7 +3,7 @@ class CreateEmployees < ActiveRecord::Migration
     create_table :employees do |t|
       t.string :name, null: false
       t.string :description, null: false
-      t.string :photo, null: false, default: "http://www.billboard.com/files/styles/article_main_image/public/media/cher-press-2014-650-430.jpg"
+      t.string :photo, null: false, default: "https://s-media-cache-ak0.pinimg.com/736x/48/14/d7/4814d77525b02730db6817b135cf3d5f.jpg"
       t.integer :business_id, null: false
 
       t.timestamps null: false

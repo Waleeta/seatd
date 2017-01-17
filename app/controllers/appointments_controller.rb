@@ -33,7 +33,7 @@ class AppointmentsController < ApplicationController
       service_type = Service.find_by(service_type: service)
       @appointment.service_id = service_type.id
       if @appointment.save
-        format.html { redirect_to root_url, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to "/businesses/#{session[:business_id]}", notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }
