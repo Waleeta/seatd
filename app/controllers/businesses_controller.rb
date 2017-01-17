@@ -18,13 +18,15 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1
   # GET /businesses/1.json
-  def show
+    def show
     @business = Business.find_by(id: params[:id])
-    if @business
-      @employee = Employee.find_by(business_id: @business.id)
-      # render "show"
-      # this will work only if the render show is removed
-      render json: { employee: @employee, business: @business }
+    @employee = Employee.find_by(business_id: @business.id)
+    # render json: { employee: @employee, business: @business }
+    if @business && @employee
+      respond_to do |format|
+        format.html
+        format.json { render json: {employee: @employee, business: @business, appointments: @employee.available_appointments }}
+      end
     else
       redirect_to root_url
     end
@@ -41,6 +43,8 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
+    @business = Business.find(params[:id])
+    redirect_to root_url unless @business.id == session[:business_id]
   end
 
   # POST /businesses
@@ -76,6 +80,8 @@ class BusinessesController < ApplicationController
   # DELETE /businesses/1
   # DELETE /businesses/1.json
   def destroy
+    redirect_to root_url unless @business.id == session[:business_id]
+
     @business.destroy
     respond_to do |format|
       format.html { redirect_to businesses_url, notice: 'Business was successfully destroyed.' }
@@ -84,13 +90,10 @@ class BusinessesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find_by(id: params[:id])
-
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
       params.require(:business).permit(:business_name, :address, :open_at, :close_at, :lat, :long, :password, :email)
     end

@@ -10,6 +10,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    @appointment = Appointment.find(params[:id])
   end
 
   # GET /appointments/new
@@ -27,13 +28,15 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @employee = Employee.find_by(id: params[:employee_id])
+
     respond_to do |format|
       @appointment.employee_id = @employee.id
       service = @employee.services[0].service_type
       service_type = Service.find_by(service_type: service)
       @appointment.service_id = service_type.id
+
       if @appointment.save
-        format.html { redirect_to root_url, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to "/businesses/#{session[:business_id]}", notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }
@@ -45,14 +48,12 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
-    respond_to do |format|
-      if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @appointment }
-      else
-        format.html { render :edit }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
-      end
+    @appointment = Appointment.find_by(id: params[:id])
+    if @appointment.update(appointment_params)
+      AppointmentMailer.confirm_email("seatd.booked@gmail.com", @appointment).deliver_now
+      render json: { }, status: :ok
+    else
+      render json: { }, status: :unprocessable_entity
     end
   end
 
@@ -72,6 +73,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:start_time, :end_time, :client_id, :service_id, :employee_id)
+      params.require(:appointment).permit(:start_time, :end_time, :client_id, :service_id, :employee_id, :booked)
     end
 end

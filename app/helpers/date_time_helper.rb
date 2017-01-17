@@ -30,7 +30,6 @@ module DateTimeHelper
 
   def day_after_tomorrow
     day_after = tomorrow_date.to_i+1
-    p day_after
     day_after
   end
 

@@ -31,6 +31,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -47,7 +48,5 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<!--   <div class="actions">
-    <%= f.submit %>
-  </div> -->
-<% end %>
+  <% end %>
+

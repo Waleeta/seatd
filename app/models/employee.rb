@@ -7,12 +7,31 @@ class Employee < ActiveRecord::Base
 
   validates :name, :description, :photo, :business_id, {presence: true}
 
+  def has_current_appointments?
+    if has_appointments?
+      self.appointments.each do |appt|
+        if DateTime.parse(appt.start_time.to_s) <= 2.days.from_now
+          return true
+        end
+      end
+    end
+  end
+
   def has_appointments?
-    self.appointments.length > 0
+      self.appointments.length > 0
   end
 
   def today_or_after?
     Date.parse(self.appointment.start_time.to_s) >= Date.parse(Date.today.to_s)
   end
 
+  def available_appointments
+    available_appointments = []
+    self.appointments.each do |a|
+      if DateTime.parse(a.start_time.to_s) <= 2.days.from_now && a.booked == false
+        available_appointments << a
+      end
+    end
+    return available_appointments
+  end
 end

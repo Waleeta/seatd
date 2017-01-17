@@ -25,10 +25,12 @@ class EmployeesController < ApplicationController
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-
+    @employee.business_id = session[:business_id]
+    service = @business.services[0]
+    @employee.services << service
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to "/businesses/#{session[:business_id]}", notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
