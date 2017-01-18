@@ -58,5 +58,13 @@ class Employee < ActiveRecord::Base
     self.appointments.group_by(&:start_time)
   end
 
+  def appointments
+    appointments.each do |a|
+      a.start_time = a.strftime("%A, %I:%M")
+      a.save
+    end
+    return appointments
+  end
+
 
 end
