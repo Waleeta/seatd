@@ -118,7 +118,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
+.controller('BusinessCtrl', function(BusinessList, $scope, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
 
   $scope.slideToPage = function(route) {
