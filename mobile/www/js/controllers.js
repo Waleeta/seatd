@@ -94,6 +94,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.findBusinesses = function() {
+    BusinessList.clear();
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
     if ($scope.businessSearch.name != null) {
       $http({
@@ -252,6 +253,7 @@ angular.module('starter.controllers', [])
       position: new google.maps.LatLng(markers[i].lat, markers[i].long),
       map: map
     });
+    marker.setVisible(false)
     infowindow = new google.maps.InfoWindow({
       content: markers[i].title,
     });
