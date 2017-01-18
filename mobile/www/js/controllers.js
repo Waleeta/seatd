@@ -250,12 +250,15 @@ angular.module('starter.controllers', [])
     }
   ];
 
+  var madeMarkers = [];
+
   for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(markers[i].lat, markers[i].long),
       map: map
     });
-    marker.setVisible(false)
+    marker.setVisible(false);
+    madeMarkers.push(marker)
     infowindow = new google.maps.InfoWindow({
       content: markers[i].title,
     });
@@ -287,21 +290,23 @@ angular.module('starter.controllers', [])
 
   filterMarkers = function(businessName) {
       for (i = 0; i < markers.length; i++) {
-        if (markers[i].title == businessName) {
-          markers[i].setVisible(true);
-          console.log(markers[i]);
+        marker = madeMarkers[i]
+        if (marker.title == businessName) {
+          marker.setVisible(true);
+          console.log(marker);
         } else {
-          markers[i].setVisbile(false);
-          console.log(markers[i])
+          marker.setVisbile(false);
+          console.log(marker)
         }
       }
     }
 
     var searchedBusinesses = BusinessList.get();
 
-    for (i=0; i < searchedBusinesses.length; i++) {
-      filterMarkers(searchedBusinesses[i].business_name);
-    }
+    angular.forEach(searchedBusinesses, function(business, key) {
+      console.log('in loop')
+      filterMarkers(business.business_name);
+    })
 })
 
 .controller('RegisterCtrl', function($scope, $http, $location, UserInfo) {
