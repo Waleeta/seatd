@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location, $rootScope) {
+.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location) {
 
   $scope.myTitle = 'Template';
 
@@ -94,7 +94,6 @@ angular.module('starter.controllers', [])
   }
 
   $scope.findBusinesses = function() {
-    $rootScope.stuff = 'fudge brownie sunday'
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
     console.log($scope.businessSearch);
     if ($scope.businessSearch.name != null) {
@@ -103,6 +102,21 @@ angular.module('starter.controllers', [])
         // console.log(response);
         BusinessList.set(response);
         $location.path('/app/businesses')
+      });
+    } else {
+      console.log('must select a service')
+    }
+  };
+
+  $scope.findBusinessesMap = function() {
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
+    console.log($scope.businessSearch);
+    if ($scope.businessSearch.name != null) {
+      console.log($scope.businessSearch.name)
+      Business.query({'service': $scope.businessSearch.name }).$promise.then(function(response){
+        // console.log(response);
+        BusinessList.set(response);
+        $location.path('/app/map')
       });
     } else {
       console.log('must select a service')
@@ -169,7 +183,7 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller("MapCtrl", function($scope) {
+.controller("MapCtrl", function($scope, BusinessList) {
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -252,9 +266,9 @@ angular.module('starter.controllers', [])
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
+          console.log(BusinessList.get());
           infowindow.setContent(markers[i].title);
           infowindow.open(map, marker);
-          console.log(markers[i].url);
         }
       })(marker, i));
 
