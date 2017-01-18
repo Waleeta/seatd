@@ -49,4 +49,3 @@ angular.module('starter.controllers', [])
     });
   };
 })
-
