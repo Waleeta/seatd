@@ -137,16 +137,38 @@ span {
   font-size: 30px;
 }
 
+.business-title-container p {
+  padding: 4px;
+  font-family: 'Lobster', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
 .business-container {
   border-radius: 6px;
   background: white;
 }
 
 .business-details {
-  padding: 0px 20px 30px 20px;
+  padding: 0px 20px 10px 0px;
+}
+
+.business-details span {
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .image-container {
+}
+
+.employee-title-container p {
+  padding: 4px;
+  font-family: 'Lobster', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
 }
 
 .employee-details {
@@ -154,13 +176,13 @@ span {
 }
 
 .employee-details h2 {
-  font-family: 'Josefin Slab', serif;
+  font-family: 'Lobster', cursive;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .employee-details p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .employee-image {
@@ -174,5 +196,24 @@ span {
 
 .booking-container {
   margin-top: 25px;
+  padding:5px;
+  border-bottom: 1px solid gray;
+}
+
+.booking-container i {
+  padding-right: 5px;
+  font-size: 22px;
+}
+
+.booking-time {
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.booking-button {
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
