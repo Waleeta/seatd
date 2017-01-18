@@ -51,6 +51,7 @@ class AppointmentsController < ApplicationController
     @employee = Employee.find(params[:employee_id])
     @appointment = Appointment.find_by(id: params[:id])
     if @appointment.update(appointment_params)
+      p @appointment.start_time.class
       AppointmentMailer.confirm_email("seatd.booked@gmail.com", @appointment, @employee).deliver_now
       render json: { }, status: :ok
     else
