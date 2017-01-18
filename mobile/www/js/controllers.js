@@ -291,21 +291,24 @@ angular.module('starter.controllers', [])
   filterMarkers = function(businessName) {
       for (i = 0; i < markers.length; i++) {
         marker = madeMarkers[i]
+        console.log(marker)
         if (marker.title == businessName) {
           marker.setVisible(true);
           console.log(marker);
         } else {
-          marker.setVisbile(false);
-          console.log(marker)
+          marker.setVisible(false);
         }
       }
     }
 
     var searchedBusinesses = BusinessList.get();
 
-    angular.forEach(searchedBusinesses, function(business, key) {
-      console.log('in loop')
-      filterMarkers(business.business_name);
+    $scope.$on('$ionicView.enter', function() {
+      angular.forEach(searchedBusinesses, function(business, key) {
+        console.log('in loop')
+        filterMarkers(business.business_name);
+        console.log(business.business_name);
+      })
     })
 })
 
