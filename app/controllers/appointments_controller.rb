@@ -48,9 +48,10 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    @employee = Employee.find(params[:employee_id])
     @appointment = Appointment.find_by(id: params[:id])
     if @appointment.update(appointment_params)
-      AppointmentMailer.confirm_email("seatd.booked@gmail.com").deliver_now
+      AppointmentMailer.confirm_email("seatd.booked@gmail.com", @appointment, @employee).deliver_now
       render json: { }, status: :ok
     else
       render json: { }, status: :unprocessable_entity
