@@ -99,17 +99,17 @@ naomi_hair = xo_salon.employees.create!(name: "Naomi", description: "Naomi is on
 
 bobby_hair = aria_salon.employees.create!(name: "Bobby Gervais", description: "He has tamed his own mane, and can tame yours too.", photo: "https://s-media-cache-ak0.pinimg.com/originals/3c/b2/54/3cb254b0d377a2dedf77bf1b622c515e.png")
 
-nick_massage = oxygen_massage.employees.create!(name: "Nick", description: "Nick began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAfJAAAAJDE0MzFjN2FlLTFhMDItNDhmNC04OWY3LTRmZjJiY2E0MDMyOA.jpg")
+ed_massage = oxygen_massage.employees.create!(name: "Eddie", description: "Eddie began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/p/8/005/064/1d2/1fad9b3.jpg")
 
 west_facial = hand_skin.employees.create!(name: "West", description: "One of the best skincare specialists around, and brightens up the entire room when she's here.", photo: "https://media.licdn.com/media/p/3/000/017/37a/2be7712.jpg")
 
 emily_facial = smuve_skin.employees.create!(name: "Emily", description: "The smiliest one in the room, Emily not only rejeuvenates your skin, but leaves you smiling and glowing.", photo: "https://media.licdn.com/media/p/8/005/07c/173/3432621.jpg")
 
-nick_nails = saraya_nail.employees.create!(name: "Nick", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://pbs.twimg.com/profile_images/778764375649902596/HTXzyDpP.jpg" )
+nick_nails = saraya_nail.employees.create!(name: "Nicky", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://pbs.twimg.com/profile_images/778764375649902596/HTXzyDpP.jpg" )
 
 justin_nails = hm_nails.employees.create!(name: "Justin", description: "Justin is not only an artist in the world, he is an artist with your nails. Trust your hands in his.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAlHAAAAJDg5ZTljZDA2LWVkMDItNDJmNS04MDhhLTZmMTE2MjYyYmU0MQ.jpg")
 
-waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAkrAAAAJGY4MGViOWU4LTg3OWMtNDcwNC05NGNiLWRjYjliMGYxYTM3NA.jpg")
+waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://avatars1.githubusercontent.com/u/19413495?v=3&s=400")
 
 sam_nails = jewel_nail.employees.create!(name: "Sam", description: "Sam is the Picasso of nail art. But she stays within the lines.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAc-AAAAJDgyZmRlZDRkLTcxMWQtNDRjYS1iMTYwLWNkMzYyNDQwZWZhMg.jpg")
 
@@ -228,8 +228,8 @@ molly_massage.services.create!(service_type: "deep tissue massage", category_id:
 molly_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 22)
 
 #BUSINESS 23 HAS ALL SERVICES
-nick_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 23)
-nick_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
+ed_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 23)
+ed_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
 
 #BUSINESS 24 HAS ALL SERVICES
 katie_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
@@ -241,20 +241,20 @@ matt_masseuse.services.create!(service_type: "deep tissue massage", category_id:
 # END SERVICES
 
 
-
 #OUR SINGLE USER
 client = User.create!(name: "samleetin", password: "password", email: "samleetin@gmail.com")
 
 
 #BEGIN APPOITMENTS:
-# MUST BE REDONE
 
 
 # PREVIOUS APPOINTMENTS FOR OUR ONE USER:
 client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31 09:00:00"), end_time: DateTime.parse("2016-12-31 11:00:00"), service_id: 1, employee_id: 1)
 client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-23 09:00:00"), end_time: DateTime.parse("2016-12-23 11:00:00"), service_id: 12, employee_id: 7)
 
-naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+
+# ALL CURRENT APPOINTMENTS
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 2)
 naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 11:00:00"), end_time: DateTime.parse("2017-01-22 12:00:00"), service_id: 1)
 naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 3)
 
@@ -266,25 +266,68 @@ bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"
 bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 2)
 bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 10:00:00"), end_time: DateTime.parse("2017-01-22 11:00:00"), service_id: 3)
 
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 3)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 2)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 3)
 
 
-tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 4)
-tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 9)
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 4)
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 9)
+
+noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 4)
+noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+
+ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
 
 
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 8)
+pete_piercer.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
+pete_piercer.appointments.create!(start_time: DateTime.parse("2017-01-21 16:00:00"), end_time: DateTime.parse("2017-01-21 18:00:00"), service_id: 9)
+
+em_pierce.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
+em_pierce.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+
+sam_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 10)
+sam_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 11)
+
+waleeta_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 11)
+waleeta_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 10)
+
+justin_nails.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 10)
+justin_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 11)
 
 
-# noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 5)
+nick_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 10)
+nick_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 11)
 
-# avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 6)
+jones_nails.appointments.create!(start_time: DateTime.parse("2017-01-20 17:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 10)
+jones_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 08:00:00"), end_time: DateTime.parse("2017-01-21 09:00:00"), service_id: 11)
 
-# duke_stylist.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+alyssa_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 17:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 5)
+alyssa_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 6)
 
-# ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 5)
+avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 6)
+avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 5)
 
-# bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-20 11:00:00"), service_id: 3)
+jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 16)
+jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 6)
 
+emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 6)
+emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 5)
+
+west_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 5)
+
+ken_massage.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
+ken_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+
+
+molly_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+molly_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 7)
+
+ed_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 7)
+ed_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+
+katie_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 7)
+katie_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 15:00:00"), end_time: DateTime.parse("2017-01-21 16:00:00"), service_id: 8)
+
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 7)
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-22 11:00:00"), end_time: DateTime.parse("2017-01-22 12:00:00"), service_id: 8)

@@ -1,15 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Thank you to all our Employees</h1>
+<h1>Thanks for playing, everyone! </h1>
 
 <% @employees.each do |employee| %>
-    <img src="<%= employee.photo %>" width="200" height="200">
-    <br>
-  <%= employee.description %>
+    <img src="<%= employee.photo %>" width="200" height="200">  <h3> <%= employee.description %> </h3>
   <br>
-
 <% end %>
 
-<br>
-
-<%= link_to 'New Employee', new_employee_path %>
