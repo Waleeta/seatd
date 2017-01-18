@@ -20,27 +20,25 @@
 
 <% if @business.employees.length > 0 %>
   <% @business.employees.each do |employee| %>
-    <h2>Available Hours for <%= employee.name %></h2>
     <br>
     <br>
-
-     <img src="<%= employee.photo %>" width="200" height="200" >
-     <p><strong><%= employee.description%></strong> </p>
+    <img src="<%= employee.photo %>" width="200" height="200" >
+    <p><strong><%= employee.description%></strong> </p>
+    <br>
+<h2>Available Hours for <%= employee.name %></h2>
   <% end %>
 <% end %>
 <br>
-
 <br>
 
 
 <!-- Need to list these in order and under the same day only -->
-<% if @business.employees.length > 0 && @employee.has_current_appointments? %>
-    <% @employee.appointments.each do |appointment| %>
-      <% if DateTime.parse(appointment.start_time.to_s) <= 2.days.from_now && appointment.start_time >= Date.yesterday %>
-        <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
-        <p><%= date_time_helper(appointment.start_time) %></p><br>
-      <% end %>
-    <% end %>
+
+<% @employee.sorted_appointments.each do |appointment|  %>
+  <% if DateTime.parse(appointment.start_time.to_s) <= 3.days.from_now && appointment.start_time >= Date.yesterday %>
+    <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
+    <p><%= date_time_helper(appointment.start_time) %></p><br>
+  <% end %>
 <% end %>
 
 <% if !@employee.has_current_appointments? %>

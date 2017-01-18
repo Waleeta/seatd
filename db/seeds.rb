@@ -246,23 +246,37 @@ matt_masseuse.services.create!(service_type: "deep tissue massage", category_id:
 client = User.create!(name: "samleetin", password: "password", email: "samleetin@gmail.com")
 
 
-
-
 #BEGIN APPOITMENTS:
 # MUST BE REDONE
 
 
-# client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31 09:00:00"), end_time: DateTime.parse("2016-12-31 11:00:00"), service_id: 1, employee_id: 1)
+# PREVIOUS APPOINTMENTS FOR OUR ONE USER:
+client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31 09:00:00"), end_time: DateTime.parse("2016-12-31 11:00:00"), service_id: 1, employee_id: 1)
+client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-23 09:00:00"), end_time: DateTime.parse("2016-12-23 11:00:00"), service_id: 12, employee_id: 7)
 
-# client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-23 09:00:00"), end_time: DateTime.parse("2016-12-23 11:00:00"), service_id: 12, employee_id: 7)
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 11:00:00"), end_time: DateTime.parse("2017-01-22 12:00:00"), service_id: 1)
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 3)
 
-# matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 3)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 2)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 1)
 
-# matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 7)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 20:00:00"), service_id: 1)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 2)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 10:00:00"), end_time: DateTime.parse("2017-01-22 11:00:00"), service_id: 3)
 
-# erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 3)
 
-# erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 4)
+
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 4)
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 9)
+
+
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 8)
+
 
 # noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 5)
 

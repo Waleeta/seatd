@@ -36,4 +36,10 @@ class Employee < ActiveRecord::Base
     end
     return available_appointments
   end
+
+  def sorted_appointments
+    self.appointments.sort_by {|appt| DateTime.parse(appt.start_time.to_s).day}
+  end
+
+
 end
