@@ -143,6 +143,7 @@ angular.module('starter.controllers', [])
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
       }).success(function(response){
         BusinessList.set(response.businesses);
+        console.log(BusinessList.get());
         $location.path('/app/map')
       })
     } else {
@@ -182,6 +183,7 @@ angular.module('starter.controllers', [])
   //   })
   // }
 })
+
 
 .controller('BusinessCtrl', function(BusinessList, $scope) {
   $scope.displayedBusinesses = BusinessList.get();
@@ -312,18 +314,22 @@ angular.module('starter.controllers', [])
     }
   ];
 
+  var madeMarkers = [];
+
   for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(markers[i].lat, markers[i].long),
-      map: map
+      map: map,
+      title: markers[i].title,
     });
+    marker.setVisible(false);
+    madeMarkers.push(marker)
     infowindow = new google.maps.InfoWindow({
       content: markers[i].title,
     });
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          console.log(BusinessList.get());
           infowindow.setContent(markers[i].title);
           infowindow.open(map, marker);
         }
@@ -345,6 +351,29 @@ angular.module('starter.controllers', [])
   });
 
   $scope.map = map;
+
+  var showMarkers = []
+
+  filterMarkers = function(businessName) {
+      for (i = 0; i < markers.length; i++) {
+        marker = madeMarkers[i]
+        if (marker.title == businessName) {
+          showMarkers.push(marker)
+        }
+      }
+    }
+
+    var searchedBusinesses = BusinessList.get();
+
+    $scope.$on('$ionicView.enter', function() {
+      angular.forEach(searchedBusinesses, function(business, key) {
+        filterMarkers(business.business_name);
+      });
+
+      angular.forEach(showMarkers, function(marker, key) {
+        marker.setVisible(true);
+      });
+    })
 })
 
 .controller('RegisterCtrl', function($scope, $http, $location, UserInfo) {
@@ -412,19 +441,5 @@ angular.module('starter.controllers', [])
   })
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
