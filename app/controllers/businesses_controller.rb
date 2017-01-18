@@ -14,16 +14,15 @@ class BusinessesController < ApplicationController
 
       # ORIGINAL CODE ABOVE
       businesses_with_appts = found_businesses.select {|business| business.appointments.length > 0}
-      open_appts = []
+      bizzes_with_avail_appts = []
       businesses_with_appts.each do |business|
         business.appointments.each do |appt|
-          if appt.booked == false && appt.within_two_days?
-            open_appts << appt.business_object
+          if appt.booked == false && appt.within_two_days? && !bizzes_with_avail_appts.include?(business)
+            bizzes_with_avail_appts << appt.business_object
           end
         end
-        @businesses = open_appts
+        @businesses = bizzes_with_avail_appts
       end
-      p @businesses
       render json: { businesses: @businesses }
       # END NEW CODE
     else
