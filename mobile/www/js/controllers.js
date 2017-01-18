@@ -369,11 +369,14 @@ angular.module('starter.controllers', [])
     var searchedBusinesses = BusinessList.get();
 
     $scope.$on('$ionicView.enter', function() {
+      console.log("hello")
       angular.forEach(searchedBusinesses, function(business, key) {
+        console.log("al;skdjf")
         filterMarkers(business.business_name);
       });
 
       angular.forEach(showMarkers, function(marker, key) {
+        console.log('whomp whomp')
         marker.setVisible(true);
       });
     })
