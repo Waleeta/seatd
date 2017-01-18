@@ -35,6 +35,9 @@ angular.module('starter.services', [])
       set(data) {
         Object.assign(state.data, data);
       },
+      clear() {
+        state.data = [];
+      }
   };
 })
 

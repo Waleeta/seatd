@@ -54,8 +54,6 @@ angular.module('starter.controllers', [])
 
   $scope.myTitle = 'Template';
 
-  $scope.data = { 'miles' : '1' };
-
   $scope.distanceMiles = null;
 
   $scope.miles = [{
@@ -123,8 +121,9 @@ angular.module('starter.controllers', [])
   }
 
   $scope.findBusinesses = function() {
+    BusinessList.clear();
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.distanceMiles };
-    if ($scope.businessSearch.name != null) {
+    if ($scope.businessSearch.name != null && $scope.businessSearch.miles != null) {
       $http({
         url: 'http://172.16.0.19:3000/businesses.json?service=' + $scope.businessSearch.name,
       }).success(function(response){
@@ -135,8 +134,9 @@ angular.module('starter.controllers', [])
   };
 
   $scope.findBusinessesMap = function() {
+    BusinessList.clear();
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.distanceMiles };
-    if ($scope.businessSearch.name != null) {
+    if ($scope.businessSearch.name != null && $scope.businessSearch.miles != null) {
       $http({
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
       }).success(function(response){
