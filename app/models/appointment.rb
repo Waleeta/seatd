@@ -25,5 +25,4 @@ class Appointment < ActiveRecord::Base
     Date.parse(self.start_time.to_s) <= 3.days.from_now && self.start_time >= Date.yesterday
   end
 
-
 end
