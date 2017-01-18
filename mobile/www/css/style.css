@@ -20,6 +20,12 @@ span {
   text-align: center;
 }
 
+.login-register-container{
+  margin-top: 100px;
+  padding: 20px;
+  margin-right: 20px;
+}
+
 .search-title {
   color: #8A8A8A;
   font-weight: bold;
@@ -54,16 +60,29 @@ span {
   height: 400px;
 }
 
+.login-slide-container {
+  height: 600px;
+  margin: 20px;
+}
+
 .logo-header {
   left: 10%;
   right: 10%;
 }
 
+.register-container {
+  padding: 20px;
+}
+
+.register-login-head {
+
+}
+
 
 .slide-content {
   top: 25%;
-  left: 15%;
-  right: 15%;
+  left: 10%;
+  right: 10%;
   padding: 10px;
   position: absolute;
 }
@@ -79,8 +98,8 @@ span {
 .sub-text {
   text-align: center;
   font-family: 'Josefin Slab', serif;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: 30px;
   display: block;
   font-size: 20px;
