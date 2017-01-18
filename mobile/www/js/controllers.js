@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location, $rootScope) {
+.controller('ScrollCtrl', function(BusinessList, $http, $scope, $timeout, $location) {
 
   $scope.myTitle = 'Template';
 
@@ -94,34 +94,40 @@ angular.module('starter.controllers', [])
   }
 
   $scope.findBusinesses = function() {
-    $rootScope.stuff = 'fudge brownie sunday'
-    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
-    console.log($scope.businessSearch);
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
     if ($scope.businessSearch.name != null) {
-      console.log($scope.businessSearch.name)
-      Business.query({'service': $scope.businessSearch.name }).$promise.then(function(response){
-        // console.log(response);
-        BusinessList.set(response);
+      $http({
+        url: 'http://172.16.0.19:3000/businesses.json?service=' + $scope.businessSearch.name,
+      }).success(function(response){
+        BusinessList.set(response.businesses);
         $location.path('/app/businesses')
-      });
-    } else {
-      console.log('must select a service')
+      })
     }
-  }
+  };
 
+  $scope.findBusinessesMap = function() {
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
+    if ($scope.businessSearch.name != null) {
+      $http({
+        url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
+      }).success(function(response){
+        BusinessList.set(response.businesses);
+        $location.path('/app/map')
+      })
+    }
+  };
 })
 
 .controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
 
   $scope.slideToPage = function(route) {
-    console.log('derp');
     $location.path('/businesses/' + route)
   }
   // var parsedDate = new Date(iso stamp)
 })
 
-.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo) {
+.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo, $ionicPopup) {
   BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
     $scope.displayedBusiness = response.business;
     $scope.displayedEmployee = response.employee;
@@ -129,17 +135,18 @@ angular.module('starter.controllers', [])
   })
 
 
+
+
   $scope.bookAppointment = function() {
     $scope.user = UserInfo.get();
-    var id = $scope.user.id;
 
     var data = {
-      client_id: id,
+      client_id: $scope.user.id,
       booked: true
     };
 
     $http({
-      url: 'http://172.16.0.19:3000/employees/' + $scope.displayedEmployee.id + '/appointments/' + this.appt.id,
+      url: 'http://172.16.0.19:3000/employees/' + $scope.displayedEmployee.id + '/appointments/' + $scope.id,
       method: 'PUT',
       data: data,
       headers: {
@@ -149,11 +156,26 @@ angular.module('starter.controllers', [])
           console.log(data);
           console.log('updated');
         });
-    }
+    };
 
+    $scope.showConfirm = function() {
+      $scope.id = this.appt.id
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Book Appointment',
+        template: 'Are you sure you want to book this appointment?'
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
+          $scope.bookAppointment();
+          console.log('You are sure');
+        } else {
+          console.log('You are not sure');
+        }
+      });
+    };
 })
 
-.controller("MapCtrl", function($scope) {
+.controller("MapCtrl", function($scope, BusinessList) {
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -236,9 +258,9 @@ angular.module('starter.controllers', [])
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
+          console.log(BusinessList.get());
           infowindow.setContent(markers[i].title);
           infowindow.open(map, marker);
-          console.log(markers[i].url);
         }
       })(marker, i));
 
@@ -292,7 +314,6 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, $location, UserInfo) {
   $scope.goToSearch = function(path) {
-    console.log('poop')
     $location.path(path);
   }
 

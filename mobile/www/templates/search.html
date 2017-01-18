@@ -4,7 +4,7 @@
     <p class="search-head-title">Just a few taps away...</p>
   </div>
     <ion-content has-header="true" padding="true">
-      <form  ng-submit="findBusinesses()">
+      <form>
         <div class="search-container padding">
           <div class="range search-box">
             <p class="range-search">Within {{data.miles}} Miles</p>
@@ -22,12 +22,20 @@
             </label>
           </div>
         </div>
-        <button class="button button-block" type="submit" ng-click"findBusinesses()">
+        <button class="button button-block" type="submit" ng-click="findBusinesses()">
           <i class="icon ion-search"></i>
-          Get Seated
+          Get Seated Anywhere
+        </button>
+
+        <button class="button button-block" type="submit" ng-click="findBusinessesMap()">
+          <i class="icon ion-search"></i>
+          Get Seated Near Me
         </button>
       </form>
 
     </ion-content>
   </ion-content>
 </ion-view>
+
+
+

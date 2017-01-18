@@ -10,10 +10,10 @@ class BusinessesController < ApplicationController
       @services = Service.where(service_type: params[:service])
       business_ids = @services.map {|service| service.business_id }
       found_businesses = business_ids.map {|id| Business.find(id) }
-      @businesses = found_businesses
+      # @businesses = found_businesses
 
       # ORIGINAL CODE ABOVE
-      businesses_with_appts = @businesses.select {|business| business.appointments.length > 0}
+      businesses_with_appts = found_businesses.select {|business| business.appointments.length > 0}
       open_appts = []
       businesses_with_appts.each do |business|
         business.appointments.each do |appt|
@@ -21,10 +21,11 @@ class BusinessesController < ApplicationController
             open_appts << appt.business_object
           end
         end
-        return open_appts
+        @businesses = open_appts
       end
+      p @businesses
+      render json: { businesses: @businesses }
       # END NEW CODE
-
     else
       @businesses = Business.all
     end
