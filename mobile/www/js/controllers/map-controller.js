@@ -81,23 +81,21 @@ angular.module('starter')
       title: markers[i].title,
       label: markers[i].title,
       optimized: false,
+      url: markers[i].url
     });
     marker.setVisible(false);
-    madeMarkers.push(marker)
-    infowindow = new google.maps.InfoWindow({
-      content: markers[i].title,
+    madeMarkers.push(marker);
+    marker.addListener('click', function() {
+      window.location.href = this.url
     });
 
-    // $scope.viewBusiness = function() {
-    //   $location.path(this.url)
-    // }
 
 
-    google.maps.event.addListener(marker, 'mousedown', (function(marker, i) {
-      return function() {
-        $location.path = markers[i].url;
-      }
-    })(marker, i));
+    // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //   return function() {
+    //     window.location.href = markers[i].url;
+    //   }
+    // })(marker, i));
   }
 
   navigator.geolocation.getCurrentPosition(function(pos) {
