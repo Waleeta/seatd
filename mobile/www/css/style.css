@@ -1,4 +1,5 @@
 /* Empty. Add your own CSS if you like */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster');
 
 span {
   margin-right: 20px;
@@ -37,15 +38,80 @@ span {
   padding-bottom: 20px;
 }
 
-.home-image {
-  height: 250px;
-  background-color: white;
-  border: 1px solid black;
+.main-background {
+  background-image: url("/img/cover.jpg");
+       -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
 }
 
-.home-image2 {
-  height: 250px;
-  background-color: white;
-  border: 1px solid black;
+.businesses-background {
+  background-color: #F1F2F2;
+}
+
+.slide-container {
+  display: block;
+  height: 400px;
+}
+
+.logo-header {
+  left: 10%;
+  right: 10%;
+}
+
+
+.slide-content {
+  top: 25%;
+  left: 15%;
+  right: 15%;
+  padding: 10px;
+  position: absolute;
+}
+
+.seatd-header {
+  margin-left: -10px;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  color: white;
+  font-size: 6em;
+}
+
+.sub-text {
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 30px;
+  display: block;
+  font-size: 20px;
+}
+
+.button-main {
+  top: 10%;
+}
+
+.search-container {
+  margin-top: 80px;
+  border-radius: 6px;
+  background: white;
+  opacity: 0.9;
+}
+
+.search-head-title {
+  margin-top: 20px;
+  text-align: center;
+  padding: 12px;
+  color: #FDFEF7;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+}
+
+.business-container {
+  border-radius: 6px;
+  background: white;
+}
+
+.black {
+  background-color: gray;
 }
 

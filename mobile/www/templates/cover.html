@@ -1,19 +1,30 @@
-<ion-view view-title="Welcome!">
+
+<ion-view class="main-background" view-title="Welcome!">
   <ion-content class="padding">
-    <p>Hello {{user.name}}</p>
     <ion-slide-box>
       <ion-slide>
-        <div class="home-image">
+        <div class="slide-container">
+          <!-- <img class="banner" src="/img/cover.jpg"> -->
           <div class="slide-content">
-            <h1>Seatd</h1>
+            <p class="seatd-header">Seatd</p>
+            <p class="sub-text">Comfort, Accessibility & Style</p>
+            <div class="business-statement">
+            </div>
           </div>
         </div>
       </ion-slide>
       <ion-slide>
-        <div class="home-image2">
+        <div class="slide-content">
           stuff needs to be here
         </div>
       </ion-slide>
     </ion-slide-box>
+      <form ng-submit='goToSearch("/search")'>
+        <button class="button button-main button-block" type="submit">
+          <i class="icon ion-search"></i>
+          Find a Seat
+        </button>
+      </form>
   </ion-content>
 </ion-view>
+

@@ -290,15 +290,19 @@ angular.module('starter.controllers', [])
       }
   })
 
-.controller('HomeCtrl', function($scope, UserInfo) {
+.controller('HomeCtrl', function($scope, $location, UserInfo) {
+  $scope.goToSearch = function(path) {
+    console.log('poop')
+    $location.path(path);
+  }
+
   $scope.user = {};
   $scope.user = UserInfo.get();
-})
 
-.controller('cover', function($scope, $ionicSlideBoxDelegate) {
-  $scope.nextSlide = function() {
-    $ionicSlideBoxDelegate.next();
-  }
+  // $scope.logout = function() {
+  //   // UserInfo.clear();
+  //   $location.path('/login')
+  // };
 })
 
 .controller('UserCtrl', function($scope, UserInfo, $http) {
