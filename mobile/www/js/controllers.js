@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function(BusinessList, $http, $scope, $timeout, $location) {
+.controller('ScrollCtrl', function(BusinessList, $http, $scope, $timeout, $location, $ionicPopup) {
 
   $scope.myTitle = 'Template';
 
@@ -130,6 +130,8 @@ angular.module('starter.controllers', [])
         BusinessList.set(response.businesses);
         $location.path('/app/businesses')
       })
+    } else {
+      $scope.showAlert()
     }
   };
 
@@ -143,8 +145,42 @@ angular.module('starter.controllers', [])
         BusinessList.set(response.businesses);
         $location.path('/app/map')
       })
+    } else {
+      $scope.showAlert()
     }
   };
+
+  $scope.showAlert = function() {
+    if ($scope.businessSearch.name == null) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Select an Option',
+        template: 'Please select a service'
+      });
+      alertPopup.then(function(res) {
+        console.log('select a service');
+      });
+    } else {
+      console.log($scope.businessSearch.distanceMiles);
+      var alertPopup = $ionicPopup.alert({
+        title: 'Select an Option',
+        template: 'Please select a distance'
+      });
+      alertPopup.then(function(res) {
+        console.log('select a distance');
+      });
+    }
+  };
+
+  // $scope.showPopup = function() {
+  //   $scope.data = {}
+
+  //   var myPopup = $ionicPopup.show({
+  //     template: '<p>must have correct info</p>',
+  //     title: 'Please select an option',
+  //     subTitle: 'Please, just do it',
+  //     scope: $scope
+  //   })
+  // }
 })
 
 .controller('BusinessCtrl', function(BusinessList, $scope) {

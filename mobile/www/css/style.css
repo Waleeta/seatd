@@ -61,7 +61,7 @@ span {
 }
 
 .login-slide-container {
-  height: 600px;
+  height: 400px;
   margin: 20px;
 }
 
@@ -72,10 +72,6 @@ span {
 
 .register-container {
   padding: 20px;
-}
-
-.register-login-head {
-
 }
 
 .register-swipe {
