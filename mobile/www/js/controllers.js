@@ -249,7 +249,7 @@ angular.module('starter.controllers', [])
 
   var mapOptions = {
     center: myLatLng,
-    zoom: 16,
+    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
@@ -331,22 +331,11 @@ angular.module('starter.controllers', [])
       content: markers[i].title,
     });
 
-    // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-    //     return function() {
-    //       infowindow.setContent(markers[i].title);
-    //       infowindow.open(map, marker);
-    //     }
-    //   })(marker, i));
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          window.location.href = markers[i].url;
-        }
-      })(marker, i));
-
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   window.location.href = this.url;
-    // });
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    return function() {
+      window.location.href = markers[i].url;
+    }
+    })(marker, i));
   }
 
   navigator.geolocation.getCurrentPosition(function(pos) {
@@ -369,14 +358,11 @@ angular.module('starter.controllers', [])
     var searchedBusinesses = BusinessList.get();
 
     $scope.$on('$ionicView.enter', function() {
-      console.log("hello")
       angular.forEach(searchedBusinesses, function(business, key) {
-        console.log("al;skdjf")
         filterMarkers(business.business_name);
       });
 
       angular.forEach(showMarkers, function(marker, key) {
-        console.log('whomp whomp')
         marker.setVisible(true);
       });
     })
