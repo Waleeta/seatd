@@ -8,12 +8,12 @@ class Employee < ActiveRecord::Base
   validates :name, :description, :photo, :business_id, {presence: true}
 
   def has_current_appointments?
-    if has_appointments?
-      self.appointments.each do |appt|
-        if DateTime.parse(appt.start_time.to_s) <= 2.days.from_now
-          return true
-        end
-      end
+    appt_is_within_two_days? && has_appointments?
+  end
+
+  def appt_is_within_two_days?
+    self.appointments.map do |appt|
+      Date.parse(appt.to_s) <= 3.days.from_now
     end
   end
 
@@ -28,10 +28,27 @@ class Employee < ActiveRecord::Base
   def available_appointments
     available_appointments = []
     self.appointments.each do |a|
-      if DateTime.parse(a.start_time.to_s) <= 2.days.from_now && a.booked == false
+      if DateTime.parse(a.start_time.to_s) <= 3.days.from_now && a.booked == false
         available_appointments << a
       end
     end
     return available_appointments
   end
+
+  def formatted_available_appointments
+      formatted_appt = available_appointments
+      final = formatted_appt.map {|appt| appt.strftime("%A, %I:%M")}
+      return final
+  end
+
+  def sorted_appointments
+    self.appointments.sort_by {|appt| DateTime.parse(appt.start_time.to_s).day}
+  end
+
+  def group_appointments_by_day
+    sorted_appointments
+    self.appointments.group_by(&:start_time)
+  end
+
+
 end
