@@ -107,12 +107,14 @@ angular.module('starter.controllers', [])
   };
 
   $scope.findBusinessesMap = function() {
+    BusinessList.clear();
     $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
     if ($scope.businessSearch.name != null) {
       $http({
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
       }).success(function(response){
         BusinessList.set(response.businesses);
+        console.log(BusinessList.get());
         $location.path('/app/map')
       })
     }
@@ -282,6 +284,24 @@ angular.module('starter.controllers', [])
   });
 
   $scope.map = map;
+
+  filterMarkers = function(businessName) {
+      for (i = 0; i < markers.length; i++) {
+        if (markers[i].title == businessName) {
+          markers[i].setVisible(true);
+          console.log(markers[i]);
+        } else {
+          markers[i].setVisbile(false);
+          console.log(markers[i])
+        }
+      }
+    }
+
+    var searchedBusinesses = BusinessList.get();
+
+    for (i=0; i < searchedBusinesses.length; i++) {
+      filterMarkers(searchedBusinesses[i].business_name);
+    }
 })
 
 .controller('RegisterCtrl', function($scope, $http, $location, UserInfo) {
