@@ -10,11 +10,13 @@ class Employee < ActiveRecord::Base
   def has_current_appointments?
     if has_appointments?
       self.appointments.each do |appt|
-        if DateTime.parse(appt.start_time.to_s) <= 2.days.from_now
-          return true
-        end
+        DateTime.parse(appt.start_time.to_s) <= 2.days.from_now
       end
     end
+  end
+
+  def appt_is_within_two_days?
+    DateTime.parse(self.start_time.to_s) <= 2.days.from_now
   end
 
   def has_appointments?

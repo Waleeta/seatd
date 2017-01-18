@@ -34,17 +34,17 @@
 
 
 <!-- Need to list these in order and under the same day only -->
-<% if @business.employees.length > 0 %>
-  <% if @employee.has_current_appointments? %>
-      <% @employee.appointments.each do |appointment| %>
-        <% if DateTime.parse(appointment.start_time.to_s) <= 2.days.from_now && appointment.start_time >= Date.yesterday %>
-          <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
-          <p><%= date_time_helper(appointment.start_time) %></p><br>
-        <% end %>
+<% if @business.employees.length > 0 && @employee.has_current_appointments? %>
+    <% @employee.appointments.each do |appointment| %>
+      <% if DateTime.parse(appointment.start_time.to_s) <= 2.days.from_now && appointment.start_time >= Date.yesterday %>
+        <p><strong><%= month_and_date(appointment.start_time) %></strong></p>
+        <p><%= date_time_helper(appointment.start_time) %></p><br>
       <% end %>
-   <% else %>
-      <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
-  <% end %>
+    <% end %>
+<% end %>
+
+<% if !@employee.has_current_appointments? %>
+   <p>I'm sorry, <%= @employee.name %> does not have any available appointments.</p>
 <% end %>
 
 <%= link_to 'Back', businesses_path %>
