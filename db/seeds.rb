@@ -1,9 +1,9 @@
-User.delete_all
-Category.delete_all
-Business.delete_all
-Service.delete_all
-Employee.delete_all
-Appointment.delete_all
+# User.delete_all
+# Category.delete_all
+# Business.delete_all
+# Service.delete_all
+# Employee.delete_all
+# Appointment.delete_all
 
 # User.create!(name: "Lauren Smith", email: "lauren@gmail.com", password: "password")
 
@@ -131,26 +131,35 @@ skin_care = Category.create!(category_type: "Skin Care")
 massage = Category.create!(category_type: "Massage")
 
 
-# haircut = Service.create!(service_type: "haircut", category_id: 1)
-# hair_color = Service.create!(service_type: "hair color", category_id: 1)
-# hair_style = Service.create!(service_type: "hair style", category_id: 1)
 
-# manicure = Service.create!(service_type: "manicure", category_id: 3)
-
-# pedicure = Service.create!(service_type: "pedicure", category_id: 3)
-
-# wax = Service.create!(service_type: "wax", category_id: 1)
-# tattoo = Service.create!(service_type: "tattoo", category_id: 2)
-# piercing = Service.create!(service_type: "piercing", category_id: 2)
-# swedish_massage = Service.create!(service_type: "swedish massage", category_id: 5)
-# deep_tissue_massage = Service.create!(service_type: "deep tissue massage", category_id: 5)
-# facial = Service.create!(service_type: "facial", category_id: 4)
-# laser_treatment = Service.create!(service_type: "laser treatment", category_id: 4)
-
-
+# BUSINESS 1 HAS ALL SERVICES
 duke_stylist.services.create!(service_type: "haircut", category_id: 1)
 duke_stylist.services.create!(service_type: "hair style", category_id: 1)
 duke_stylist.services.create!(service_type: "hair color", category_id: 1)
+
+# BUSINESS 2 HAS ALL SERVICES
+naomi_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 2)
+naomi_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
+naomi_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
+
+#BUSINESS 3 HAS ALL SERVICES
+rachel_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 3)
+rachel_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 3)
+rachel_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 3)
+
+#BUSINESS 4 HAS ALL SERVICES
+bobby_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 4)
+bobby_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 4)
+bobby_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 4)
+
+#BUSINESS 5 HAS ALL SERVICES
+erin_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 5)
+erin_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 5)
+erin_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 5)
+
+#BUSINESS 6 HAS ALL SERVICES
+tyler_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 6)
+tyler_tat.services.create!(service_type: "piercing", category_id: 2, business_id: 6)
 
 ellie_tattoo.services.create!(service_type: "tattoo", category_id: 2)
 
@@ -167,22 +176,15 @@ pete_piercer.services.create!(service_type: "piercing", category_id: 2, business
 jones_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 11)
 jones_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 11)
 
+jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 21)
+
 molly_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 22)
 
 
-rachel_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 2)
-rachel_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
-rachel_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
-
 katie_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
-
-jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 21)
 
 ken_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
 
-naomi_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 4)
-naomi_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 4)
-naomi_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 4)
 
 bobby_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 5)
 bobby_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 5)
@@ -214,11 +216,7 @@ em_pierce.services.create!(service_type: "piercing", category_id: 2, business_id
 
 noah_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 9)
 
-tyler_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 10)
 
-erin_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 2)
-erin_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
-erin_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
 
 client = User.create!(name: "samleetin", password: "password", email: "samleetin@gmail.com")
 
