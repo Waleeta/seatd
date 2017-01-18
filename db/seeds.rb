@@ -1,9 +1,9 @@
-User.delete_all
-Category.delete_all
-Business.delete_all
-Service.delete_all
-Employee.delete_all
-Appointment.delete_all
+# User.delete_all
+# Category.delete_all
+# Business.delete_all
+# Service.delete_all
+# Employee.delete_all
+# Appointment.delete_all
 
 # User.create!(name: "Lauren Smith", email: "lauren@gmail.com", password: "password")
 
@@ -89,7 +89,7 @@ molly_massage = chicago_massage.employees.create!(name: "Molly", description: "H
 
 rachel_hair = cellar_salon.employees.create!(name: "Rachel", description: "She works magic with hair, you'll never want to see another stylist.", photo: "https://devbootcamp.com/assets/staff/rachel-feigenbaum-96511c356fe94687c05fc1eb70958c10.png")
 
-katie_massage = green_massage.employees.create!(name: "Katie", description: "Our most experienced massuese, Katie will untangle all your knots.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJDBmZjdkY2NiLTZlMDEtNDkwMC1iMTZhLTliNjQ2YWVjYWQ3Ng.jpg")
+katie_massage = green_massage.employees.create!(name: "Katy", description: "Our most experienced massuese, Katie will untangle all your knots.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJDBmZjdkY2NiLTZlMDEtNDkwMC1iMTZhLTliNjQ2YWVjYWQ3Ng.jpg")
 
 jeff_waxing = lustre_skin.employees.create!(name: "Jeff", description: "Jeff is our most seasoned waxing specialist. He'll painlessly remove your unwanted beard hair using only the hottest of waxes.", photo: "https://media05.regionaut.meinbezirk.at/2014/11/23/7554925_web.jpg?1416754988")
 
@@ -99,17 +99,17 @@ naomi_hair = xo_salon.employees.create!(name: "Naomi", description: "Naomi is on
 
 bobby_hair = aria_salon.employees.create!(name: "Bobby Gervais", description: "He has tamed his own mane, and can tame yours too.", photo: "https://s-media-cache-ak0.pinimg.com/originals/3c/b2/54/3cb254b0d377a2dedf77bf1b622c515e.png")
 
-nick_massage = oxygen_massage.employees.create!(name: "Nick", description: "Nick began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAfJAAAAJDE0MzFjN2FlLTFhMDItNDhmNC04OWY3LTRmZjJiY2E0MDMyOA.jpg")
+ed_massage = oxygen_massage.employees.create!(name: "Eddie", description: "Eddie began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/p/8/005/064/1d2/1fad9b3.jpg")
 
 west_facial = hand_skin.employees.create!(name: "West", description: "One of the best skincare specialists around, and brightens up the entire room when she's here.", photo: "https://media.licdn.com/media/p/3/000/017/37a/2be7712.jpg")
 
 emily_facial = smuve_skin.employees.create!(name: "Emily", description: "The smiliest one in the room, Emily not only rejeuvenates your skin, but leaves you smiling and glowing.", photo: "https://media.licdn.com/media/p/8/005/07c/173/3432621.jpg")
 
-nick_nails = saraya_nail.employees.create!(name: "Nick", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://pbs.twimg.com/profile_images/778764375649902596/HTXzyDpP.jpg" )
+nick_nails = saraya_nail.employees.create!(name: "Nicky", description: "With tender loving care, Nick is one of the foremost nail artists in the greater tri-state area.", photo: "https://pbs.twimg.com/profile_images/778764375649902596/HTXzyDpP.jpg" )
 
 justin_nails = hm_nails.employees.create!(name: "Justin", description: "Justin is not only an artist in the world, he is an artist with your nails. Trust your hands in his.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAlHAAAAJDg5ZTljZDA2LWVkMDItNDJmNS04MDhhLTZmMTE2MjYyYmU0MQ.jpg")
 
-waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAkrAAAAJGY4MGViOWU4LTg3OWMtNDcwNC05NGNiLWRjYjliMGYxYTM3NA.jpg")
+waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://avatars1.githubusercontent.com/u/19413495?v=3&s=400")
 
 sam_nails = jewel_nail.employees.create!(name: "Sam", description: "Sam is the Picasso of nail art. But she stays within the lines.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAc-AAAAJDgyZmRlZDRkLTcxMWQtNDRjYS1iMTYwLWNkMzYyNDQwZWZhMg.jpg")
 
@@ -131,117 +131,203 @@ skin_care = Category.create!(category_type: "Skin Care")
 massage = Category.create!(category_type: "Massage")
 
 
-# haircut = Service.create!(service_type: "haircut", category_id: 1)
-# hair_color = Service.create!(service_type: "hair color", category_id: 1)
-# hair_style = Service.create!(service_type: "hair style", category_id: 1)
+#SERVICES
 
-# manicure = Service.create!(service_type: "manicure", category_id: 3)
-
-# pedicure = Service.create!(service_type: "pedicure", category_id: 3)
-
-# wax = Service.create!(service_type: "wax", category_id: 1)
-# tattoo = Service.create!(service_type: "tattoo", category_id: 2)
-# piercing = Service.create!(service_type: "piercing", category_id: 2)
-# swedish_massage = Service.create!(service_type: "swedish massage", category_id: 5)
-# deep_tissue_massage = Service.create!(service_type: "deep tissue massage", category_id: 5)
-# facial = Service.create!(service_type: "facial", category_id: 4)
-# laser_treatment = Service.create!(service_type: "laser treatment", category_id: 4)
-
-
-duke_stylist.services.create!(service_type: "hair", category_id: 1)
+# BUSINESS 1 HAS ALL SERVICES
 duke_stylist.services.create!(service_type: "haircut", category_id: 1)
 duke_stylist.services.create!(service_type: "hair style", category_id: 1)
 duke_stylist.services.create!(service_type: "hair color", category_id: 1)
 
-ellie_tattoo.services.create!(service_type: "tattoo", category_id: 2)
+# BUSINESS 2 HAS ALL SERVICES
+naomi_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 2)
+naomi_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
+naomi_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
 
-alyssa_facial.services.create!(service_type: "facial", category_id: 4, business_id: 16)
+#BUSINESS 3 HAS ALL SERVICES
+rachel_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 3)
+rachel_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 3)
+rachel_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 3)
 
-avner_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 17)
+#BUSINESS 4 HAS ALL SERVICES
+bobby_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 4)
+bobby_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 4)
+bobby_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 4)
 
-matt_masseuse.services.create!(service_type: "swedish massage", category_id: 5, business_id: 21)
+#BUSINESS 5 HAS ALL SERVICES
+erin_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 5)
+erin_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 5)
+erin_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 5)
 
-matt_masseuse.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 21)
+#BUSINESS 6 HAS ALL SERVICES
+tyler_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 6)
+tyler_tat.services.create!(service_type: "piercing", category_id: 2, business_id: 6)
 
-pete_piercer.services.create!(service_type: "piercing", category_id: 2, business_id: 7)
+#BUSINESS 7 HAS ALL SERVICES
+noah_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 7)
+noah_tat.services.create!(service_type: "piercing", category_id: 2, business_id: 7)
 
-jones_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 11)
-jones_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 11)
+#BUSINESS 8 HAS ALL SERVICES
+ellie_tattoo.services.create!(service_type: "tattoo", category_id: 2, business_id: 8)
+ellie_tattoo.services.create!(service_type: "piercing", category_id: 2, business_id: 8)
 
-molly_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 22)
+#BUSINESS 9 HAS ALL SERVICES
+pete_piercer.services.create!(service_type: "piercing", category_id: 2, business_id: 9)
+pete_piercer.services.create!(service_type: "tattoo", category_id: 2, business_id: 9)
 
+#BUSINESS 10 HAS ALL SERVICES
+em_pierce.services.create!(service_type: "piercing", category_id: 2, business_id: 10)
+em_pierce.services.create!(service_type: "tattoo", category_id: 2, business_id: 10)
 
-rachel_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 2)
-rachel_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
-rachel_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
+#BUSINESS 11 HAS ALL SERVICES
+sam_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 11)
+sam_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 11)
 
-katie_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
+#BUSINESS 12 HAS ALL SERVICES
+waleeta_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 12)
+waleeta_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 12)
 
-jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 21)
-
-ken_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
-
-naomi_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 4)
-naomi_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 4)
-naomi_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 4)
-
-bobby_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 5)
-bobby_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 5)
-bobby_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 5)
-
-nick_massage.services.create!(service_type: "deep tissue", category_id: 5, business_id: 25)
-nick_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 25)
-
-west_facial.services.create!(service_type: "facial", category_id: 4, business_id: 18)
-
-west_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 18)
-
-emily_facial.services.create!(service_type: "facial", category_id: 4, business_id: 19)
-emily_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 19)
-
-nick_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 12)
-nick_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 12)
-
+#BUSINESS 13 HAS ALL SERVICES
 justin_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 13)
 justin_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 13)
 
-waleeta_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 14)
-waleeta_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 14)
+#BUSINESS 14 HAS ALL SERVICES
+nick_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 14)
+nick_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 14)
 
-sam_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 15)
-sam_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 15)
+#BUSINESS 15 HAS ALL SERVICES
+jones_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 15)
+jones_nails.services.create!(service_type: "pedicure", category_id: 3, business_id: 15)
 
-em_pierce.services.create!(service_type: "piercing", category_id: 2, business_id: 8)
+#BUSINESS 16 HAS ALL SERVICES
+alyssa_facial.services.create!(service_type: "facial", category_id: 4, business_id: 16)
+alyssa_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 16)
 
-noah_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 9)
+#BUSINESS 17 HAS ALL SERVICES
+avner_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 17)
+avner_facial.services.create!(service_type: "facial", category_id: 4, business_id: 17)
 
-tyler_tat.services.create!(service_type: "tattoo", category_id: 2, business_id: 10)
+#BUSINESS 18 HAS ALL SERVICES
+jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 18)
 
-erin_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 2)
-erin_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
-erin_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
+#BUSINESS 19 HAS ALL SERVICES
+emily_facial.services.create!(service_type: "facial", category_id: 4, business_id: 19)
+emily_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 19)
 
+
+#BUSINESS 20 HAS ALL SERVICES
+west_facial.services.create!(service_type: "facial", category_id: 4, business_id: 20)
+west_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 20)
+
+
+#BUSINESS 21 HAS ALL SERVICES
+ken_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 21)
+ken_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 22)
+
+#BUSINESS 22 HAS ALL SERVICES
+molly_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 22)
+molly_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 22)
+
+#BUSINESS 23 HAS ALL SERVICES
+ed_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 23)
+ed_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 23)
+
+#BUSINESS 24 HAS ALL SERVICES
+katie_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
+katie_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 24)
+
+#BUSINESS 25 HAS ALL SERVICES
+matt_masseuse.services.create!(service_type: "swedish massage", category_id: 5, business_id: 25)
+matt_masseuse.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 25)
+# END SERVICES
+
+
+#OUR SINGLE USER
 client = User.create!(name: "samleetin", password: "password", email: "samleetin@gmail.com")
 
-client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31 09:00:00"), end_time: DateTime.parse("2016-12-31 11:00:00"), service_id: 1, employee_id: 1)
 
+#BEGIN APPOITMENTS:
+
+
+# PREVIOUS APPOINTMENTS FOR OUR ONE USER:
+client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-31 09:00:00"), end_time: DateTime.parse("2016-12-31 11:00:00"), service_id: 1, employee_id: 1)
 client.appointments.create!(booked: true, start_time: DateTime.parse("2016-12-23 09:00:00"), end_time: DateTime.parse("2016-12-23 11:00:00"), service_id: 12, employee_id: 7)
 
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
 
-matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-20 10:00:00"), service_id: 7)
+# ALL CURRENT APPOINTMENTS
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 2)
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 11:00:00"), end_time: DateTime.parse("2017-01-22 12:00:00"), service_id: 1)
+naomi_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 3)
 
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 3)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 2)
+rachel_hair.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 1)
 
-erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 15:00:00"), service_id: 4)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 20:00:00"), service_id: 1)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 2)
+bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-22 10:00:00"), end_time: DateTime.parse("2017-01-22 11:00:00"), service_id: 3)
 
-noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 5)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 2)
+erin_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 3)
+
+
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 4)
+tyler_tat.appointments.create!(start_time: DateTime.parse("2017-01-22 14:00:00"), end_time: DateTime.parse("2017-01-22 15:00:00"), service_id: 9)
+
+noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-20 19:00:00"), end_time: DateTime.parse("2017-01-20 21:00:00"), service_id: 4)
+noah_tat.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+
+ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
+
+
+pete_piercer.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
+pete_piercer.appointments.create!(start_time: DateTime.parse("2017-01-21 16:00:00"), end_time: DateTime.parse("2017-01-21 18:00:00"), service_id: 9)
+
+em_pierce.appointments.create!(start_time: DateTime.parse("2017-01-21 13:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 4)
+em_pierce.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 9)
+
+sam_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 14:00:00"), service_id: 10)
+sam_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 11)
+
+waleeta_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 11)
+waleeta_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 10)
+
+justin_nails.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 10)
+justin_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 11)
+
+
+nick_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 10)
+nick_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 11)
+
+jones_nails.appointments.create!(start_time: DateTime.parse("2017-01-20 17:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 10)
+jones_nails.appointments.create!(start_time: DateTime.parse("2017-01-21 08:00:00"), end_time: DateTime.parse("2017-01-21 09:00:00"), service_id: 11)
+
+alyssa_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 17:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 5)
+alyssa_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 6)
 
 avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 6)
+avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 5)
 
-duke_stylist.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-20 12:00:00"), service_id: 2)
+jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 16)
+jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 6)
 
-ellie_tattoo.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-20 16:00:00"), service_id: 5)
+emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 6)
+emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 5)
 
-bobby_hair.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-20 11:00:00"), service_id: 3)
+west_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 5)
 
+ken_massage.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 7)
+ken_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+
+
+molly_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+molly_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 7)
+
+ed_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 14:00:00"), end_time: DateTime.parse("2017-01-21 15:00:00"), service_id: 7)
+ed_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 8)
+
+katie_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:00"), end_time: DateTime.parse("2017-01-21 12:00:00"), service_id: 7)
+katie_massage.appointments.create!(start_time: DateTime.parse("2017-01-21 15:00:00"), end_time: DateTime.parse("2017-01-21 16:00:00"), service_id: 8)
+
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 7)
+matt_masseuse.appointments.create!(start_time: DateTime.parse("2017-01-22 11:00:00"), end_time: DateTime.parse("2017-01-22 12:00:00"), service_id: 8)
