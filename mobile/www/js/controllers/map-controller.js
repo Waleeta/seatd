@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller("MapCtrl", function($scope, BusinessList) {
+.controller("MapCtrl", function($scope, BusinessList, $location) {
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -88,9 +88,14 @@ angular.module('starter')
       content: markers[i].title,
     });
 
+    // $scope.viewBusiness = function() {
+    //   $location.path(this.url)
+    // }
+
+
     google.maps.event.addListener(marker, 'mousedown', (function(marker, i) {
       return function() {
-        window.location.href = markers[i].url;
+        $location.path = markers[i].url;
       }
     })(marker, i));
   }
