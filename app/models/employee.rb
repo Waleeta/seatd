@@ -35,6 +35,12 @@ class Employee < ActiveRecord::Base
     return available_appointments
   end
 
+  def formatted_available_appointments
+      formatted_appt = available_appointments
+      final = formatted_appt.map {|appt| appt.strftime("%A, %I:%M")}
+      return final
+  end
+
   def sorted_appointments
     self.appointments.sort_by {|appt| DateTime.parse(appt.start_time.to_s).day}
   end
