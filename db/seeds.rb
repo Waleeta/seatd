@@ -161,6 +161,8 @@ avner_facial.services.create!(service_type: "laser treatment", category_id: 4, b
 
 matt_masseuse.services.create!(service_type: "swedish massage", category_id: 5, business_id: 21)
 
+matt_masseuse.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 21)
+
 pete_piercer.services.create!(service_type: "piercing", category_id: 2, business_id: 7)
 
 jones_nails.services.create!(service_type: "manicure", category_id: 3, business_id: 11)
@@ -188,8 +190,10 @@ bobby_hair.services.create!(service_type: "hair color", category_id: 1, business
 bobby_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 5)
 
 nick_massage.services.create!(service_type: "deep tissue", category_id: 5, business_id: 25)
+nick_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 25)
 
 west_facial.services.create!(service_type: "facial", category_id: 4, business_id: 18)
+
 west_facial.services.create!(service_type: "laser treatment", category_id: 4, business_id: 18)
 
 emily_facial.services.create!(service_type: "facial", category_id: 4, business_id: 19)
