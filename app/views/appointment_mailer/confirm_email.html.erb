@@ -10,10 +10,8 @@
       Someone loves your business and just COULDN'T wait to get in!<br>
     </p>
     <p>
-      The appointment slot at <%= date_time_helper(@appointment.start_time) %> with <%=@employee.name %> has been booked!<br>
-    <p>
-    The appointment slot at <% @appointment.date %> has been booked!<br>
-  </p>
+      The appointment slot on <%= date %> at<%= appointment.strftime("%l:%M %P") %> with <%=employee %> has been booked!<br>
+    </p>
     <p>Have a great day!</p>
   </body>
 </html>
