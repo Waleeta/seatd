@@ -80,6 +80,7 @@ angular.module('starter')
       map: map,
       title: markers[i].title,
       label: markers[i].title,
+      optimized: false,
     });
     marker.setVisible(false);
     madeMarkers.push(marker)
@@ -87,7 +88,7 @@ angular.module('starter')
       content: markers[i].title,
     });
 
-    google.maps.event.addListener(marker, 'mousedown', (function(marker, i) {
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
         window.location.href = markers[i].url;
       }
