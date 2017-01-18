@@ -255,7 +255,8 @@ angular.module('starter.controllers', [])
   for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(markers[i].lat, markers[i].long),
-      map: map
+      map: map,
+      title: markers[i].title,
     });
     marker.setVisible(false);
     madeMarkers.push(marker)
@@ -265,7 +266,6 @@ angular.module('starter.controllers', [])
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          console.log(BusinessList.get());
           infowindow.setContent(markers[i].title);
           infowindow.open(map, marker);
         }
@@ -288,15 +288,13 @@ angular.module('starter.controllers', [])
 
   $scope.map = map;
 
+  var showMarkers = []
+
   filterMarkers = function(businessName) {
       for (i = 0; i < markers.length; i++) {
         marker = madeMarkers[i]
-        console.log(marker)
         if (marker.title == businessName) {
-          marker.setVisible(true);
-          console.log(marker);
-        } else {
-          marker.setVisible(false);
+          showMarkers.push(marker)
         }
       }
     }
@@ -305,10 +303,12 @@ angular.module('starter.controllers', [])
 
     $scope.$on('$ionicView.enter', function() {
       angular.forEach(searchedBusinesses, function(business, key) {
-        console.log('in loop')
         filterMarkers(business.business_name);
-        console.log(business.business_name);
-      })
+      });
+
+      angular.forEach(showMarkers, function(marker, key) {
+        marker.setVisible(true);
+      });
     })
 })
 
