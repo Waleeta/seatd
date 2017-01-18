@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
 })
 
 //handles the input for scrolling on search
-.controller('ScrollCtrl', function(BusinessList, Business, $scope, $timeout, $location) {
+.controller('ScrollCtrl', function(BusinessList, $http, $scope, $timeout, $location) {
 
   $scope.myTitle = 'Template';
 
@@ -94,42 +94,34 @@ angular.module('starter.controllers', [])
   }
 
   $scope.findBusinesses = function() {
-    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
-    console.log($scope.businessSearch);
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
     if ($scope.businessSearch.name != null) {
-      console.log($scope.businessSearch.name)
-      Business.query({'service': $scope.businessSearch.name }).$promise.then(function(response){
-        // console.log(response);
-        BusinessList.set(response);
+      $http({
+        url: 'http://172.16.0.19:3000/businesses.json?service=' + $scope.businessSearch.name,
+      }).success(function(response){
+        BusinessList.set(response.businesses);
         $location.path('/app/businesses')
-      });
-    } else {
-      console.log('must select a service')
+      })
     }
   };
 
   $scope.findBusinessesMap = function() {
-    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles}
-    console.log($scope.businessSearch);
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
     if ($scope.businessSearch.name != null) {
-      console.log($scope.businessSearch.name)
-      Business.query({'service': $scope.businessSearch.name }).$promise.then(function(response){
-        // console.log(response);
-        BusinessList.set(response);
+      $http({
+        url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
+      }).success(function(response){
+        BusinessList.set(response.businesses);
         $location.path('/app/map')
-      });
-    } else {
-      console.log('must select a service')
+      })
     }
-  }
-
+  };
 })
 
 .controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
   $scope.displayedBusinesses = BusinessList.get();
 
   $scope.slideToPage = function(route) {
-    console.log('derp');
     $location.path('/businesses/' + route)
   }
   // var parsedDate = new Date(iso stamp)
@@ -322,7 +314,6 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, $location, UserInfo) {
   $scope.goToSearch = function(path) {
-    console.log('poop')
     $location.path(path);
   }
 

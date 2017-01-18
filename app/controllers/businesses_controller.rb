@@ -21,12 +21,11 @@ class BusinessesController < ApplicationController
             open_appts << appt.business_object
           end
         end
-        p open_appts
         @businesses = open_appts
       end
-      return @businesses
+      p @businesses
+      render json: { businesses: @businesses }
       # END NEW CODE
-
     else
       @businesses = Business.all
     end
