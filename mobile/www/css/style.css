@@ -51,6 +51,15 @@ span {
         background-size: cover;
 }
 
+/*.main-background-opacity {
+  background: linear-gradient(
+                     rgba(20,20,20, .2),
+                     rgba(20,20,20, .2)),
+                     url("/img/cover.jpg");
+                     background-size: cover;
+
+}
+*/
 .businesses-background {
   background-color: #F1F2F2;
 }
@@ -78,7 +87,7 @@ span {
   padding:15px;
   text-align: center;
   font-family: 'Josefin Slab', serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 
