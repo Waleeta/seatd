@@ -35,12 +35,6 @@ class Employee < ActiveRecord::Base
     return available_appointments
   end
 
-  # def formatted_available_appointments
-  #   formatted_appt = available_appointments
-  #   final = formatted_appt.map {|appt| appt.start_time.strftime("%A, %I:%M")}
-  #   return final
-  # end
-
   def formatted_available_appointments
     final = {}
     available_appointments.each do |appt|
