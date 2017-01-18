@@ -36,8 +36,10 @@ class Employee < ActiveRecord::Base
   end
 
   def formatted_available_appointments
-      formatted_appt = available_appointments
-      final = formatted_appt.map {|appt| appt.strftime("%A, %I:%M")}
+      final = {}
+      available_appointments.each do |appt|
+        final[appt.id] = appt.start_time.strftime("%A, %I:%M")}
+      end
       return final
   end
 
@@ -48,6 +50,14 @@ class Employee < ActiveRecord::Base
   def group_appointments_by_day
     sorted_appointments
     self.appointments.group_by(&:start_time)
+  end
+
+  def appointments
+    appointments.each do |a|
+      a.start_time = a.strftime("%A, %I:%M")
+      a.save
+    end
+    return appointments
   end
 
 
