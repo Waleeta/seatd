@@ -9,11 +9,19 @@ class Appointment < ActiveRecord::Base
     self.start_time.strftime("%A %B, %e")
   end
 
+  def business_object
+    self.employee.business
+  end
+
   def business_name
     self.employee.business.business_name
   end
 
   def employee_name
     self.employee.name
+  end
+
+  def within_two_days?
+    DateTime.parse(self.start_time.to_s) <= 2.days.from_now && self.start_time >= Date.yesterday
   end
 end

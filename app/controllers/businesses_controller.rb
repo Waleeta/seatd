@@ -11,6 +11,20 @@ class BusinessesController < ApplicationController
       business_ids = @services.map {|service| service.business_id }
       found_businesses = business_ids.map {|id| Business.find(id) }
       @businesses = found_businesses
+
+      # ORIGINAL CODE ABOVE
+      businesses_with_appts = @businesses.select {|business| business.appointments.length > 0}
+      open_appts = []
+      businesses_with_appts.each do |business|
+        business.appointments.each do |appt|
+          if appt.booked == false && appt.within_two_days?
+            open_appts << appt.business_object
+          end
+        end
+        return open_appts
+      end
+      # END NEW CODE
+
     else
       @businesses = Business.all
     end
