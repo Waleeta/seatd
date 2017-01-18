@@ -9,13 +9,15 @@ angular.module('starter')
   // var parsedDate = new Date(iso stamp)
 })
 
-.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo, $ionicPopup) {
-  BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
-    $scope.displayedBusiness = response.business;
-    $scope.displayedEmployee = response.employee;
-    $scope.availableAppointments = response.appointments;
-    console.log($scope.displayedEmployee);
-  })
+.controller('BusinessShowCtrl', function($scope, $location, BusinessShow, $stateParams, $http, UserInfo, $ionicPopup) {
+
+  $scope.getBusinessInfo = function() {
+    BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
+      $scope.displayedBusiness = response.business;
+      $scope.displayedEmployee = response.employee;
+      $scope.availableAppointments = response.appointments;
+    })
+  }
 
   $scope.bookAppointment = function() {
     $scope.user = UserInfo.get();
@@ -48,10 +50,15 @@ angular.module('starter')
       confirmPopup.then(function(res) {
         if(res) {
           $scope.bookAppointment();
-          console.log('You are sure');
+          $location.path('/app/profile')
         } else {
           console.log('You are not sure');
         }
       });
     };
+
+    $scope.$on('$ionicView.beforeEnter', function() {
+      $scope.getBusinessInfo();
+    })
+
 })

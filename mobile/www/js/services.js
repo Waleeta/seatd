@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
 
 .factory('BusinessShow', function($resource) {
-  return $resource("http://localhost:3000/businesses/:id.json");
+  return $resource("http://172.16.0.19:3000/businesses/:id.json");
 })
 
 .factory('UserInfo', () => {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117000410) do
+ActiveRecord::Schema.define(version: 20170118224239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,18 +28,19 @@ ActiveRecord::Schema.define(version: 20170117000410) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string   "business_name",                           null: false
-    t.string   "hashed_password",                         null: false
-    t.string   "email",                                   null: false
-    t.string   "address",                                 null: false
-    t.time     "open_at",                                 null: false
-    t.time     "close_at",                                null: false
-    t.string   "lat",             default: "41.8762291",  null: false
-    t.string   "long",            default: "-87.6532040", null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "business_name",                            null: false
+    t.string   "hashed_password",                          null: false
+    t.string   "email",                                    null: false
+    t.string   "address",                                  null: false
+    t.time     "open_at",                                  null: false
+    t.time     "close_at",                                 null: false
+    t.string   "lat",             default: "41.8762291",   null: false
+    t.string   "long",            default: "-87.6532040",  null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "phone"
     t.string   "website"
+    t.string   "icon",            default: "ion-scissors"
   end
 
   create_table "categories", force: :cascade do |t|
