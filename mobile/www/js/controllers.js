@@ -42,6 +42,7 @@ angular.module('starter.controllers', [])
       $location.path('/app/cover');
       $scope.loginData = {};
       UserInfo.set(response.data.user);
+      console.log(UserInfo.get())
     }, function(error) {
       alert('Email or password is incorrect - please try again.')
       $log.log(error)
@@ -143,6 +144,7 @@ angular.module('starter.controllers', [])
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
       }).success(function(response){
         BusinessList.set(response.businesses);
+        console.log(BusinessList.get());
         $location.path('/app/map')
       })
     } else {
@@ -183,6 +185,7 @@ angular.module('starter.controllers', [])
   // }
 })
 
+
 .controller('BusinessCtrl', function(BusinessList, $scope) {
   $scope.displayedBusinesses = BusinessList.get();
 
@@ -204,6 +207,7 @@ angular.module('starter.controllers', [])
 
   $scope.bookAppointment = function() {
     $scope.user = UserInfo.get();
+    console.log($scope.user)
 
     var data = {
       client_id: $scope.user.id,
@@ -224,7 +228,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.showConfirm = function() {
-      $scope.id = this.appt.id
+      $scope.id = this.id
       var confirmPopup = $ionicPopup.confirm({
         title: 'Book Appointment',
         template: 'Are you sure you want to book this appointment?'
@@ -312,24 +316,29 @@ angular.module('starter.controllers', [])
     }
   ];
 
+  var madeMarkers = [];
+
   for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(markers[i].lat, markers[i].long),
-      map: map
+      map: map,
+      title: markers[i].title,
+      label: markers[i].title,
     });
+    marker.setVisible(false);
+    madeMarkers.push(marker)
     infowindow = new google.maps.InfoWindow({
       content: markers[i].title,
     });
 
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          console.log(BusinessList.get());
-          infowindow.setContent(markers[i].title);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
+    // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //     return function() {
+    //       infowindow.setContent(markers[i].title);
+    //       infowindow.open(map, marker);
+    //     }
+    //   })(marker, i));
 
-        google.maps.event.addListener(marker, 'dblclick', (function(marker, i) {
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           window.location.href = markers[i].url;
         }
@@ -345,6 +354,29 @@ angular.module('starter.controllers', [])
   });
 
   $scope.map = map;
+
+  var showMarkers = []
+
+  filterMarkers = function(businessName) {
+      for (i = 0; i < markers.length; i++) {
+        marker = madeMarkers[i]
+        if (marker.title == businessName) {
+          showMarkers.push(marker)
+        }
+      }
+    }
+
+    var searchedBusinesses = BusinessList.get();
+
+    $scope.$on('$ionicView.enter', function() {
+      angular.forEach(searchedBusinesses, function(business, key) {
+        filterMarkers(business.business_name);
+      });
+
+      angular.forEach(showMarkers, function(marker, key) {
+        marker.setVisible(true);
+      });
+    })
 })
 
 .controller('RegisterCtrl', function($scope, $http, $location, UserInfo) {
@@ -395,6 +427,7 @@ angular.module('starter.controllers', [])
   $scope.appointments = {};
   $scope.user = {};
   $scope.user = UserInfo.get();
+  console.log(UserInfo.get())
 
 
   $scope.getAppts = function() {
@@ -402,6 +435,7 @@ angular.module('starter.controllers', [])
     method: 'GET',
     url: 'http://172.16.0.19:3000/users/' + $scope.user.id +'.json'
     }).then(function successCallback(response) {
+      console.log(response)
       $scope.appointments = response.data.appointments;
     }, function errorCallback(response) {
   });
@@ -412,19 +446,5 @@ angular.module('starter.controllers', [])
   })
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

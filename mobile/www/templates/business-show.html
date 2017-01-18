@@ -23,8 +23,8 @@
           <h2>{{displayedEmployee.name}}</h2>
           <p>{{displayedEmployee.description}}</p>
         </div>
-        <div class="list-card" ng-repeat="appt in availableAppointments">
-          <span>{{appt.start_time}} <button ion-button ng-click="showConfirm()">Book Now</button></span>
+        <div class="list-card" ng-repeat="(id, time) in availableAppointments">
+          <span>{{time}} <button ion-button ng-click="showConfirm()">Book Now</button></span>
         </div>
       </div>
     </div>

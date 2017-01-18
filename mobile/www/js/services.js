@@ -37,7 +37,7 @@ angular.module('starter.services', [])
       },
       clear() {
         state.data = [];
-      }
+      },
   };
 })
 
