@@ -56,6 +56,31 @@ angular.module('starter.controllers', [])
 
   $scope.data = { 'miles' : '1' };
 
+  $scope.distanceMiles = null;
+
+  $scope.miles = [{
+      distance: '1'
+    }, {
+      distance: '2'
+    }, {
+      distance: '3'
+    }, {
+      distance: '4'
+    }, {
+      distance: '5'
+    }, {
+      distance: '6'
+    }, {
+      distance: '7'
+    }, {
+      distance: '8'
+    }, {
+      distance: '9'
+    }, {
+      distance: '10'
+    }
+  ];
+
   $scope.itemName = null;
 
   $scope.items = [{
@@ -89,12 +114,16 @@ angular.module('starter.controllers', [])
     }
   ];
 
+  $scope.showSelectDistance = function(milesSelect) {
+    $scope.distanceMiles = milesSelect;
+  }
+
   $scope.showSelectValue = function(mySelect) {
     $scope.itemName = mySelect;
   }
 
   $scope.findBusinesses = function() {
-    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.distanceMiles };
     if ($scope.businessSearch.name != null) {
       $http({
         url: 'http://172.16.0.19:3000/businesses.json?service=' + $scope.businessSearch.name,
@@ -106,7 +135,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.findBusinessesMap = function() {
-    $scope.businessSearch = { name: $scope.itemName, miles: $scope.data.miles };
+    $scope.businessSearch = { name: $scope.itemName, miles: $scope.distanceMiles };
     if ($scope.businessSearch.name != null) {
       $http({
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
@@ -118,7 +147,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('BusinessCtrl', function(BusinessList, $scope, Business, $rootScope) {
+.controller('BusinessCtrl', function(BusinessList, $scope) {
   $scope.displayedBusinesses = BusinessList.get();
 
   $scope.slideToPage = function(route) {
