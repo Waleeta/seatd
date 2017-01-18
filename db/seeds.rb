@@ -148,7 +148,6 @@ massage = Category.create!(category_type: "Massage")
 # laser_treatment = Service.create!(service_type: "laser treatment", category_id: 4)
 
 
-duke_stylist.services.create!(service_type: "hair", category_id: 1)
 duke_stylist.services.create!(service_type: "haircut", category_id: 1)
 duke_stylist.services.create!(service_type: "hair style", category_id: 1)
 duke_stylist.services.create!(service_type: "hair color", category_id: 1)
@@ -171,7 +170,7 @@ jones_nails.services.create!(service_type: "pedicure", category_id: 3, business_
 molly_massage.services.create!(service_type: "deep tissue massage", category_id: 5, business_id: 22)
 
 
-rachel_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 2)
+rachel_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 2)
 rachel_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 2)
 rachel_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 2)
 
@@ -181,13 +180,13 @@ jeff_waxing.services.create!(service_type: "wax", category_id: 1, business_id: 2
 
 ken_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 24)
 
-naomi_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 4)
+naomi_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 4)
 naomi_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 4)
 naomi_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 4)
 
 bobby_hair.services.create!(service_type: "hair style", category_id: 1, business_id: 5)
 bobby_hair.services.create!(service_type: "hair color", category_id: 1, business_id: 5)
-bobby_hair.services.create!(service_type: "hair cut", category_id: 1, business_id: 5)
+bobby_hair.services.create!(service_type: "haircut", category_id: 1, business_id: 5)
 
 nick_massage.services.create!(service_type: "deep tissue", category_id: 5, business_id: 25)
 nick_massage.services.create!(service_type: "swedish massage", category_id: 5, business_id: 25)
