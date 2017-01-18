@@ -14,6 +14,7 @@ angular.module('starter')
     $scope.displayedBusiness = response.business;
     $scope.displayedEmployee = response.employee;
     $scope.availableAppointments = response.appointments;
+    console.log($scope.displayedEmployee);
   })
 
   $scope.bookAppointment = function() {

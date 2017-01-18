@@ -142,7 +142,37 @@ span {
   background: white;
 }
 
-.black {
-  background-color: gray;
+.business-details {
+  padding: 0px 20px 30px 20px;
+}
+
+.image-container {
+}
+
+.employee-details {
+  padding: 0px 20px 30px 20px;
+}
+
+.employee-details h2 {
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.employee-details p {
+  font-size: 16px;
+}
+
+.employee-image {
+  margin-left: 14%;
+  margin-right: 10%;
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.booking-container {
+  margin-top: 25px;
 }
 
