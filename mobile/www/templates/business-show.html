@@ -1,30 +1,34 @@
-<ion-view class="businesses-background" view-title="business">
+<ion-view class="main-background" view-title="business">
   <ion-content class="padding">
-    <div class="logo-header">
+<!--     <div class="logo-header">
       <img src="/img/chair2.png" height="150" width="150">
-    </div>
+    </div> -->
     <div class="list card">
-      <div class="item item-icon-left item-divider item-dark">
-        <i class="icon ion-planet"></i>
-        {{displayedBusiness.business_name}}
+      <div class="item item-divider business-title-container">
+        <p>{{displayedBusiness.business_name}}</p>
       </div>
-      <div class="item item-body item-stable">
-        <div>
-          <p>{{displayedBusiness.address}}</p>
+      <div class="item item-body">
+        <div class="business-details">
           <span>{{'Opens at 9am'}}</span><span>{{'Closes at 6pm'}}</span>
+          <p>Address: {{displayedBusiness.address}}</p>
         </div>
       </div>
-      <div class="item item-icon-left item-divider item-dark">
+      <div class="item item-icon-right item-divider employee-title-container">
         <i class="icon ion-ios-people"></i>
-        Employees
+        <p>Employees</p>
       </div>
-      <div class="item item-body item-stable">
+      <div class="image-container item item-stable">
+        <img class="employee-image" src='{{displayedEmployee.photo}}'>
+      </div>
+      <div class="item item-body employee-details item-stable">
         <div>
           <h2>{{displayedEmployee.name}}</h2>
           <p>{{displayedEmployee.description}}</p>
         </div>
-        <div class="list-card" ng-repeat="(id, time) in availableAppointments">
-          <span>{{time}} <button ion-button ng-click="showConfirm()">Book Now</button></span>
+        <div class="list-card booking-container" ng-repeat="(id, time) in availableAppointments" ng-click="showConfirm()">
+          <i class="icon ion-ios-calendar-outline calendar-icon"></i>
+          <span class="booking-time">{{time}}</span>
+          <span class="booking-button">Book Now</span>
         </div>
       </div>
     </div>
