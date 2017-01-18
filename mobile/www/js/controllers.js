@@ -121,7 +121,7 @@ angular.module('starter.controllers', [])
   // var parsedDate = new Date(iso stamp)
 })
 
-.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo) {
+.controller('BusinessShowCtrl', function($scope, BusinessShow, $stateParams, $http, UserInfo, $ionicPopup) {
   BusinessShow.get({'id': $stateParams.id }).$promise.then(function(response) {
     $scope.displayedBusiness = response.business;
     $scope.displayedEmployee = response.employee;
@@ -129,17 +129,18 @@ angular.module('starter.controllers', [])
   })
 
 
+
+
   $scope.bookAppointment = function() {
     $scope.user = UserInfo.get();
-    var id = $scope.user.id;
 
     var data = {
-      client_id: id,
+      client_id: $scope.user.id,
       booked: true
     };
 
     $http({
-      url: 'http://172.16.0.19:3000/employees/' + $scope.displayedEmployee.id + '/appointments/' + this.appt.id,
+      url: 'http://172.16.0.19:3000/employees/' + $scope.displayedEmployee.id + '/appointments/' + $scope.id,
       method: 'PUT',
       data: data,
       headers: {
@@ -149,8 +150,23 @@ angular.module('starter.controllers', [])
           console.log(data);
           console.log('updated');
         });
-    }
+    };
 
+    $scope.showConfirm = function() {
+      $scope.id = this.appt.id
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Book Appointment',
+        template: 'Are you sure you want to book this appointment?'
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
+          $scope.bookAppointment();
+          console.log('You are sure');
+        } else {
+          console.log('You are not sure');
+        }
+      });
+    };
 })
 
 .controller("MapCtrl", function($scope) {
