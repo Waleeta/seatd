@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<div class='container'>
 <h1>Listing Businesses</h1>
 
 <table>
@@ -9,12 +8,14 @@
 
   <tbody>
     <% @businesses.each do |business| %>
-      <ul>
-        <p><strong><a href="/businesses/<%=business.id%>"><%= business.business_name %></a></strong></p>
-        <li><%= business.address %></li>
-        <li>Opens at: <%= date_time_helper(business.open_at) %></li>
-        <li>Closes at: <%= date_time_helper(business.close_at) %></li>
-      </ul>
+      <div class="business-container">
+        <ul>
+          <p><strong><a href="/businesses/<%=business.id%>"><%= business.business_name %></a></strong></p>
+          <li><%= business.address %></li>
+          <li>Opens at: <%= date_time_helper(business.open_at) %></li>
+          <li>Closes at: <%= date_time_helper(business.close_at) %></li>
+        </ul>
+      </div>
     <% end %>
   </tbody>
 </table>
@@ -23,4 +24,3 @@
 
 <%= link_to 'New Business', new_business_path %>
 
-</div>
