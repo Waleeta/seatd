@@ -8,21 +8,26 @@
 </head>
 <body>
   <br>
-<nav class="nav-container">
-  <a href="/">Home</a>
-  || <a href="/businesses">All Businesses</a>
+  <div class="title-container">
+      <img><%= image_tag("logosimple.jpg", :size => "250x250") %></img>
+      <p>Seatd will help you fill your open appointment slots
+    with ease, and at the last minute.</p>
+    <nav class="nav-container shadow">
+      <a href="/">Home</a>
+      | <a href="/businesses">All Businesses</a>
 
-  <% if logged_in?%>
-    || <a><%= link_to 'logout', logout_path, method: :delete %></a>
-    || <%= link_to business_path(current_business.id) do %>
-        <strong><%= current_business.business_name %></strong>
-       <% end %>
-    || <a><%= link_to '(And Just For Fun....)', employees_path %></a>
-  <% else %>
-    || <a><%= link_to 'New Business Registration', new_business_path %></a>
-    || <a><%= link_to 'Login', login_new_path %> </a>
-  <% end %>
-</nav>
-<%= yield %>
+      <% if logged_in?%>
+        | <a><%= link_to 'logout', logout_path, method: :delete %></a>
+        | <%= link_to business_path(current_business.id) do %>
+            <strong><%= current_business.business_name %></strong>
+           <% end %>
+        | <a><%= link_to '(And Just For Fun....)', employees_path %></a>
+      <% else %>
+        | <a><%= link_to 'New Business Registration', new_business_path %></a>
+        | <a><%= link_to 'Login', login_new_path %> </a>
+      <% end %>
+    </nav>
+  </div>
+  <%= yield %>
 </body>
 </html>
