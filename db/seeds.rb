@@ -307,8 +307,8 @@ alyssa_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 11:00:
 avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 6)
 avner_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 09:00:00"), end_time: DateTime.parse("2017-01-21 10:00:00"), service_id: 5)
 
-jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 16)
-jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 6)
+# jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 16)
+# jeff_waxing.appointments.create!(start_time: DateTime.parse("2017-01-21 10:00:00"), end_time: DateTime.parse("2017-01-21 11:00:00"), service_id: 6)
 
 emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-21 18:00:00"), end_time: DateTime.parse("2017-01-21 19:00:00"), service_id: 6)
 emily_facial.appointments.create!(start_time: DateTime.parse("2017-01-20 18:00:00"), end_time: DateTime.parse("2017-01-20 19:00:00"), service_id: 5)

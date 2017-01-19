@@ -13,6 +13,45 @@
  *= require_self
 */
 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster|Rubik+One');
+
+/*
+html, body {
+  background: #f48d7d;
+}*/
+
+
+.title-container {
+  margin-top: -30px;
+  background: #f48d7d;
+  text-align: center;
+}
+
+.title-container p {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: -40px;
+  padding-bottom: 40px;
+  font-family: 'Josefin Slab', serif;
+  font-size: 14px;
+}
+
+
+.main-container {
+  text-align: left;
+  padding: 30px;
+}
+
+.main-container h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 34px;
+  color: black;
+}
+/*.main-container img {
+  display: flex;
+  justify-content: center;
+}*/
+
 .container {
   overflow-y:auto;
   overflow-x:hidden;
@@ -27,18 +66,58 @@
 
 .nav-container {
   position: relative;
-  top: 30%;
-  left: 30%;
+  margin-top: -30px;
   width: 100%;
-  padding: 5px;
+  padding-bottom: 30px;
+  padding-left: 20px
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
 }
 
+.nav-container a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-container a:visited {
+  color: black;
+}
+
+.nav-container a:hover {
+  background: none;
+  color: white;
+}
+
+.business-container {
+  border-bottom: 1px solid black;
+}
+
+.business-container a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.business-container a:visited {
+  color: black;
+}
+
+.business-container a:hover {
+  background: none;
+  color: #f48d7d;
+  text-decoration: none;
+}
+
+
 th {
   padding: 10px;
   text-align: left;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
 }
 
 
