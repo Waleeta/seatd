@@ -1,20 +1,20 @@
-<ion-view class="businesses-background">
+<ion-view class="login-background">
   <ion-content>
     <div class="logo-header">
-      <img src="/img/chair2.png" height="150" width="150">
+      <img src="/img/logosimple.jpg" height="275" width="275">
     </div>
     <ion-slide-box class="login-slide-container">
       <ion-slide>
         <div class="register-container">
           <form ng-submit="doLogin()">
             <div class="list">
-              <label class="item item-input">
+              <label class="item item-input item-stable">
                 <input type="text" ng-model="loginData.email" placeholder="Email">
               </label>
-              <label class="item item-input">
+              <label class="item item-input item-stable">
                 <input type="password" ng-model="loginData.password" placeholder="Password">
               </label>
-              <label class="item">
+              <label class="item item-stable">
                 <button class="button button-block button-dark" type="submit">Log in</button>
               </label>
               <p class="register-swipe">swipe right to register</p>
@@ -26,7 +26,7 @@
         <div class="register-container">
           <form name="RegistrationForm" ng-controller="RegisterCtrl">
             <div class="list">
-              <label class="item item-input">
+              <label class="item item-input item-stable">
                 <input type="text" ng-model="userData.name" placeholder="Name">
               </label>
               <label class="item item-input">
