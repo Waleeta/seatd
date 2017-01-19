@@ -78,7 +78,7 @@ alyssa_facial = zana_skin.employees.create!(name: "Alyssa", description: "Your s
 
 avner_facial = lilli_skin.employees.create!(name: "Avner", description: "One of the best laser therapy treatments you'll ever have, Avner truly understands skin and will make you look ten years younger. He definitely WON'T burn your skin.", photo: "https://lh6.googleusercontent.com/-uNa5z4apGKc/AAAAAAAAAAI/AAAAAAAAAPU/POHF_19og8s/photo.jpg")
 
-matt_masseuse = vie_massage.employees.create!(name: "Matt", description: "Matt does not mess around. If you have a knot in your back, he WILL find it and un-fuck it.", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-jiPQJD0r3alR_DqcmL8ka71NcqvJHqTcWQGplKHEMktEoE0" )
+matt_masseuse = vie_massage.employees.create!(name: "Matt", description: "Matt does not mess around. If you have a knot in your back, he WILL find it and un-f*ck it.", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-jiPQJD0r3alR_DqcmL8ka71NcqvJHqTcWQGplKHEMktEoE0" )
 
 pete_piercer = may_body_mod.employees.create!(name: "Pete", description: "If you need literally anything pierced, come to our most experienced body modifier, Pete. He'll poke holes in your body code.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAIwAAAAJGU5YWU1ZmE4LTRiYTUtNDJkNS05MzMyLWM2YWU0ODUzMWRiMw.jpg")
 
@@ -89,17 +89,17 @@ molly_massage = chicago_massage.employees.create!(name: "Molly", description: "H
 
 rachel_hair = cellar_salon.employees.create!(name: "Rachel", description: "She works magic with hair, you'll never want to see another stylist.", photo: "https://devbootcamp.com/assets/staff/rachel-feigenbaum-96511c356fe94687c05fc1eb70958c10.png")
 
-katie_massage = green_massage.employees.create!(name: "Katy", description: "Our most experienced massuese, Katie will untangle all your knots.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJDBmZjdkY2NiLTZlMDEtNDkwMC1iMTZhLTliNjQ2YWVjYWQ3Ng.jpg")
+katie_massage = green_massage.employees.create!(name: "Katy", description: "Our most experienced massage therapists, Katy will untangle all your knots.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJDBmZjdkY2NiLTZlMDEtNDkwMC1iMTZhLTliNjQ2YWVjYWQ3Ng.jpg")
 
 jeff_waxing = lustre_skin.employees.create!(name: "Jeff", description: "Jeff is our most seasoned waxing specialist. He'll painlessly remove your unwanted beard hair using only the hottest of waxes.", photo: "https://media05.regionaut.meinbezirk.at/2014/11/23/7554925_web.jpg?1416754988")
 
-ken_massage = health_massage.employees.create!(name: "Ken", description: "Our most experienced masseuse, appointments are hard to get with Ken, so book if you can!", photo: "https://media.licdn.com/media/p/5/000/28e/17a/32059bc.jpg")
+ken_massage = health_massage.employees.create!(name: "Ken", description: "Our most experienced massage therapists, appointments are hard to get with Ken, so book if you can!", photo: "https://media.licdn.com/media/p/5/000/28e/17a/32059bc.jpg")
 
 naomi_hair = xo_salon.employees.create!(name: "Naomi", description: "Naomi is one of the premier stylists in Chicago. She invented the side-shave craze for women.", photo: "https://devbootcamp.com/assets/staff/naomi-david-2ebb30e33a0ea39cf2d2d5b92d01622a.png")
 
 bobby_hair = aria_salon.employees.create!(name: "Bobby Gervais", description: "He has tamed his own mane, and can tame yours too.", photo: "https://s-media-cache-ak0.pinimg.com/originals/3c/b2/54/3cb254b0d377a2dedf77bf1b622c515e.png")
 
-ed_massage = oxygen_massage.employees.create!(name: "Eddie", description: "Eddie began his massage career in the military and has successfully become of the most coveted massage therapists in the Great Chicagoland Area.", photo: "https://media.licdn.com/media/p/8/005/064/1d2/1fad9b3.jpg")
+ed_massage = oxygen_massage.employees.create!(name: "Eddie", description: "Eddie began his massage career in the military and has successfully become of the most coveted massage therapists in the Greater Chicagoland Area.", photo: "https://media.licdn.com/media/p/8/005/064/1d2/1fad9b3.jpg")
 
 west_facial = hand_skin.employees.create!(name: "West", description: "One of the best skincare specialists around, and brightens up the entire room when she's here.", photo: "https://media.licdn.com/media/p/3/000/017/37a/2be7712.jpg")
 
@@ -112,7 +112,6 @@ justin_nails = hm_nails.employees.create!(name: "Justin", description: "Justin i
 waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://avatars1.githubusercontent.com/u/19413495?v=3&s=400")
 
 sam_nails = jewel_nail.employees.create!(name: "Sam", description: "Sam is the Picasso of nail art. But she stays within the lines.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAc-AAAAJDgyZmRlZDRkLTcxMWQtNDRjYS1iMTYwLWNkMzYyNDQwZWZhMg.jpg")
-
 
 em_pierce = insight_body_mod.employees.create!(name: "Em", description: "There's no body part Em can't pierce.", photo: "https://media.licdn.com/media/p/8/005/017/3dc/10e7355.jpg")
 
