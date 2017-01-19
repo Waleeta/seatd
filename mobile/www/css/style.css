@@ -45,7 +45,7 @@ span {
 }
 
 .main-background {
-  background-image: url("/img/background-large.jpg");
+  background: url("../img/background-large.jpg");
        -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
