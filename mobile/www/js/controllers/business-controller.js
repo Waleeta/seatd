@@ -53,7 +53,7 @@ angular.module('starter')
       confirmPopup.then(function(res) {
         if(res) {
           $scope.bookAppointment();
-          $location.path('/app/profile')
+          $location.path('/app/cover')
         } else {
         }
       });
