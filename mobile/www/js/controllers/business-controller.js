@@ -3,6 +3,14 @@ angular.module('starter')
 .controller('BusinessCtrl', function(BusinessList, $scope) {
   $scope.displayedBusinesses = BusinessList.get();
 
+  $scope.noBiz = function() {
+    if($scope.displayedBusinesses.length > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   $scope.slideToPage = function(route) {
     $location.path('/businesses/' + route)
   }
