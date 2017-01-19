@@ -1,23 +1,22 @@
 
-  <ion-view class="businesses-background" view-title="Businesses">
+  <ion-view class="login-background" view-title="Businesses">
     <ion-content class="padding">
-    <div class="logo-header">
-      <img src="/img/chair2.png" height="150" width="150">
+    <div class="logo-header-biz">
+      <img src="/img/logosimple.jpg" height="225" width="225">
     </div>
-      <div ng-show="noBiz()" class="ng-hide">
+      <div ng-show="noBiz()" class="ng-hide no-biz-display">
         <p>We're sorry, there are no open appointments that meet your search criteria.</p>
       </div>
       <div class="list card business-container" ng-repeat="business in displayedBusinesses">
-        <div class="item item-icon-left item-divider item-dark">
-          <i class="icon ion-planet"></i>
+        <div class="item-divider item-dark business-list-title">
           {{business.business_name}}
         </div>
 
-        <div class="item item-body item-stable">
+        <div class="item item-body item-stable business-info-container">
           <div>
-            <p>{{business.address}}</p>
-            <a href="#/app/businesses/{{business.id}}">book appointment</a>
             <span>{{'Opens at 9am'}}</span><span>{{'Closes at 6pm'}}</span>
+            <p>{{business.address}}</p>
+            <p class="appointment-button"><a href="#/app/businesses/{{business.id}}">book appointment</a></p>
           </div>
         </div>
       </div>

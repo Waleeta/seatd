@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like */
-@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster|Rubik+One');
 
 span {
   margin-right: 20px;
@@ -45,21 +45,12 @@ span {
 }
 
 .main-background {
-  background-image: url("/img/cover.jpg");
+  background-image: url("/img/background-large.jpg");
        -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
 }
 
-/*.main-background-opacity {
-  background: linear-gradient(
-                     rgba(20,20,20, .2),
-                     rgba(20,20,20, .2)),
-                     url("/img/cover.jpg");
-                     background-size: cover;
-
-}
-*/
 .businesses-background {
   background-color: #F1F2F2;
 }
@@ -74,9 +65,25 @@ span {
   margin: 20px;
 }
 
+.login-background {
+  background-color: #f48d7d ;
+}
+
 .logo-header {
-  margin-left: 20%;
-  margin-right: 20%;
+  text-align: center;
+  display: block;
+  padding: 20px;
+  margin-bottom: -80px;
+}
+
+.logo-header-biz {
+  text-align: center;
+  display: block;
+  margin-bottom: -80px;
+}
+
+.logo-header img {
+  border-radius: 50%;
 }
 
 .register-container {
@@ -92,7 +99,7 @@ span {
 
 
 .slide-content {
-  top: 25%;
+  top: 15%;
   left: 10%;
   right: 10%;
   padding: 10px;
@@ -107,12 +114,15 @@ span {
   font-size: 6em;
 }
 
+
 .sub-text {
   text-align: center;
   font-family: 'Josefin Slab', serif;
   margin-left: 20px;
   margin-right: 20px;
   padding-top: 30px;
+  font-weight: bold;
+  color: white;
   display: block;
   font-size: 20px;
 }
@@ -138,16 +148,23 @@ span {
 }
 
 .business-title-container p {
-  padding: 4px;
-  font-family: 'Lobster', cursive;
+  font-family: 'Josefin Slab', serif;
+  padding: 4px 4px 0px 4px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   color: black;
 }
 
 .business-container {
+  display: block;
+  top: 10%;
   border-radius: 6px;
   background: white;
+}
+
+.business-list-title {
+  margin-left: 10px;
+  padding: 8px;
 }
 
 .business-details {
@@ -164,10 +181,10 @@ span {
 }
 
 .employee-title-container p {
+  font-family: 'Josefin Slab', serif;
   padding: 4px;
-  font-family: 'Lobster', cursive;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   color: black;
 }
 
@@ -176,7 +193,7 @@ span {
 }
 
 .employee-details h2 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Josefin Slab', serif;
   font-weight: bold;
   font-size: 22px;
 }
@@ -205,6 +222,15 @@ span {
   font-size: 22px;
 }
 
+.appointment-button a{
+  text-decoration: none;
+  color: black;
+}
+
+.business-info-container {
+
+}
+
 .booking-time {
   font-family: 'Josefin Slab', serif;
   font-weight: bold;
@@ -217,7 +243,32 @@ span {
   font-size: 20px;
 }
 
+.user-profile-container {
+  padding: 10px;
+}
+
+.user-profile-container h1 {
+  font-family: 'Josefin Slab', serif;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.appointment-container h2 {
+  font-family: 'Josefin Slab', serif;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .center {
   text-align: center;
+}
+
+.no-biz-display {
+  margin-top: 50px;
+  text-align: center;
+  padding: 10px;
+  color: white;
 }
 
