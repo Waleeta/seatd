@@ -1,19 +1,20 @@
-<ion-modal-view>
+<ion-modal-view class="main-background">
   <ion-header-bar>
     <h1 class="title">User Profile</h1>
   </ion-header-bar>
   <ion-content>
-    <p>{{user.name}} | {{user.email}} </p>
-    <h3>seat'd history</h3>
+  <div class="list card user-profile-container">
+    <!-- <p>{{user.name}} | {{user.email}} </p> -->
+    <h1>Your Appointments</h1>
     <ion-card>
 
-      <div class="list card" ng-repeat="appt in appointments">
-        <div class="item item-icon-left item-divider item-dark">
-          {{appt.business_name}}
-          {{appt.date}}
-          {{appt.employee_name}}
-        </div>
-
+      <div class="item card appointment-container" ng-repeat="appt in appointments">
+<!--         <div class="item item-icon-left item-divider business-info"> -->
+          <h2>{{appt.business_name}}</h2>
+          <p>Date:  {{appt.date}}</p>
+          <p>With:  {{appt.employee_name}}</p>
+        <!-- </div> -->
+    </div>
     </ion-card>
   </ion-content>
 </ion-modal-view>
