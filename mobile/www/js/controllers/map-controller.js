@@ -114,7 +114,6 @@ angular.module('starter')
     }
 
   var searchedBusinesses = BusinessList.get();
-  console.log(searchedBusinesses.length)
 
   $scope.$on('$ionicView.beforeEnter', function() {
     angular.forEach(searchedBusinesses, function(business, key) {

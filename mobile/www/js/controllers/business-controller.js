@@ -14,7 +14,6 @@ angular.module('starter')
   $scope.slideToPage = function(route) {
     $location.path('/businesses/' + route)
   }
-  // var parsedDate = new Date(iso stamp)
 })
 
 .controller('BusinessShowCtrl', function($scope, $location, BusinessShow, $stateParams, $http, UserInfo, $ionicPopup) {
@@ -29,8 +28,6 @@ angular.module('starter')
 
   $scope.bookAppointment = function() {
     $scope.user = UserInfo.get();
-    console.log($scope.user)
-
     var data = {
       client_id: $scope.user.id,
       booked: true
@@ -44,8 +41,6 @@ angular.module('starter')
           "Content-Type": "application/json"
           },
         }).success(function(response) {
-          console.log(data);
-          console.log('updated');
         });
     };
 
@@ -60,7 +55,6 @@ angular.module('starter')
           $scope.bookAppointment();
           $location.path('/app/profile')
         } else {
-          console.log('You are not sure');
         }
       });
     };
