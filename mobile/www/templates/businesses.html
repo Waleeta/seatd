@@ -4,11 +4,15 @@
     <div class="logo-header">
       <img src="/img/chair2.png" height="150" width="150">
     </div>
+      <div ng-show="noBiz()" class="ng-hide">
+        <p>We're sorry, there are no open appointments that meet your search criteria.</p>
+      </div>
       <div class="list card business-container" ng-repeat="business in displayedBusinesses">
         <div class="item item-icon-left item-divider item-dark">
           <i class="icon ion-planet"></i>
           {{business.business_name}}
         </div>
+
         <div class="item item-body item-stable">
           <div>
             <p>{{business.address}}</p>
