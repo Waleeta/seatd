@@ -4,7 +4,6 @@ angular.module('starter')
   $scope.appointments = {};
   $scope.user = {};
   $scope.user = UserInfo.get();
-  console.log(UserInfo.get())
 
 
   $scope.getAppts = function() {
@@ -12,7 +11,6 @@ angular.module('starter')
     method: 'GET',
     url: 'http://172.16.0.19:3000/users/' + $scope.user.id +'.json'
     }).then(function successCallback(response) {
-      console.log(response)
       $scope.appointments = response.data.appointments;
     }, function errorCallback(response) {
   });

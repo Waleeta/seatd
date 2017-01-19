@@ -28,7 +28,6 @@ angular.module('starter.controllers', [])
 
   // Open the login modal
   $scope.login = function() {
-    console.log('doop');
     $scope.modal.show();
   };
 
@@ -42,7 +41,6 @@ angular.module('starter.controllers', [])
       $location.path('/app/cover');
       $scope.loginData = {};
       UserInfo.set(response.data.user);
-      console.log(UserInfo.get())
     }, function(error) {
       alert('Email or password is incorrect - please try again.')
       $log.log(error)

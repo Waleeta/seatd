@@ -47,10 +47,6 @@ angular.module('starter')
     }, {
       name: "tattoo"
     }, {
-      name: "hair color"
-    }, {
-      name: "tattoo"
-    }, {
       name: "piercing"
     }, {
       name: "swedish massage"
@@ -94,7 +90,6 @@ angular.module('starter')
         url: 'http://172.16.0.19:3000/businesses?service=' + $scope.businessSearch.name,
       }).success(function(response){
         BusinessList.set(response.businesses);
-        console.log(BusinessList.get());
         $location.path('/app/map')
       })
     } else {
@@ -109,7 +104,6 @@ angular.module('starter')
         template: 'Please select a service'
       });
       alertPopup.then(function(res) {
-        console.log('select a service');
       });
     } else {
       console.log($scope.businessSearch.distanceMiles);
@@ -118,19 +112,7 @@ angular.module('starter')
         template: 'Please select a distance'
       });
       alertPopup.then(function(res) {
-        console.log('select a distance');
       });
     }
   };
-
-  // $scope.showPopup = function() {
-  //   $scope.data = {}
-
-  //   var myPopup = $ionicPopup.show({
-  //     template: '<p>must have correct info</p>',
-  //     title: 'Please select an option',
-  //     subTitle: 'Please, just do it',
-  //     scope: $scope
-  //   })
-  // }
 })
