@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller("MapCtrl", function($scope, BusinessList, $location) {
+.controller("MapCtrl", function($scope, BusinessList, $location, $ionicPopup) {
   var myLatLng = new google.maps.LatLng(41.8762, -87.6531);
 
   var mapOptions = {
@@ -113,15 +113,30 @@ angular.module('starter')
       }
     }
 
-    var searchedBusinesses = BusinessList.get();
+  var searchedBusinesses = BusinessList.get();
+  console.log(searchedBusinesses.length)
 
-    $scope.$on('$ionicView.beforeEnter', function() {
-      angular.forEach(searchedBusinesses, function(business, key) {
-        filterMarkers(business.business_name);
-      });
+  $scope.$on('$ionicView.beforeEnter', function() {
+    angular.forEach(searchedBusinesses, function(business, key) {
+      filterMarkers(business.business_name);
+    });
+    angular.forEach(showMarkers, function(marker, key) {
+      marker.setVisible(true);
+    });
 
-      angular.forEach(showMarkers, function(marker, key) {
-        marker.setVisible(true);
+    $scope.noBizMessage();
+  })
+
+  $scope.noBizMessage = function() {
+    if(searchedBusinesses.length === 0) {
+      var apologyPopup = $ionicPopup.alert({
+        title: "We're Sorry!",
+        template: 'There are no businesses with open appointments that meet your search criteria.',
+        cssClass: 'center'
       });
-    })
+      apologyPopup.then(function(res) {
+        $location.path('/app/search');
+      });
+    };
+  }
 })
