@@ -16,7 +16,7 @@ angular.module('starter')
   });
   }
 
-  $scope.$on('$ionicView.enter', function() {
+  $scope.$on('$ionicView.beforeEnter', function() {
      $scope.getAppts();
   })
 
