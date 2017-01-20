@@ -109,7 +109,7 @@ nick_nails = saraya_nail.employees.create!(name: "Nicky", description: "With ten
 
 justin_nails = hm_nails.employees.create!(name: "Justin", description: "Justin is not only an artist in the world, he is an artist with your nails. Trust your hands in his.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAlHAAAAJDg5ZTljZDA2LWVkMDItNDJmNS04MDhhLTZmMTE2MjYyYmU0MQ.jpg")
 
-waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://avatars1.githubusercontent.com/u/19413495?v=3&s=400")
+waleeta_nails = lacquer_nail.employees.create!(name: "Waleeta", description: "Waleeta has the delicate touch needed for perfect nail styling.", photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAfDAAAAJDA4YzNhZjY1LWJhYjAtNGVkZS04ZThjLTY2YTI0NjQ5ZDk2Nw.jpg")
 
 sam_nails = jewel_nail.employees.create!(name: "Sam", description: "Sam is the Picasso of nail art. But she stays within the lines.", photo: "https://media.licdn.com/media/AAEAAQAAAAAAAAc-AAAAJDgyZmRlZDRkLTcxMWQtNDRjYS1iMTYwLWNkMzYyNDQwZWZhMg.jpg")
 
