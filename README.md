@@ -10,6 +10,6 @@ Seatd is currently undergoing development, and we hope to have a working product
 All of the current data is seeded, dummy data.
 
 ##Check out our demo
-[Here!](https://youtu.be/PacyJ_gKLf4)
+[Here!](https://www.youtube.com/watch?v=PacyJ_gKLf4&spfreload=10&ab_channel=WaleetaCanon)
 
 
